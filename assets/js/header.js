@@ -1,6 +1,6 @@
 const leafContainer = document.querySelector('.leaf-background');
 const greenDark = '#008000';     // Verde escuro
-const greenLight = '#7CFC00';    // Verde claro vibrante
+const greenLight = '#008000';    // Verde claro vibrante
 
 
 // Função que cria e solta folhas infinitamente
@@ -41,6 +41,6 @@ document.querySelector('.painel').addEventListener('mousemove', (e) => {
     const dx = e.clientX - rect.left;
     const dy = e.clientY - rect.top;
     const distance = Math.sqrt(dx * dx + dy * dy);
-    leaf.style.color = distance < 100 ? greenLight : greenDark;
+    leaf.style.color = distance < 100 ? greenDark : greenLight;
   });
 });
