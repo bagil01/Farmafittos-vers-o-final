@@ -5,15 +5,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Farmafittos</title>
-
     <!-- Estilos -->
     <link rel="stylesheet" href="../assets/css/header.css" />
     <link rel="stylesheet" href="../assets/css/config.css" />
     <link rel="stylesheet" href="../assets/icons/fontawesome-free-6.5.2-web/css/all.css">
-
-
 </head>
-
 <body>
     <header>
         <div class="painel">
@@ -23,7 +19,7 @@
                     <img src="assents/Design sem nome (2).png" alt="Logo do projeto" class="logo" />
                 </a>
                 <ul class="icons-right">
-                    <li >
+                    <li>
                         <a id="abrirModal" href="#"><i class="fa-solid fa-gear"></i></a>
                     </li>
                 </ul>
@@ -115,10 +111,8 @@
             </div>
         </div>
     </div>
-
     <!-- Scripts -->
     <script src="../assets/js/config.js"></script>
     <script src="../assets/js/header.js"></script>
 </body>
-
 </html>

@@ -1,0 +1,114 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+}
+
+footer.footer {
+  background: linear-gradient(to bottom, #3f906a, #173426);
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  padding: 20px;
+  margin-top: 5rem;
+}
+
+/* Sessão 1: Informações */
+.footer-info {
+  flex: 1;
+  font-size: 14px;
+  text-align: left;
+}
+
+.footer-logo {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+/* Sessão 2: Descrição */
+.footer-description {
+  flex: 1;
+  text-align: justify;
+  padding: 0 10px;
+}
+
+/* Sessão 3: Redes sociais */
+.footer-social {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.footer-social h2 {
+  font-size: 15px;
+  margin-bottom: 10px;
+}
+
+.footer-icons {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+  list-style: none;
+  padding: 0;
+}
+
+.footer-icons li {
+  background-color: #fff;
+  border-radius: 15%;
+  width: 35px;
+  height: 35px;
+  text-align: center;
+  line-height: 35px;
+  cursor: pointer;
+}
+
+.footer-icons li i {
+  color: rgb(0, 0, 0);
+}
+.footer-icons i:hover,li:hover{
+    color: #ffffff;
+}
+.footer-icons li:hover {
+  background: linear-gradient(to bottom, #327153, #12291e);
+  color: rgb(255, 0, 0);
+  border-color: #0e3100;
+}
+
+.footer-terms a {
+  color: #fff;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.footer-terms a:hover {
+  color: #aaa;
+}
+
+/* Responsivo */
+@media screen and (max-width: 500px) {
+  footer.footer {
+    display: block;
+    text-align: center;
+  }
+
+  .footer-info,
+  .footer-description,
+  .footer-social {
+    flex: none;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  .footer-icons {
+    justify-content: center;
+  }
+}

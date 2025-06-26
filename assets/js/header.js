@@ -1,6 +1,6 @@
 const leafContainer = document.querySelector('.leaf-background');
 const greenDark = '#008000';     // Verde escuro
-const greenLight = '#008000';    // Verde claro vibrante
+const greenLight = '##00ff11';    // Verde claro vibrante
 
 
 // Função que cria e solta folhas infinitamente
