@@ -12,28 +12,33 @@ body {
   margin: 0;
   padding: 0;
   background-color: #f4f4f4;
-   overflow-x: hidden;
+  overflow-x: hidden;
 }
 
 /* ===================== */
 /* Painel Superior       */
 /* ===================== */
 .painel {
-  position: relative; /* necessário para os ícones absolutos */
+  position: relative;
+  /* necessário para os ícones absolutos */
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  overflow: hidden; /* evita que os ícones vazem */
+  overflow: hidden;
+  /* evita que os ícones vazem */
   width: 100%;
-  max-width: 100vw; /* impede que ultrapasse a largura da tela */
-  height: 180px;
+  max-width: 100vw;
+  /* impede que ultrapasse a largura da tela */
+  height: 190px;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
   padding: 10px;
   margin: 0 auto;
+
 }
 
 .titulo h1 {
+  height: 120px;
   font-family: 'font-title', sans-serif;
   font-size: 75px;
   color: #69372E;
@@ -41,8 +46,12 @@ body {
   padding: 10px;
   margin: auto;
   z-index: 2;
-  
- 
+  background: linear-gradient(to bottom, #5af7ae, #327255);
+  border: 4px solid #4ca185;
+  border-radius: 10px;
+  padding: 30px;
+  box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.2);
+
 }
 
 .logo {
@@ -56,7 +65,8 @@ body {
   font-size: 20px;
   cursor: pointer;
   list-style: none;
-  outline: none; /* Remove a borda de foco */
+  outline: none;
+  /* Remove a borda de foco */
   margin-right: -30px;
   border-radius: 50%;
   padding: 5px;
@@ -64,13 +74,16 @@ body {
   color: #45ea9d;
   background-color: #1b3c2d;
 }
-.icons-right i:hover{
-  color:#1b3c2d ;
+
+.icons-right i:hover {
+  color: #1b3c2d;
   background-color: #45ea9d;
 }
-.icons-right li{
+
+.icons-right li {
   list-style: none;
 }
+
 /* Ícones à direita no painel */
 .incones {
   display: flex;
@@ -116,7 +129,7 @@ body {
 
 .menu a {
   text-decoration: none;
-  color: white;
+  color: #ffffff;
   padding: 12px 20px;
   display: block;
   transition: background 0.3s;
@@ -202,6 +215,7 @@ body {
 .mobile-menu-icon.active .line3 {
   transform: rotate(45deg) translate(-5px, -6px);
 }
+
 /* ===================== */
 /* Animação das folhas */
 /* ===================== */
@@ -229,6 +243,7 @@ body {
     transform: translateY(0) rotate(0deg);
     opacity: 0.7;
   }
+
   100% {
     transform: translateY(200px) rotate(360deg);
     opacity: 0;
@@ -238,7 +253,7 @@ body {
 .painel {
   position: relative;
   z-index: 1;
-  background: linear-gradient(to bottom, #5af7ae, #327255);
+  background: linear-gradient(to bottom, #5af7ae, #378b65);
   overflow: hidden;
 }
 
@@ -252,20 +267,28 @@ body {
   transform: translate(-50%, -50%);
   z-index: 5;
 }
+
 /* ===================== */
 /* Responsivo (mobile)   */
 /* ===================== */
 @media screen and (max-width: 768px) {
-  body{
+  body {
     overflow-x: hidden;
   }
-  .painel {
-    width: 100%;
-    height: 130px;
-    padding: 0;
-     overflow-x: hidden;
-  }
 
+  .painel{
+    width: 100%;
+    height: 150px;
+    padding: 0;
+    overflow-x: hidden;
+  }
+  .painel h1{
+    max-width: 100%;
+    height: 100px;
+    font-size: 35px;
+    text-align: center;
+    margin-top: 5px;
+  }
   .menu {
     flex-direction: column;
     align-items: center;
@@ -300,9 +323,6 @@ body {
     display: block;
   }
 
-  .painel h1 {
-    font-size: 35px;
-  }
 
   .logo {
     height: 40px;

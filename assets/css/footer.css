@@ -74,9 +74,12 @@ footer.footer {
 .footer-icons li i {
   color: rgb(0, 0, 0);
 }
-.footer-icons i:hover,li:hover{
-    color: #ffffff;
+
+.footer-icons i:hover,
+li:hover {
+  color: #000000;
 }
+
 .footer-icons li:hover {
   background: linear-gradient(to bottom, #327153, #12291e);
   color: rgb(255, 0, 0);
@@ -101,14 +104,22 @@ footer.footer {
   }
 
   .footer-info,
-  .footer-description,
   .footer-social {
     flex: none;
     margin-bottom: 20px;
     text-align: center;
   }
 
+  .footer-social {
+    margin-top: 10px;
+  }
+
+  .footer-description {
+    text-align: justify;
+  }
+
   .footer-icons {
     justify-content: center;
   }
+
 }

@@ -47,12 +47,12 @@
             </div>
 
             <ul class="menu" id="menuMobile">
-                <li><a href="./index.php">Página Inicial</a></li>
+                <li><a href="/Farmafittos-vers-o-final/index.php">Página Inicial</a></li>
 
                 <li class="dropdown">
                     <a href="#">Sobre Nós ▾</a>
                     <ul class="submenu">
-                        <li><a href="./Apesentacao_Projeto.php">Apresentação do Projeto</a></li>
+                        <li><a href="/Farmafittos-vers-o-final/pages/Apresentacao_Projeto.php">Apresentação do Projeto</a></li>
                         <li><a href="./Colobaradiores_e_voluntarios.php">Colaboradores e Voluntários</a></li>
                     </ul>
                 </li>
@@ -126,6 +126,11 @@
     <!-- Scripts -->
     <script src="./assets/js/config.js"></script>
     <script src="./assets/js/header.js"></script>
+    <script src="./assets/js/animacao.js"></script>
+    <!--Scripts-->
+    <script src="../assets/js/config.js"></script>
+    <script src="../assets/js/header.js"></script>
+    <script src="../assets/js/animacao.js"></script>
 </body>
 
 </html>
