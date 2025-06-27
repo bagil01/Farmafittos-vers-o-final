@@ -10,14 +10,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Farmafittos</title>
 
-    <!-- Estilos paginas -->
-    <link rel="stylesheet" href="./assets/css/header.css" />
-    <link rel="stylesheet" href="./assets/css/config.css" />
-    <link rel="stylesheet" href="./assets/icons/fontawesome-free-6.5.2-web/css/all.css">
-    <!---estilos header--->
-    <link rel="stylesheet" href="../assets/css/header.css" />
-    <link rel="stylesheet" href="../assets/css/config.css" />
-    <link rel="stylesheet" href="../assets/icons/fontawesome-free-6.5.2-web/css/all.css">
+      <!---estilos header--->
+    <link rel="icon" type="image/png"  href="/Farmafittos-vers-o-final/assets/favicons/favicon.png">
+    <link rel="stylesheet" href="/Farmafittos-vers-o-final/assets/css/header.css" />
+    <link rel="stylesheet" href="/Farmafittos-vers-o-final/assets/css/config.css" />
+    <link rel="stylesheet" href="/Farmafittos-vers-o-final/assets/icons/fontawesome-free-6.5.2-web/css/all.css">
 </head>
 
 <body>
@@ -25,8 +22,8 @@
         <div class="painel">
             <div class="leaf-background"></div>
             <div class="incones">
-                <a href="./index.php">
-                    <img src="assents/Design sem nome (2).png" alt="Logo do projeto" class="logo" />
+                <a href="/Farmafittos-vers-o-final/">
+                    <img src="/Farmafittos-vers-o-final/assets/photos/logo-preta.png" alt="Logo do projeto" class="logo" />
                 </a>
                 <ul class="icons-right">
                     <li>
@@ -36,6 +33,7 @@
             </div>
             <div class="titulo">
                 <h1>FARMAFITTOS</h1>
+                <h2>AMAZÔNIA</h2>   
             </div>
         </div>
 
@@ -85,7 +83,7 @@
                 <span class="fechar" id="fecharModal">&times;</span>
 
                 <div class="container-opcoes">
-                    <a href="./admin/painel-admin.php">
+                    <a href="/Farmafittos-vers-o-final/admin/index.php">
                         <div class="opcao">
                             <i class="fa-solid fa-users-gear"></i>
                             <h4>Painel de administração</h4>
@@ -128,9 +126,9 @@
     <script src="./assets/js/header.js"></script>
     <script src="./assets/js/animacao.js"></script>
     <!--Scripts-->
-    <script src="../assets/js/config.js"></script>
-    <script src="../assets/js/header.js"></script>
-    <script src="../assets/js/animacao.js"></script>
+    <script src="/Farmafittos-vers-o-final/assets/js/config.js"></script>
+    <script src="/Farmafittos-vers-o-final/assets/js/header.js"></script>
+    <script src="/Farmafittos-vers-o-final/assets/js/animacao.js"></script>
 </body>
 
 </html>
