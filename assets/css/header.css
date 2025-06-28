@@ -292,7 +292,7 @@ body {
     overflow-x: hidden;
   }
 
- .titulo h1 {
+  .titulo h1 {
     font-size: 20px;
   }
 
@@ -321,9 +321,10 @@ body {
     display: block;
   }
 
-.icons-right i{
-  font-size: 12px;
-}
+  .icons-right i {
+    font-size: 12px;
+  }
+
   .menu {
     flex-direction: column;
     align-items: center;

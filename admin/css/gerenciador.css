@@ -1,0 +1,244 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #f7f7f7;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+/* Cards de controle */
+.container-controle {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.adicionar-noticia, .lixeira {
+    width: 180px;
+    height: 180px;
+    border: 2px dashed #2c3e50;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background-color: #ffffff;
+    margin: 20px;
+}
+
+.adicionar-noticia:hover {
+    background-color: #e0e0e0;
+    border-color: #34495e;
+}
+
+.adicionar-noticia span {
+    font-size: 48px;
+    color: #2c3e50;
+}
+
+.adicionar-noticia p {
+    margin-top: 10px;
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+/* Container do gerenciador */
+.container-gerenciador {
+    width: 100%;
+    background-color: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+
+}
+
+.container-gerenciador h1 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #2c3e50;
+}
+
+/* Cada opção */
+.opcao {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+    border-top: 1px solid #ddd;
+}
+
+.opcao:first-of-type {
+    border-top: none;
+}
+
+.opcao h2 {
+    font-size: 20px;
+    color: #333;
+    flex: 1;
+}
+
+/* Ícones de ação */
+.incons {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.incons i {
+    font-size: 20px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+/* Ícone de editar */
+.incons i.fa-pen-to-square {
+    color: #28a745;
+    /* verde */
+}
+
+.incons i.fa-pen-to-square:hover {
+    color: #218838;
+    transform: scale(1.1);
+}
+
+/* Ícone de excluir */
+.incons i.fa-trash {
+    color: #dc3545;
+    /* vermelho */
+}
+
+.incons i.fa-trash:hover {
+    color: #c82333;
+    transform: scale(1.1);
+}
+
+.voltar {
+    padding: 10px;
+    margin-top: 5px;
+    font-size: 20px;
+}
+
+.voltar a {
+    list-style: none;
+    text-decoration: none;
+    color: #0165c8;
+
+
+}
+
+.voltar a:hover {
+    color: #2c3e50;
+}
+
+/* Estilos do botão que abre o modal */
+.abrir-modal {
+    background-color: #2c3e50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin: 20px;
+  }
+  
+  .abrir-modal:hover {
+    background-color: #34495e;
+  }
+  
+  /* Estilos do modal */
+  .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  .modal {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    width: auto;
+    position: relative;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  }
+  
+  .modal h2 {
+    margin-bottom: 20px;
+    color: #2c3e50;
+  }
+  
+  .modal label {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+  }
+  
+  .modal input, .modal select, .modal textarea {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+  }
+  
+  .botao-salvar {
+    margin-top: 20px;
+    background-color: #27ae60;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    width: 100%;
+  }
+  
+  .botao-salvar:hover {
+    background-color: #219150;
+  }
+  
+  .fechar-modal {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 24px;
+    color: #888;
+    cursor: pointer;
+  }
+  
+  .fechar-modal:hover {
+    color: #2c3e50;
+  }
+  .voltar a{
+    list-style: none;
+    text-decoration: none;
+    color:#2c3e50 ;
+    
+    
+  }
+  .voltar a:hover{
+    color:    #0165c8;
+  }
+  
+  
