@@ -25,10 +25,12 @@
                 <!-- Blocos de administração à esquerda -->
                 <div class="container-controle">
                     <div class="card-grid">
-                        <div class="card">
-                            <i class="fa-solid fa-users-gear"></i>
-                            <h3>Gerenciar ADMs</h3>
-                        </div>
+                        <a href="/Farmafittos-vers-o-final/admin/pages/gerenciar_admin.php">
+                            <div class="card">
+                                <i class="fa-solid fa-users-gear"></i>
+                                <h3>Gerenciar ADMs</h3>
+                            </div>
+                        </a>
                         <a href="/Farmafittos-vers-o-final/admin/pages/gerenciador.php">
                             <div class="card">
                                 <i class="fa-solid fa-newspaper"></i>
