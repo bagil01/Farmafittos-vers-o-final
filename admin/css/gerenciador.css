@@ -40,6 +40,7 @@ body {
     transition: all 0.3s ease;
     background-color: #ffffff;
     margin: 20px;
+    text-align: center;
 }
 
 .adicionar-noticia:hover {
@@ -101,7 +102,7 @@ body {
 }
 
 .incons i {
-    font-size: 20px;
+    font-size: 25px;
     cursor: pointer;
     transition: transform 0.2s ease;
 }
