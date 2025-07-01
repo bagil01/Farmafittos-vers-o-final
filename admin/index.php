@@ -59,10 +59,12 @@
                             <i class="fa-solid fa-handshake-angle"></i>
                             <h3>Gerenciar Colaboradores</h3>
                         </div>
+                        <a href="/Farmafittos-vers-o-final/admin/pages/gerenciador_referencias.php">
                         <div class="card">
                             <i class="fa-solid fa-star-of-life"></i>
                             <h3>Gerenciar Referências</h3>
                         </div>
+                        </a>
                     </div>
                 </div>
 
