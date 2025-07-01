@@ -8,7 +8,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $logoPath = '';
 
     if (!$id || empty($nome) || empty($referencia)) {
-        header('Location: /Farmafittos-vers-o-final/admin/pages/gerenciar_parceiros.php?erro=campos_obrigatorios');
+        header('Location: /Farmafittos-vers-o-final/admin/pages/gerenciador_parceiros.php?erro=campos_obrigatorios');
         exit;
     }
 
@@ -19,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $resultado = $verifica->get_result();
 
     if ($resultado->num_rows === 0) {
-        header('Location: /Farmafittos-vers-o-final/admin/pages/gerenciar_parceiros.php?erro=nao_encontrado');
+        header('Location: /Farmafittos-vers-o-final/admin/pages/gerenciador_parceiros.php?erro=nao_encontrado');
         exit;
     }
 
@@ -56,16 +56,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $stmt = $conexao->prepare($sql);
     if (!$stmt) {
-        header('Location: /Farmafittos-vers-o-final/admin/pages/gerenciar_parceiros.php?erro=bd_prepare');
+        header('Location: /Farmafittos-vers-o-final/admin/pages/gerenciador_parceiros.php?erro=bd_prepare');
         exit;
     }
 
     $stmt->bind_param($tipos, ...$params);
 
     if ($stmt->execute()) {
-        header('Location: /Farmafittos-vers-o-final/admin/pages/gerenciar_parceiros.php?sucesso=editado');
+        header('Location: /Farmafittos-vers-o-final/admin/pages/gerenciador_parceiros.php?sucesso=editado');
     } else {
-        header('Location: /Farmafittos-vers-o-final/admin/pages/gerenciar_parceiros.php?erro=bd_execucao');
+        header('Location: /Farmafittos-vers-o-final/admin/pages/gerenciador_parceiros.php?erro=bd_execucao');
     }
 
     $stmt->close();

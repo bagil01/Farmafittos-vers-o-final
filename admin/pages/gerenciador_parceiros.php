@@ -7,6 +7,8 @@
     <title>Gerenciador de Parceiros </title>
     <link rel="stylesheet" href="/Farmafittos-vers-o-final/assets/icons/fontawesome-free-6.5.2-web/css/all.css">
     <link rel="stylesheet" href="/Farmafittos-vers-o-final/admin/css/gerenciador.css">
+    <link rel="stylesheet" href="/Farmafittos-vers-o-final/admin/css/editar_admin.css">
+
 </head>
 
 <body>
@@ -20,7 +22,7 @@
         <div class="container-controle">
             <div class="adicionar-noticia" id="abrirModalNoticia">
                 <span>＋</span>
-                <p>Adicionar Notícia</p>
+                <p>Adicionar Parceiros</p>
             </div>
 
             <div class="lixeira">
@@ -46,8 +48,7 @@
 
                         <div>
                             <h2 style="margin: 0;"><?php echo htmlspecialchars($parceiro['nome']); ?></h2>
-                            <p style="margin: 0;"><a href="<?php echo htmlspecialchars($parceiro['referencia']); ?>"
-                                    target="_blank" style="color: #007bff;">Visitar site</a></p>
+                           
                         </div>
                     </div>
 
@@ -56,8 +57,9 @@
                         <i class="fa-solid fa-trash" onclick="abrirModalExclusao(<?= $parceiro['id'] ?>)"></i>
                     </div>
                 </div>
-            </div>
-        <?php endwhile; ?>
+
+            <?php endwhile; ?>
+        </div>
     </div>
 
     </div>
@@ -67,7 +69,7 @@
         <div class="modal">
             <span class="fechar-modal" id="fecharModalCadastro">&times;</span>
             <h2>Cadastrar Novo Parceiro</h2>
-            <form id="formCadastro" action="/Farmafittos-vers-o-final/backend/processa_parceiro.php" method="POST"
+            <form id="formCadastro" action="/Farmafittos-vers-o-final/backend/processa_excluir_parceiro.php" method="POST"
                 enctype="multipart/form-data">
                 <label for="nome">Nome do Parceiro:</label>
                 <input type="text" id="nome" name="nome" required>
@@ -82,6 +84,32 @@
             </form>
         </div>
     </div>
+
+    <!-- Modal de Confirmação de Exclusão -->
+    <div class="modal-overlay" id="modalExcluirParceiro" style="display: none;">
+        <div class="modal">
+            <span class="fechar-modal" id="fecharModalExcluir">&times;</span>
+            <h2>Confirmar Exclusão</h2>
+            <p>Digite seu login e senha para confirmar a exclusão do parceiro:</p>
+
+            <form action="/Farmafittos-vers-o-final/backend/processa_excluir_parceiro.php" method="POST">
+                <input type="hidden" name="id_parceiro" id="idParceiroExcluir">
+
+                <label for="loginExcluir">Login:</label>
+                <input type="text" name="login" id="loginExcluir" required>
+
+                <label for="senhaExcluir">Senha:</label>
+                <div style="position: relative;">
+                    <input type="password" name="senha" id="senhaExcluir" required>
+                    <i class="fa-solid fa-eye toggle-password" data-target="senhaExcluir"
+                        style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); cursor: pointer;"></i>
+                </div>
+
+                <button type="submit" class="botao-salvar" style="margin-top: 15px;">Confirmar Exclusão</button>
+            </form>
+        </div>
+    </div>
+
 
     <!-- Modal Editar -->
     <div class="modal-overlay" id="modalEditar">
@@ -101,15 +129,16 @@
                 <label for="logo_editar">Alterar logo:</label>
                 <input type="file" name="logo" id="logo_editar">
 
-                <button type="submit">Salvar alterações</button>
+                <button class="botao-editar" type="submit">Salvar alterações</button>
             </form>
         </div>
     </div>
 
 
 </body>
-<script src="/Farmafittos-vers-o-final/admin/js/gerenciador.js"></script>
-<script src="/Farmafittos-vers-o-final/admin/js/parceiros/editar_parceiros.js"></script>
-<script src="/Farmafittos-vers-o-final/admin/js/parceiros/modal_cadastro"></script>
+<script src="/Farmafittos-vers-o-final/admin/js/parceiros/modal_editar.js"></script>
+<script src="/Farmafittos-vers-o-final/admin/js/parceiros/modal_cadastro.js"></script>
+<script src="/Farmafittos-vers-o-final/admin/js/parceiros/modal_excluir.js"></script>
+<script src="/Farmafittos-vers-o-final/admin/js/view_password.js"></script>
 
 </html>
