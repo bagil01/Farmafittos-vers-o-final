@@ -1,26 +1,42 @@
 <?php
 require_once(__DIR__ . '/../includes/conexao.php');
 
-if (isset($_GET['id'])) {
-    $id = intval($_GET['id']);
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $idAdmin = $_POST['id_admin'] ?? null;
+    $login = $_POST['login'] ?? '';
+    $senha = $_POST['senha'] ?? '';
 
-    // Excluir a foto se existir
-    $queryFoto = $conexao->prepare("SELECT foto FROM admins WHERE id = ?");
-    $queryFoto->bind_param("i", $id);
-    $queryFoto->execute();
-    $result = $queryFoto->get_result();
-    $admin = $result->fetch_assoc();
-
-    if ($admin && !empty($admin['foto']) && file_exists(__DIR__ . '/../' . $admin['foto'])) {
-        unlink(__DIR__ . '/../' . $admin['foto']);
+    if (!$idAdmin || empty($login) || empty($senha)) {
+        header('Location: /Farmafittos-vers-o-final/admin/pages/gerenciar_admin.php?erro=confirmacao_invalida');
+        exit;
     }
 
-    $query = $conexao->prepare("DELETE FROM admins WHERE id = ?");
-    $query->bind_param("i", $id);
-    if ($query->execute()) {
-        header("Location: /Farmafittos-vers-o-final/admin/pages/gerenciar_admin.php?sucesso=excluido");
+    // Verificar se login e senha estão corretos
+    $sql = "SELECT senha FROM admins WHERE login = ?";
+    $stmt = $conexao->prepare($sql);
+    $stmt->bind_param("s", $login);
+    $stmt->execute();
+    $stmt->bind_result($senhaHash);
+
+    if ($stmt->fetch() && password_verify($senha, $senhaHash)) {
+        $stmt->close();
+
+        // Agora sim, excluir o admin com ID informado
+        $delete = $conexao->prepare("DELETE FROM admins WHERE id = ?");
+        $delete->bind_param("i", $idAdmin);
+        $delete->execute();
+
+        if ($delete->affected_rows > 0) {
+            header('Location: /Farmafittos-vers-o-final/admin/pages/gerenciar_admin.php?sucesso=excluido');
+        } else {
+            header('Location: /Farmafittos-vers-o-final/admin/pages/gerenciar_admin.php?erro=erro_exclusao');
+        }
+
+        $delete->close();
     } else {
-        header("Location: /Farmafittos-vers-o-final/admin/pages/gerenciar_admin.php?erro=excluir");
+        header('Location: /Farmafittos-vers-o-final/admin/pages/gerenciar_admin.php?erro=credenciais_invalidas');
     }
+
+    $conexao->close();
 }
 ?>
