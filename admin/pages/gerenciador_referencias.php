@@ -39,10 +39,6 @@ $resultado = $conexao->query($query);
                             style="width: 60px; height: 60px; object-fit: contain; border-radius: 8px;">
                         <div>
                             <h2 style="margin: 0;"><?php echo htmlspecialchars($ref['titulo']); ?></h2>
-                            <p style="margin: 0;">
-                                <a href="<?php echo htmlspecialchars($ref['referencia']); ?>" target="_blank"
-                                    style="color: #007bff;">Ver referência</a>
-                            </p>
                         </div>
                     </div>
 
@@ -83,7 +79,7 @@ $resultado = $conexao->query($query);
         <div class="modal">
             <span class="fechar-modal" id="fecharModalEditar">&times;</span>
             <h2>Editar Referência</h2>
-            
+
             <form id="formEdicao" action="/Farmafittos-vers-o-final/backend/processa_edicao_referencia.php"
                 method="POST" enctype="multipart/form-data">
                 <input type="hidden" name="id_referencia" id="id_referencia">
