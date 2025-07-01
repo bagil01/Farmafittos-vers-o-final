@@ -73,16 +73,17 @@
                     <label for="Senha">Senha</label>
                     <div style="position: relative;">
                         <input type="password" name="Senha" id="senha" required>
-                        <i class="fa-solid fa-eye" id="toggleSenhaCadastro"
+                        <i class="fa-solid fa-eye toggle-password" data-target="senha"
                             style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); cursor: pointer;"></i>
                     </div>
 
-                    <label for="Confirmar_senha">Senha:</label>
+                    <label for="Confirmar_senha">Confirmar senha</label>
                     <div style="position: relative;">
                         <input type="password" id="Confirmar_senha" name="Confirmar_senha" required>
-                        <i class="fa-solid fa-eye" id="toggleSenhaConfirmacao"
+                        <i class="fa-solid fa-eye toggle-password" data-target="Confirmar_senha"
                             style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); cursor: pointer;"></i>
                     </div>
+
                     <label for="foto">Adicionar foto</label>
                     <input type="file" name="foto" id="foto">
 
@@ -115,7 +116,11 @@
                     <input type="text" id="loginConfirmacao" name="login" required>
 
                     <label for="senhaConfirmacao">Senha:</label>
-                    <input type="password" id="senhaConfirmacao" name="senha" required>
+                    <div style="position: relative;">
+                        <input type="password" id="senhaConfirmacao" name="senha" required>
+                        <i class="fa-solid fa-eye toggle-password" data-target="senhaConfirmacao"
+                            style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); cursor: pointer;"></i>
+                    </div>
 
                     <button type="submit" class="botao-salvar" style="margin-top: 10px;">Confirmar Exclusão</button>
                 </form>

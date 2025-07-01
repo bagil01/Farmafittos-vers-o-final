@@ -53,17 +53,18 @@ $stmt->close();
             <input type="text" id="login" name="Login" value="<?php echo htmlspecialchars($admin['login']); ?>"
                 readonly>
 
+
             <label for="Senha">Senha</label>
             <div style="position: relative;">
                 <input type="password" name="Senha" id="senha" required>
-                <i class="fa-solid fa-eye" id="toggleSenhaCadastro"
+                <i class="fa-solid fa-eye toggle-password" data-target="senha"
                     style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); cursor: pointer;"></i>
             </div>
 
-            <label for="senhaConfirmacao">Senha:</label>
+            <label for="Confirmar_senha">Confirmar senha</label>
             <div style="position: relative;">
-                <input type="password" id="senhaConfirmacao" name="senha" required>
-                <i class="fa-solid fa-eye" id="toggleSenhaConfirmacao"
+                <input type="password" id="Confirmar_senha" name="Confirmar_senha" required>
+                <i class="fa-solid fa-eye toggle-password" data-target="Confirmar_senha"
                     style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); cursor: pointer;"></i>
             </div>
             <?php
