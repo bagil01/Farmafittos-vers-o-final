@@ -77,9 +77,9 @@
                             style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); cursor: pointer;"></i>
                     </div>
 
-                    <label for="senhaConfirmacao">Senha:</label>
+                    <label for="Confirmar_senha">Senha:</label>
                     <div style="position: relative;">
-                        <input type="password" id="senhaConfirmacao" name="senha" required>
+                        <input type="password" id="Confirmar_senha" name="Confirmar_senha" required>
                         <i class="fa-solid fa-eye" id="toggleSenhaConfirmacao"
                             style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); cursor: pointer;"></i>
                     </div>

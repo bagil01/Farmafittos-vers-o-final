@@ -1,8 +1,8 @@
 
 const senhaCadastro = document.getElementById('senha');
 const toggleCadastro = document.getElementById('toggleSenhaCadastro');
-const senhaInput = document.getElementById('senhaConfirmacao');
-const toggleIcon = document.getElementById('toggleSenhaConfirmacao');
+const senhaInput = document.getElementById('Confirmar_senha');
+const toggleIcon = document.getElementById('toggleConfirmar_senha');
 
 toggleCadastro.addEventListener('click', () => {
     const isSenha = senhaCadastro.type === 'password';
