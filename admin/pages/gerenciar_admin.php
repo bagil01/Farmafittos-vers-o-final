@@ -22,119 +22,119 @@
                 <span>＋</span>
                 <p>Adicionar Administrador</p>
             </div>
+            <div class="container-gerenciador">
+                <h1>Gerenciador de Administradores</h1>
 
-            <div class="lixeira">
-                <i class="fa-solid fa-trash"></i>
-                <h2>Lixeira</h2>
+                <?php
+                require_once('../../includes/conexao.php');
+                $query = "SELECT * FROM admins";
+                $resultado = $conexao->query($query);
+                while ($admin = $resultado->fetch_assoc()) {
+                    $foto = !empty($admin['foto']) ? '/Farmafittos-vers-o-final/' . htmlspecialchars($admin['foto']) : '/Farmafittos-vers-o-final/assets/photos/user-default.jpg';
+
+                    echo '<div class="opcao">';
+                    echo '<div style="display: flex; align-items: center; gap: 10px;">';
+                    echo '<img src="' . $foto . '" alt="Foto" style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover;">';
+                    echo '<div>';
+                    echo '<h2 style="margin: 0;">' . htmlspecialchars($admin['nome']) . '</h2>';
+                    echo '<p style="margin: 0; font-size: 0.9em; color: #555;">' . htmlspecialchars($admin['login']) . '</p>';
+                    echo '</div>';
+                    echo '</div>';
+                    echo '<div class="incons">';
+                    echo '<a href="/Farmafittos-vers-o-final/backend/editar_admin.php?id=' . $admin['id'] . '" title="Editar">';
+                    echo '<i class="fa-solid fa-pen-to-square"></i>';
+                    echo '</a>';
+                    echo '<a href="#' . $admin['id'] . '">';
+                    echo '<i class="fa-solid fa-trash" onclick="abrirModalExclusao(' . $admin['id'] . ')"></i>';
+                    echo '</a>';
+                    echo '</div>';
+                    echo '</div>';
+
+
+                }
+                ?>
             </div>
         </div>
 
-        <div class="container-gerenciador">
-            <h1>Gerenciador de Administradores</h1>
+        <!-- Modal de Cadastro-->
+        <div class="modal-overlay" id="modalCadastro">
+            <div class="modal">
+                <span class="fechar-modal" id="fecharModal">&times;</span>
+                <h2>Cadastrar Novo Administrador</h2>
 
-            <?php
-            require_once('../../includes/conexao.php');
-            $query = "SELECT * FROM admins";
-            $resultado = $conexao->query($query);
-            while ($admin = $resultado->fetch_assoc()) {
-                $foto = !empty($admin['foto']) ? '/Farmafittos-vers-o-final/' . htmlspecialchars($admin['foto']) : '/Farmafittos-vers-o-final/assets/photos/user-default.jpg';
+                <form id="formCadastro" action="/Farmafittos-vers-o-final/backend/processa_admin.php" method="POST"
+                    enctype="multipart/form-data">
+                    <label for="Nome">Nome:</label>
+                    <input type="text" id="nome" name="Nome" required>
 
-                echo '<div class="opcao">';
-                echo '<div style="display: flex; align-items: center; gap: 10px;">';
-                echo '<img src="' . $foto . '" alt="Foto" style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover;">';
-                echo '<div>';
-                echo '<h2 style="margin: 0;">' . htmlspecialchars($admin['nome']) . '</h2>';
-                echo '<p style="margin: 0; font-size: 0.9em; color: #555;">' . htmlspecialchars($admin['login']) . '</p>';
-                echo '</div>';
-                echo '</div>';
-                echo '<div class="incons">';
-                echo '<a href="/Farmafittos-vers-o-final/backend/editar_admin.php?id=' . $admin['id'] . '" title="Editar">';
-                echo '<i class="fa-solid fa-pen-to-square"></i>';
-                echo '</a>';
-                echo '<a href="#' . $admin['id'] . '">';
-                echo '<i class="fa-solid fa-trash" onclick="abrirModalExclusao(' . $admin['id'] . ')"></i>';
-                echo '</a>';
-                echo '</div>';
-                echo '</div>';
+                    <label for="login">Login gerado:</label>
+                    <input type="text" id="login" name="Login" readonly style="background-color: #e9ecef;">
 
+                    <label for="Senha">Senha</label>
+                    <div style="position: relative;">
+                        <input type="password" name="Senha" id="senha" required>
+                        <i class="fa-solid fa-eye" id="toggleSenhaCadastro"
+                            style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); cursor: pointer;"></i>
+                    </div>
 
-            }
-            ?>
+                    <label for="senhaConfirmacao">Senha:</label>
+                    <div style="position: relative;">
+                        <input type="password" id="senhaConfirmacao" name="senha" required>
+                        <i class="fa-solid fa-eye" id="toggleSenhaConfirmacao"
+                            style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); cursor: pointer;"></i>
+                    </div>
+                    <label for="foto">Adicionar foto</label>
+                    <input type="file" name="foto" id="foto">
+
+                    <button type="submit" class="botao-salvar">Salvar</button>
+                </form>
+            </div>
         </div>
-    </div>
 
-    <!-- Modal de Cadastro-->
-    <div class="modal-overlay" id="modalCadastro">
-        <div class="modal">
-            <span class="fechar-modal" id="fecharModal">&times;</span>
-            <h2>Cadastrar Novo Administrador</h2>
 
-            <form id="formCadastro" action="/Farmafittos-vers-o-final/backend/processa_admin.php" method="POST"
-                enctype="multipart/form-data">
-                <label for="Nome">Nome:</label>
-                <input type="text" id="nome" name="Nome" required>
+        <?php if (isset($_GET['erro']) && $_GET['erro'] === 'senha_fraca'): ?>
+            <div
+                style="background-color: #ffdddd; color: #a94442; border: 1px solid #a94442; padding: 10px; margin: 15px; border-radius: 5px;">
+                ⚠️ A senha deve ter entre <strong>6 e 10 caracteres</strong>, conter <strong>letras</strong>,
+                <strong>números</strong> e pelo menos <strong>um caractere especial</strong>.
+            </div>
+        <?php endif; ?>
 
-                <label for="login">Login gerado:</label>
-                <input type="text" id="login" name="Login" readonly style="background-color: #e9ecef;">
 
-                <label for="Senha">Senha</label>
-                <input type="password" name="Senha" id="senha" required>
+        <!-- Modal de confirmação de exclusão -->
+        <div class="modal-overlay" id="modalConfirmarExclusao" style="display: none;">
+            <div class="modal">
+                <span class="fechar-modal" onclick="fecharModalExclusao()">&times;</span>
+                <h2>Confirmar Exclusão</h2>
+                <p>Digite seu login e senha para confirmar a exclusão:</p>
 
-                <label for="Confirmar_senha">Confirmar senha</label>
-                <input type="password" name="Confirmar_senha" id="confirmar_senha" required>
+                <form action="/Farmafittos-vers-o-final/backend/excluir_admin.php" method="POST">
+                    <input type="hidden" id="idAdminExcluir" name="id_admin">
 
-                <label for="foto">Adicionar foto</label>
-                <input type="file" name="foto" id="foto">
+                    <label for="Senha">Senha</label>
+                    <div style="position: relative;">
+                        <input type="password" name="Senha" id="senha" required>
+                        <i class="fa-solid fa-eye" id="toggleSenhaCadastro"
+                            style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); cursor: pointer;"></i>
+                    </div>
 
-                <button type="submit" class="botao-salvar">Salvar</button>
-            </form>
+                    <label for="senhaConfirmacao">Senha:</label>
+                    <div style="position: relative;">
+                        <input type="password" id="senhaConfirmacao" name="senha" required>
+                        <i class="fa-solid fa-eye" id="toggleSenhaConfirmacao"
+                            style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); cursor: pointer;"></i>
+                    </div>
+
+                    <button type="submit" class="botao-salvar" style="margin-top: 10px;">Confirmar Exclusão</button>
+                </form>
+            </div>
         </div>
-    </div>
 
-
-    <?php if (isset($_GET['erro']) && $_GET['erro'] === 'senha_fraca'): ?>
-        <div
-            style="background-color: #ffdddd; color: #a94442; border: 1px solid #a94442; padding: 10px; margin: 15px; border-radius: 5px;">
-            ⚠️ A senha deve ter entre <strong>6 e 10 caracteres</strong>, conter <strong>letras</strong>,
-            <strong>números</strong> e pelo menos <strong>um caractere especial</strong>.
-        </div>
-    <?php endif; ?>
-
-
-    <!-- Modal de confirmação de exclusão -->
-    <div class="modal-overlay" id="modalConfirmarExclusao" style="display: none;">
-        <div class="modal">
-            <span class="fechar-modal" onclick="fecharModalExclusao()">&times;</span>
-            <h2>Confirmar Exclusão</h2>
-            <p>Digite seu login e senha para confirmar a exclusão:</p>
-
-            <form action="/Farmafittos-vers-o-final/backend/excluir_admin.php" method="POST">
-                <input type="hidden" id="idAdminExcluir" name="id_admin">
-
-                <label for="Senha">Senha</label>
-                <div style="position: relative;">
-                    <input type="password" name="Senha" id="senha" required>
-                    <i class="fa-solid fa-eye" id="toggleSenhaCadastro"
-                        style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); cursor: pointer;"></i>
-                </div>
-
-                <label for="senhaConfirmacao">Senha:</label>
-                <div style="position: relative;">
-                    <input type="password" id="senhaConfirmacao" name="senha" required>
-                    <i class="fa-solid fa-eye" id="toggleSenhaConfirmacao"
-                        style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); cursor: pointer;"></i>
-                </div>
-
-                <button type="submit" class="botao-salvar" style="margin-top: 10px;">Confirmar Exclusão</button>
-            </form>
-        </div>
-    </div>
-
-    <!--scripts-->
-    <script src="/Farmafittos-vers-o-final/admin/js/gerenciador.js"></script>
-    <script src="/Farmafittos-vers-o-final/admin/js/view_password.js"></script>
-    <script src="/Farmafittos-vers-o-final/admin/js/modal_exclusao.js"></script>
-    <script src="/Farmafittos-vers-o-final/admin/js/generation_login.js"></script>
+        <!--scripts-->
+        <script src="/Farmafittos-vers-o-final/admin/js/gerenciador.js"></script>
+        <script src="/Farmafittos-vers-o-final/admin/js/view_password.js"></script>
+        <script src="/Farmafittos-vers-o-final/admin/js/modal_exclusao.js"></script>
+        <script src="/Farmafittos-vers-o-final/admin/js/generation_login.js"></script>
 
 </body>
 
