@@ -49,10 +49,12 @@
                             <i class="fa-solid fa-calendar-days"></i>
                             <h3>Gerenciar Eventos</h3>
                         </div>
+                        <a href="/Farmafittos-vers-o-final/admin/pages/gerenciador_parceiros.php">
                         <div class="card">
                             <i class="fa-solid fa-handshake"></i>
                             <h3>Gerenciar Parceiros</h3>
                         </div>
+                        </a>
                         <div class="card">
                             <i class="fa-solid fa-handshake-angle"></i>
                             <h3>Gerenciar Colaboradores</h3>
