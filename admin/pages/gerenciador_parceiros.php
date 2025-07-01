@@ -111,8 +111,10 @@
         <div class="modal">
             <span class="fechar-modal" id="fecharModalEditar">&times;</span>
             <h2>Editar Parceiro</h2>
+            
             <form id="formEdicao" action="/Farmafittos-vers-o-final/backend/processa_edicao_parceiro.php" method="POST"
                 enctype="multipart/form-data">
+
                 <input type="hidden" name="id_parceiro" id="id_parceiro">
 
                 <label for="nome_editar">Nome:</label>
