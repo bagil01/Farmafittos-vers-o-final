@@ -204,7 +204,7 @@ body {
     border: 1px solid #ccc;
   }
   
-  .botao-salvar {
+  .botao-salvar,.botao-editar {
     margin-top: 20px;
     background-color: #27ae60;
     color: white;

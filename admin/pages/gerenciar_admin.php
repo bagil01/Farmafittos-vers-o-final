@@ -7,6 +7,7 @@
     <title>Gerenciador</title>
     <link rel="stylesheet" href="/Farmafittos-vers-o-final/assets/icons/fontawesome-free-6.5.2-web/css/all.css">
     <link rel="stylesheet" href="/Farmafittos-vers-o-final/admin/css/gerenciador.css">
+    <link rel="stylesheet" href="/Farmafittos-vers-o-final/admin/css/editar_admin.css">
 </head>
 
 <body>
@@ -41,8 +42,8 @@
                     echo '</div>';
                     echo '</div>';
                     echo '<div class="incons">';
-                    echo '<a href="/Farmafittos-vers-o-final/backend/editar_admin.php?id=' . $admin['id'] . '" title="Editar">';
-                    echo '<i class="fa-solid fa-pen-to-square"></i>';
+                    echo '<a href="#' . $admin['id'] . '">';
+                    echo '<i class="fa-solid fa-pen-to-square" onclick=\'abrirModalEdicao(' . json_encode($admin) . ')\'></i>';
                     echo '</a>';
                     echo '<a href="#' . $admin['id'] . '">';
                     echo '<i class="fa-solid fa-trash" onclick="abrirModalExclusao(' . $admin['id'] . ')"></i>';
@@ -55,6 +56,7 @@
                 ?>
             </div>
         </div>
+
 
         <!-- Modal de Cadastro-->
         <div class="modal-overlay" id="modalCadastro">
@@ -127,11 +129,45 @@
             </div>
         </div>
 
+        <!-- Modal de Edição-->
+        <div class="modal-overlay" id="modalEditarCadastro">
+            <div class="modal">
+                <span class="fechar-modal" onclick="fecharModalEdicao()">&times;</span>
+                <h2>Editar Administrador</h2>
+
+                <form id="formEdicao" action="/Farmafittos-vers-o-final/backend/processa_edicao_admin.php" method="POST"
+                    enctype="multipart/form-data">
+                    <input type="hidden" name="id" value="<?php echo $admin['id']; ?>">
+
+                    <input type="hidden" id="idAdmin" name="id">
+
+                    <label for="nomeEdicao">Nome:</label>
+                    <input type="text" id="nomeEdicao" name="Nome" required>
+
+                    <label for="loginEdicao">Login:</label>
+                    <input type="text" id="loginEdicao" name="Login" readonly>
+
+                    <label for="senhaEdicao">Nova senha:</label>
+                    <input type="password" name="Senha" id="senhaEdicao">
+
+                    <label for="ConfirmarSenhaEdicao">Confirmar senha:</label>
+                    <input type="password" name="Confirmar_senha" id="ConfirmarSenhaEdicao">
+
+                    <label for="fotoEdicao">Alterar foto:</label>
+                    <input type="file" name="foto" id="fotoEdicao">
+
+                    <button class="botao-editar" type="submit">Salvar alterações</button>
+                </form>
+            </div>
+        </div>
+
         <!--scripts-->
         <script src="/Farmafittos-vers-o-final/admin/js/gerenciador.js"></script>
         <script src="/Farmafittos-vers-o-final/admin/js/view_password.js"></script>
         <script src="/Farmafittos-vers-o-final/admin/js/modal_exclusao.js"></script>
+        <script src="/Farmafittos-vers-o-final/admin/js/modal_editar.js"></script>
         <script src="/Farmafittos-vers-o-final/admin/js/generation_login.js"></script>
+
 
 </body>
 
