@@ -130,14 +130,14 @@
         </div>
 
         <!-- Modal de Edição-->
-        <div class="modal-overlay" id="modalEditarCadastro">
+        <div class="modal-overlay" id="modalEditarCadastro" style="display: none;">
             <div class="modal">
                 <span class="fechar-modal" onclick="fecharModalEdicao()">&times;</span>
                 <h2>Editar Administrador</h2>
 
                 <form id="formEdicao" action="/Farmafittos-vers-o-final/backend/processa_edicao_admin.php" method="POST"
                     enctype="multipart/form-data">
-                    <input type="hidden" name="id" value="<?php echo $admin['id']; ?>">
+                    <input type="hidden" name="id" value="<?php echo $admins['id']; ?>">
 
                     <input type="hidden" id="idAdmin" name="id">
 
@@ -147,11 +147,19 @@
                     <label for="loginEdicao">Login:</label>
                     <input type="text" id="loginEdicao" name="Login" readonly>
 
-                    <label for="senhaEdicao">Nova senha:</label>
-                    <input type="password" name="Senha" id="senhaEdicao">
+                    <label for="Senha">Senha</label>
+                    <div style="position: relative;">
+                        <input type="password" name="Senha" id="senha" required>
+                        <i class="fa-solid fa-eye toggle-password" data-target="senha"
+                            style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); cursor: pointer;"></i>
+                    </div>
 
-                    <label for="ConfirmarSenhaEdicao">Confirmar senha:</label>
-                    <input type="password" name="Confirmar_senha" id="ConfirmarSenhaEdicao">
+                     <label for="senhaConfirmacao">Senha:</label>
+                    <div style="position: relative;">
+                        <input type="password" id="senhaConfirmacao" name="senha" required>
+                        <i class="fa-solid fa-eye toggle-password" data-target="senhaConfirmacao"
+                            style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); cursor: pointer;"></i>
+                    </div>
 
                     <label for="fotoEdicao">Alterar foto:</label>
                     <input type="file" name="foto" id="fotoEdicao">
@@ -164,9 +172,10 @@
         <!--scripts-->
         <script src="/Farmafittos-vers-o-final/admin/js/gerenciador.js"></script>
         <script src="/Farmafittos-vers-o-final/admin/js/view_password.js"></script>
-        <script src="/Farmafittos-vers-o-final/admin/js/modal_exclusao.js"></script>
-        <script src="/Farmafittos-vers-o-final/admin/js/modal_editar.js"></script>
-        <script src="/Farmafittos-vers-o-final/admin/js/generation_login.js"></script>
+        
+        <script src="/Farmafittos-vers-o-final/admin/js/admins/modal_exclusao.js"></script>
+        <script src="/Farmafittos-vers-o-final/admin/js/admins/modal_editar.js"></script>
+        <script src="/Farmafittos-vers-o-final/admin/js/admins/generation_login.js"></script>
 
 
 </body>
