@@ -111,19 +111,11 @@
                 <form action="/Farmafittos-vers-o-final/backend/excluir_admin.php" method="POST">
                     <input type="hidden" id="idAdminExcluir" name="id_admin">
 
-                    <label for="Senha">Senha</label>
-                    <div style="position: relative;">
-                        <input type="password" name="Senha" id="senha" required>
-                        <i class="fa-solid fa-eye" id="toggleSenhaCadastro"
-                            style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); cursor: pointer;"></i>
-                    </div>
+                    <label for="loginConfirmacao">Login:</label>
+                    <input type="text" id="loginConfirmacao" name="login" required>
 
                     <label for="senhaConfirmacao">Senha:</label>
-                    <div style="position: relative;">
-                        <input type="password" id="senhaConfirmacao" name="senha" required>
-                        <i class="fa-solid fa-eye" id="toggleSenhaConfirmacao"
-                            style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); cursor: pointer;"></i>
-                    </div>
+                    <input type="password" id="senhaConfirmacao" name="senha" required>
 
                     <button type="submit" class="botao-salvar" style="margin-top: 10px;">Confirmar Exclusão</button>
                 </form>
