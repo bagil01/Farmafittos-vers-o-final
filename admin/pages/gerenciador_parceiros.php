@@ -25,11 +25,6 @@
                 <p>Adicionar Parceiros</p>
             </div>
 
-            <div class="lixeira">
-                <i class="fa-solid fa-trash"></i>
-                <h2>Lixeira</h2>
-            </div>
-        </div>
         <?php
         require_once('../../includes/conexao.php');
 
