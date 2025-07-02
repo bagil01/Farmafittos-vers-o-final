@@ -116,6 +116,7 @@
             </form>
         </div>
     </div>
+    
     <!-- Modal Editar -->
     <div class="modal-overlay" id="modalEditar">
         <div class="modal">
@@ -150,7 +151,7 @@
 </body>
 <script src="/Farmafittos-vers-o-final/admin/js/colaboradores/modal_editar.js"></script>
 <script src="/Farmafittos-vers-o-final/admin/js/colaboradores/modal_cadastro.js"></script>
-<script src="/Farmafittos-vers-o-final/admin/js/colaboradores/modal_excluisao.js"></script>
+<script src="/Farmafittos-vers-o-final/admin/js/colaboradores/modal_exclusao.js"></script>
 <script src="/Farmafittos-vers-o-final/admin/js/view_password.js"></script>
 
 

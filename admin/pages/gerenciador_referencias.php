@@ -103,7 +103,7 @@ $resultado = $conexao->query($query);
         <div class="modal">
             <span class="fechar-modal" id="fecharModalExcluir">&times;</span>
             <h2>Confirmar Exclusão</h2>
-            <p>Digite seu login e senha para confirmar:</p>
+            <p>Digite seu login e senha para confirmar a exclusão da referencia:</p>
 
             <form action="/Farmafittos-vers-o-final/backend/crud_referencia/processa_excluir_referencia.php" method="POST">
                 <input type="hidden" name="id_referencia" id="idReferenciaExcluir">
@@ -126,7 +126,7 @@ $resultado = $conexao->query($query);
     <!-- Scripts -->
     <script src="/Farmafittos-vers-o-final/admin/js/referencias/modal_editar.js"></script>
     <script src="/Farmafittos-vers-o-final/admin/js/referencias/modal_cadastro.js"></script>
-    <script src="/Farmafittos-vers-o-final/admin/js/referencias/modal_excluir.js"></script>
+    <script src="/Farmafittos-vers-o-final/admin/js/referencias/modal_exclu.js"></script>
     <script src="/Farmafittos-vers-o-final/admin/js/view_password.js"></script>
 
 </body>
