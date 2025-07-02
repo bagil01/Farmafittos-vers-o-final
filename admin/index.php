@@ -31,39 +31,55 @@
                                 <h3>Gerenciar ADMs</h3>
                             </div>
                         </a>
+
                         <a href="/Farmafittos-vers-o-final/admin/pages/gerenciador.php">
                             <div class="card">
                                 <i class="fa-solid fa-newspaper"></i>
                                 <h3>Gerenciar Notícia</h3>
                             </div>
                         </a>
+
                         <div class="card">
                             <i class="fas fa-plus-circle"></i>
                             <h3>Gerenciar Atividades</h3>
                         </div>
+
                         <div class="card">
                             <i class="fa-solid fa-sun-plant-wilt"></i>
                             <h3>Gerenciar Plantas</h3>
                         </div>
+
                         <div class="card">
                             <i class="fa-solid fa-calendar-days"></i>
                             <h3>Gerenciar Eventos</h3>
                         </div>
+
                         <a href="/Farmafittos-vers-o-final/admin/pages/gerenciador_parceiros.php">
-                        <div class="card">
-                            <i class="fa-solid fa-handshake"></i>
-                            <h3>Gerenciar Parceiros</h3>
-                        </div>
+                            <div class="card">
+                                <i class="fa-solid fa-handshake"></i>
+                                <h3>Gerenciar Parceiros</h3>
+                            </div>
                         </a>
-                        <div class="card">
-                            <i class="fa-solid fa-handshake-angle"></i>
-                            <h3>Gerenciar Colaboradores</h3>
-                        </div>
+
+                        <a href="/Farmafittos-vers-o-final/admin/pages/gerenciador_colaboradores.php">
+                            <div class="card">
+                                <i class="fa-solid fa-handshake-angle"></i>
+                                <h3>Gerenciar Colaboradores</h3>
+                            </div>
+                        </a>
+
+                        <a href="/Farmafittos-vers-o-final/admin/pages/gerenciador_voluntarios.php">
+                            <div class="card">
+                                <i class="fa-solid fa-handshake-simple"></i>
+                                <h3>Gerenciar voluntarios</h3>
+                            </div>
+                        </a>
+
                         <a href="/Farmafittos-vers-o-final/admin/pages/gerenciador_referencias.php">
-                        <div class="card">
-                            <i class="fa-solid fa-star-of-life"></i>
-                            <h3>Gerenciar Referências</h3>
-                        </div>
+                            <div class="card">
+                                <i class="fa-solid fa-star-of-life"></i>
+                                <h3>Gerenciar Referências</h3>
+                            </div>
                         </a>
                     </div>
                 </div>
