@@ -1,5 +1,6 @@
 <?php
-require_once(__DIR__ . '/../includes/conexao.php');
+require_once(dirname(__DIR__, 2) . '/includes/conexao.php');
+
 
 if (!isset($_GET['id'])) {
     echo "ID do administrador não fornecido.";
@@ -42,7 +43,7 @@ $stmt->close();
     </div>
     <div class="container">
         <h1>Editar Administrador</h1>
-        <form action="/Farmafittos-vers-o-final/backend/processa_edicao_admin.php" method="POST"
+        <form action="/Farmafittos-vers-o-final/backend/crud_admin/processa_edicao_admin.php" method="POST"
             enctype="multipart/form-data">
             <input type="hidden" name="id" value="<?php echo $admin['id']; ?>">
 

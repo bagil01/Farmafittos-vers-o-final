@@ -64,7 +64,7 @@
         <div class="modal">
             <span class="fechar-modal" id="fecharModalCadastro">&times;</span>
             <h2>Cadastrar Novo Parceiro</h2>
-            <form id="formCadastro" action="/Farmafittos-vers-o-final/backend/processa_excluir_parceiro.php" method="POST"
+            <form id="formCadastro" action="/Farmafittos-vers-o-final/backend/crud_parceiro/processa_parceiro.php" method="POST"
                 enctype="multipart/form-data">
                 <label for="nome">Nome do Parceiro:</label>
                 <input type="text" id="nome" name="nome" required>
@@ -87,7 +87,7 @@
             <h2>Confirmar Exclusão</h2>
             <p>Digite seu login e senha para confirmar a exclusão do parceiro:</p>
 
-            <form action="/Farmafittos-vers-o-final/backend/processa_excluir_parceiro.php" method="POST">
+            <form action="/Farmafittos-vers-o-final/backend/crud_parceiro/processa_excluir_parceiro.php" method="POST">
                 <input type="hidden" name="id_parceiro" id="idParceiroExcluir">
 
                 <label for="loginExcluir">Login:</label>
@@ -112,7 +112,7 @@
             <span class="fechar-modal" id="fecharModalEditar">&times;</span>
             <h2>Editar Parceiro</h2>
             
-            <form id="formEdicao" action="/Farmafittos-vers-o-final/backend/processa_edicao_parceiro.php" method="POST"
+            <form id="formEdicao" action="/Farmafittos-vers-o-final/backend/crud_parceiro/processa_edicao_parceiro.php" method="POST"
                 enctype="multipart/form-data">
 
                 <input type="hidden" name="id_parceiro" id="id_parceiro">

@@ -1,5 +1,5 @@
 <?php
-require_once(__DIR__ . '/../includes/conexao.php');
+require_once(dirname(__DIR__, 2) . '/includes/conexao.php');
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $id = $_POST['id_parceiro'] ?? null;
@@ -28,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Upload da nova logo, se fornecida
     if (isset($_FILES['logo']) && $_FILES['logo']['error'] === 0) {
-        $pastaDestino = __DIR__ . '/../assets/uploads/parceiros/';
+        $pastaDestino = dirname(__DIR__, 2) . '/assets/uploads/parceiros/';
         if (!is_dir($pastaDestino)) {
             mkdir($pastaDestino, 0755, true);
         }

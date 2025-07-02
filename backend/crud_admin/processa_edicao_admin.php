@@ -1,5 +1,6 @@
 <?php
-require_once(__DIR__ . '/../includes/conexao.php');
+require_once(dirname(__DIR__, 2) . '/includes/conexao.php');
+
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $id = $_POST['id'] ?? null;
@@ -20,10 +21,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Atualização de senha apenas se fornecida
     $senhaAtualizada = '';
     if (!empty($senha)) {
-        if (strlen($senha) < 6 || strlen($senha) > 10 || 
-            !preg_match('/[a-zA-Z]/', $senha) || 
-            !preg_match('/\d/', $senha) || 
-            !preg_match('/[\W_]/', $senha)) {
+        if (
+            strlen($senha) < 6 || strlen($senha) > 10 ||
+            !preg_match('/[a-zA-Z]/', $senha) ||
+            !preg_match('/\d/', $senha) ||
+            !preg_match('/[\W_]/', $senha)
+        ) {
             header('Location: /Farmafittos-vers-o-final/admin/pages/gerenciar_admin.php?erro=senha_invalida');
             exit;
         }
@@ -31,16 +34,26 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $senhaAtualizada = password_hash($senha, PASSWORD_DEFAULT);
     }
 
-    // Upload da nova foto (se fornecida)
+    $fotoPath = '';
+
     if (isset($_FILES['foto']) && $_FILES['foto']['error'] === 0) {
-        $pastaDestino = __DIR__ . '/../assets/uploads/admins/';
+        // Caminho correto relativo à raiz do projeto
+        $pastaDestino = dirname(__DIR__, 2) . '/assets/uploads/admins/';
+
         if (!is_dir($pastaDestino)) {
             mkdir($pastaDestino, 0755, true);
         }
 
         $nomeArquivo = uniqid() . '-' . basename($_FILES['foto']['name']);
-        $fotoPath = 'assets/uploads/admins/' . $nomeArquivo;
-        move_uploaded_file($_FILES['foto']['tmp_name'], $pastaDestino . $nomeArquivo);
+        $caminhoCompleto = $pastaDestino . $nomeArquivo;
+
+        if (move_uploaded_file($_FILES['foto']['tmp_name'], $caminhoCompleto)) {
+            // Caminho salvo no banco (para ser usado nas views)
+            $fotoPath = 'assets/uploads/admins/' . $nomeArquivo;
+        } else {
+            header('Location: /Farmafittos-vers-o-final/admin/pages/gerenciar_admin.php?erro=upload');
+            exit;
+        }
     }
 
     // Construir SQL dinamicamente

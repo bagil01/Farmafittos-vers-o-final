@@ -1,5 +1,6 @@
 <?php
-require_once(__DIR__ . '/../includes/conexao.php');
+require_once(dirname(__DIR__, 2) . '/includes/conexao.php');
+
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $nome = $_POST['Nome'] ?? '';
@@ -24,20 +25,27 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Upload da foto
     $fotoPath = '';
+
     if (isset($_FILES['foto']) && $_FILES['foto']['error'] === 0) {
-        $pastaDestino = __DIR__ . '/../assets/uploads/admins/';
+        // Caminho correto relativo à raiz do projeto
+        $pastaDestino = dirname(__DIR__, 2) . '/assets/uploads/admins/';
+
         if (!is_dir($pastaDestino)) {
             mkdir($pastaDestino, 0755, true);
         }
 
         $nomeArquivo = uniqid() . '-' . basename($_FILES['foto']['name']);
-        $fotoPath = 'assets/uploads/admins/' . $nomeArquivo;
+        $caminhoCompleto = $pastaDestino . $nomeArquivo;
 
-        if (!move_uploaded_file($_FILES['foto']['tmp_name'], $pastaDestino . $nomeArquivo)) {
-            header('Location: /Farmafittos-vers-o-final/admin/pages/gerenciar_admin.php?erro=upload_falhou');
+        if (move_uploaded_file($_FILES['foto']['tmp_name'], $caminhoCompleto)) {
+            // Caminho salvo no banco (para ser usado nas views)
+            $fotoPath = 'assets/uploads/admins/' . $nomeArquivo;
+        } else {
+            header('Location: /Farmafittos-vers-o-final/admin/pages/gerenciar_admin.php?erro=upload');
             exit;
         }
     }
+
 
     // Criptografar senha
     $senhaCriptografada = password_hash($senha, PASSWORD_DEFAULT);

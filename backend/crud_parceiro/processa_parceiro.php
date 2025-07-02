@@ -1,5 +1,5 @@
 <?php
-require_once(__DIR__ . '/../includes/conexao.php');
+require_once(dirname(__DIR__, 2) . '/includes/conexao.php');
 
 // Verifica se o formulário foi enviado
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Upload da logo (se fornecida)
     if (isset($_FILES['logo']) && $_FILES['logo']['error'] === UPLOAD_ERR_OK) {
-        $pastaDestino = __DIR__ . '/../assets/uploads/parceiros/';
+        $pastaDestino = dirname(__DIR__, 2) . '/assets/uploads/parceiros/';
         if (!is_dir($pastaDestino)) {
             mkdir($pastaDestino, 0755, true);
         }
@@ -24,6 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $logoPath = 'assets/uploads/parceiros/' . $nomeArquivo;
         move_uploaded_file($_FILES['logo']['tmp_name'], $pastaDestino . $nomeArquivo);
     }
+
 
     // Insere no banco de dados
     $query = "INSERT INTO parceiros (nome, referencia, logo) VALUES (?, ?, ?)";

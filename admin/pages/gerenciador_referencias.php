@@ -57,7 +57,7 @@ $resultado = $conexao->query($query);
             <span class="fechar-modal" id="fecharModalCadastro">&times;</span>
             <h2>Cadastrar Nova Referência</h2>
 
-            <form id="formCadastro" action="/Farmafittos-vers-o-final/backend/processa_referencia.php" method="POST"
+            <form id="formCadastro" action="/Farmafittos-vers-o-final/backend/crud_referencia/processa_referencia.php" method="POST"
                 enctype="multipart/form-data">
 
                 <label for="titulo">Título:</label>
@@ -80,7 +80,7 @@ $resultado = $conexao->query($query);
             <span class="fechar-modal" id="fecharModalEditar">&times;</span>
             <h2>Editar Referência</h2>
 
-            <form id="formEdicao" action="/Farmafittos-vers-o-final/backend/processa_edicao_referencia.php"
+            <form id="formEdicao" action="/Farmafittos-vers-o-final/backend/crud_referencia/processa_edicao_referencia.php"
                 method="POST" enctype="multipart/form-data">
                 <input type="hidden" name="id_referencia" id="id_referencia">
 
@@ -105,7 +105,7 @@ $resultado = $conexao->query($query);
             <h2>Confirmar Exclusão</h2>
             <p>Digite seu login e senha para confirmar:</p>
 
-            <form action="/Farmafittos-vers-o-final/backend/processa_excluir_referencia.php" method="POST">
+            <form action="/Farmafittos-vers-o-final/backend/crud_referencia/processa_excluir_referencia.php" method="POST">
                 <input type="hidden" name="id_referencia" id="idReferenciaExcluir">
 
                 <label for="loginExcluir">Login:</label>

@@ -64,7 +64,7 @@
                 <span class="fechar-modal" id="fecharModal">&times;</span>
                 <h2>Cadastrar Novo Administrador</h2>
 
-                <form id="formCadastro" action="/Farmafittos-vers-o-final/backend/processa_admin.php" method="POST"
+                <form id="formCadastro" action="/Farmafittos-vers-o-final/backend/crud_admin/processa_admin.php" method="POST"
                     enctype="multipart/form-data">
                     <label for="Nome">Nome:</label>
                     <input type="text" id="nome" name="Nome" required>
@@ -111,7 +111,7 @@
                 <h2>Confirmar Exclusão</h2>
                 <p>Digite seu login e senha para confirmar a exclusão:</p>
 
-                <form action="/Farmafittos-vers-o-final/backend/excluir_admin.php" method="POST">
+                <form action="/Farmafittos-vers-o-final/backend/crud_admin/excluir_admin.php" method="POST">
                     <input type="hidden" id="idAdminExcluir" name="id_admin">
 
                     <label for="loginConfirmacao">Login:</label>
@@ -135,7 +135,7 @@
                 <span class="fechar-modal" onclick="fecharModalEdicao()">&times;</span>
                 <h2>Editar Administrador</h2>
 
-                <form id="formEdicao" action="/Farmafittos-vers-o-final/backend/processa_edicao_admin.php" method="POST"
+                <form id="formEdicao" action="/Farmafittos-vers-o-final/backend/crud_admin/processa_edicao_admin.php" method="POST"
                     enctype="multipart/form-data">
                     <input type="hidden" name="id" value="<?php echo $admins['id']; ?>">
 
