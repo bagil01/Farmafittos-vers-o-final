@@ -9,13 +9,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $descricao = trim($_POST['descricao'] ?? '');
 
     $fotoPath = '';
-
-    error_log("ID: $id");
-    error_log("NOME: $nome");
-    error_log("FORMAÇÃO: $formacao");
-    error_log("LATTES: $curriculo_lattes");
-    error_log("DESCRIÇÃO: $descricao");
-
     // ✅ Verificação completa de campos obrigatórios
     if (!$id || empty($nome) || empty($formacao) || empty($curriculo_lattes) || empty($descricao)) {
         header('Location: /Farmafittos-vers-o-final/admin/pages/gerenciador_colaboradores.php?erro=campos_obrigatorios');
