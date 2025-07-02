@@ -2,11 +2,11 @@
 require_once(dirname(__DIR__, 2) . '/includes/conexao.php');
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $id_parceiro = $_POST['id_parceiro'] ?? null;
+    $id_colaborador = $_POST['id_colaborador'] ?? null;
     $login = trim($_POST['login'] ?? '');
     $senha = $_POST['senha'] ?? '';
 
-    if (!$id_parceiro || empty($login) || empty($senha)) {
+    if (!$id_colaborador || empty($login) || empty($senha)) {
         header('Location: /Farmafittos-vers-o-final/admin/pages/gerenciador_colaboradores.php?erro=campos_obrigatorios');
         exit;
     }
@@ -29,10 +29,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit;
     }
 
-    // Exclusão do parceiro
+    // Exclusão do colaborador
     $deleteQuery = "DELETE FROM colaboradores WHERE id = ?";
     $stmtDelete = $conexao->prepare($deleteQuery);
-    $stmtDelete->bind_param("i", $id_parceiro);
+    $stmtDelete->bind_param("i", $id_colaborador);
 
     if ($stmtDelete->execute()) {
         header('Location: /Farmafittos-vers-o-final/admin/pages/gerenciador_colaboradores.php?sucesso=excluido');
