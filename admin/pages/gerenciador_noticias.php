@@ -48,7 +48,8 @@ $resultado = $conexao->query($query);
                 <div class="opcao">
                     <h2><?= htmlspecialchars($noticia['titulo']) ?></h2>
                     <div class="incons">
-                        <i class="fa-solid fa-images" title="Gerenciar Imagens"></i>
+                        <i class="fa-solid fa-images" title="Gerenciar Imagens" o
+                            onclick="abrirModalImagens(<?= $noticia['id'] ?>)"></i>
                         <i class="fa-solid fa-pen-to-square"
                             onclick='abrirModalEdicaoNoticia(<?= json_encode($noticia) ?>)'></i>
                         <i class="fa-solid fa-trash" title="Excluir"
@@ -142,47 +143,29 @@ $resultado = $conexao->query($query);
         </div>
     </div>
 
-    <script>
-        const modal = document.getElementById('modalEditarNoticia');
-        if (!modal) return;
+    <!-- Modal Upload de Imagens -->
+    <div class="modal-overlay" id="modalImagens">
+        <div class="modal">
+            <span class="fechar-modal" id="fecharModalImagens">&times;</span>
+            <h2>Adicionar Imagens</h2>
+            <form action="/Farmafittos-vers-o-final/backend/crud_noticias/upload_imagens.php" method="POST"
+                enctype="multipart/form-data">
+                <input type="hidden" name="id_noticia" id="idNoticiaImagens">
 
-        document.getElementById('id_noticia').value = noticia.id || '';
-        document.getElementById('titulo_editar').value = noticia.titulo || '';
+                <label for="imagens">Selecione as imagens:</label>
+                <input type="file" name="imagens[]" id="imagens" multiple accept="image/*" required>
 
-        // Converte a data para o formato datetime-local (YYYY-MM-DDTHH:MM)
-        const dataFormatada = new Date(noticia.data_publicacao).toISOString().slice(0, 16);
-        document.getElementById('data_editar').value = dataFormatada;
-
-        document.getElementById('destaque_editar').value = noticia.destaque || 'nao';
-        document.getElementById('conteudo_editar').value = noticia.conteudo || '';
-
-        modal.style.display = 'flex';
-}
-
-        document.addEventListener('DOMContentLoaded', () => {
-            const fecharModal = document.getElementById('fecharModalEditarNoticia');
-            const modal = document.getElementById('modalEditarNoticia');
-
-            if (fecharModal && modal) {
-                fecharModal.addEventListener('click', () => {
-                    modal.style.display = 'none';
-                });
-
-                modal.addEventListener('click', (e) => {
-                    if (e.target === modal) {
-                        modal.style.display = 'none';
-                    }
-                });
-            }
-        });
-
-    </script>
+                <button type="submit" class="botao-salvar">Enviar</button>
+            </form>
+        </div>
+    </div>
 
 
     <script src="/Farmafittos-vers-o-final/admin/js/gerenciador.js"></script>
     <script src="/Farmafittos-vers-o-final/admin/js/noticias/modal_editar.js"></script>
     <script src="/Farmafittos-vers-o-final/admin/js/noticias/modal_cadastro.js"></script>
     <script src="/Farmafittos-vers-o-final/admin/js/noticias/modal_excluir.js"></script>
+    <script src="/Farmafittos-vers-o-final/admin/js/noticias/modal_imagens.js"></script>
     <script src="/Farmafittos-vers-o-final/admin/js/view_password.js"></script>
 </body>
 
