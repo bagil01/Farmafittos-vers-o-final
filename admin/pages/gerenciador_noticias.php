@@ -49,8 +49,8 @@ $resultado = $conexao->query($query);
                     <h2><?= htmlspecialchars($noticia['titulo']) ?></h2>
                     <div class="incons">
                         <i class="fa-solid fa-images" title="Gerenciar Imagens"></i>
-                        <i class="fa-solid fa-pen-to-square" title="Editar"
-                            onclick='abrirModalEdicao(<?= json_encode($noticia) ?>)'></i>
+                        <i class="fa-solid fa-pen-to-square"
+                            onclick='abrirModalEdicaoNoticia(<?= json_encode($noticia) ?>)'></i>
                         <i class="fa-solid fa-trash" title="Excluir"
                             onclick="abrirModalExclusao(<?= $noticia['id'] ?>)"></i>
                     </div>
@@ -64,7 +64,7 @@ $resultado = $conexao->query($query);
         <div class="modal">
             <span class="fechar-modal" id="fecharModal">&times;</span>
             <h2>Cadastrar Nova Notícia</h2>
-            <form id="formCadastro" action="/Farmafittos-vers-o-final/backend/crud_noticias/processa_noticia.php"
+            <form id="formCadastro" action="/Farmafittos-vers-o-final/backend/crud_noticia/processa_noticia.php"
                 method="POST" enctype="multipart/form-data">
                 <label for="titulo">Título da Notícia:</label>
                 <input type="text" id="titulo" name="titulo" required />
@@ -112,36 +112,71 @@ $resultado = $conexao->query($query);
         </div>
     </div>
 
-    <!-- Modal Editar -->
-    <div class="modal-overlay" id="modalEditar">
+    <!-- Modal de Edição -->
+    <div class="modal-overlay" id="modalEditarNoticia" style="display: none;">
         <div class="modal">
-            <span class="fechar-modal" id="fecharModalEditar">&times;</span>
-            <h2>Editar Noticias</h2>
-            <input type="hidden" id="id_noticia" name="id_noticia">
+            <span class="fechar-modal" id="fecharModalEditarNoticia">&times;</span>
+            <h2>Editar Notícia</h2>
 
-            <form id="formEdicao" action="/Farmafittos-vers-o-final/backend/crud_noticia/processa_edicao_noticia.php"
-                method="POST" enctype="multipart/form-data">
+            <form id="formEdicaoNoticia"
+                action="/Farmafittos-vers-o-final/backend/crud_noticia/processa_edicao_noticia.php" method="POST">
+                <input type="hidden" id="id_noticia" name="id_noticia">
 
-                <label for="titulo">Título da Notícia:</label>
-                <input type="text" id="titulo" name="titulo">
+                <label for="titulo_editar">Título da Notícia:</label>
+                <input type="text" id="titulo_editar" name="titulo" required>
 
-                <label for="data">Data de Publicação:</label>
-                <input type="date" id="data" name="data">
-                
-                <label for="destaque">É destaque?</label>
-                <select id="destaque" name="destaque">
+                <label for="data_editar">Data de Publicação:</label>
+                <input type="datetime-local" id="data_editar" name="data" required>
+
+                <label for="destaque_editar">É destaque?</label>
+                <select id="destaque_editar" name="destaque">
                     <option value="nao">Não</option>
                     <option value="sim">Sim</option>
                 </select>
 
-                <label for="conteudo">Conteúdo:</label>
-                <textarea id="conteudo" name="conteudo"></textarea>
+                <label for="conteudo_editar">Conteúdo:</label>
+                <textarea id="conteudo_editar" name="conteudo" rows="5" required></textarea>
 
-                <button class="botao-editar" type="submit">Salvar alterações</button>
+                <button type="submit" class="botao-salvar">Salvar Alterações</button>
             </form>
         </div>
     </div>
 
+    <script>
+        const modal = document.getElementById('modalEditarNoticia');
+        if (!modal) return;
+
+        document.getElementById('id_noticia').value = noticia.id || '';
+        document.getElementById('titulo_editar').value = noticia.titulo || '';
+
+        // Converte a data para o formato datetime-local (YYYY-MM-DDTHH:MM)
+        const dataFormatada = new Date(noticia.data_publicacao).toISOString().slice(0, 16);
+        document.getElementById('data_editar').value = dataFormatada;
+
+        document.getElementById('destaque_editar').value = noticia.destaque || 'nao';
+        document.getElementById('conteudo_editar').value = noticia.conteudo || '';
+
+        modal.style.display = 'flex';
+}
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const fecharModal = document.getElementById('fecharModalEditarNoticia');
+            const modal = document.getElementById('modalEditarNoticia');
+
+            if (fecharModal && modal) {
+                fecharModal.addEventListener('click', () => {
+                    modal.style.display = 'none';
+                });
+
+                modal.addEventListener('click', (e) => {
+                    if (e.target === modal) {
+                        modal.style.display = 'none';
+                    }
+                });
+            }
+        });
+
+    </script>
 
 
     <script src="/Farmafittos-vers-o-final/admin/js/gerenciador.js"></script>

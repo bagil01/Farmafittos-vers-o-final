@@ -29,13 +29,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit;
     }
 
-    // Exclusão do noticia
-    $deleteQuery = "DELETE FROM noticias WHERE id = ?";
+    // Soft delete: marca a notícia como "deletada"
+    $deleteQuery = "UPDATE noticias SET deletado = 1 WHERE id = ?";
     $stmtDelete = $conexao->prepare($deleteQuery);
     $stmtDelete->bind_param("i", $id_noticia);
 
     if ($stmtDelete->execute()) {
-        header('Location: /Farmafittos-vers-o-final/admin/pages/gerenciador_noticias.php?sucesso=excluido');
+        header('Location: /Farmafittos-vers-o-final/admin/pages/gerenciador_noticias.php?sucesso=excluida');
     } else {
         header('Location: /Farmafittos-vers-o-final/admin/pages/gerenciador_noticias.php?erro=bd');
     }
@@ -44,7 +44,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt->close();
     $conexao->close();
 } else {
-    header('Location: /Farmafittos-vers-o-final/admin/pages/gerenciador_noticiaes.php');
+    header('Location: /Farmafittos-vers-o-final/admin/pages/gerenciador_noticias.php');
     exit;
 }
 ?>
