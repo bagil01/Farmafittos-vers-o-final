@@ -43,7 +43,7 @@ $resultado = $conexao->query($query);
                     <div class="opcao">
                         <div style="display: flex; align-items: center; gap: 15px;">
                             <img src="/Farmafittos-vers-o-final/<?php echo htmlspecialchars($voluntario['foto']); ?>"
-                                alt="Foto" style="width: 60px; height: 60px; object-fit: contain; border-radius: 8px;">
+                                alt="Foto" style="width: 50px; height: 50px; object-fit: contain; border-radius: 50%;">
                             <div>
                                 <h2 style="margin: 0;"><?php echo htmlspecialchars($voluntario['nome']); ?></h2>
                                 <small><?php echo htmlspecialchars($voluntario['curso']); ?></small>
