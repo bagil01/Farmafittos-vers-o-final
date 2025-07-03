@@ -32,7 +32,7 @@
                             </div>
                         </a>
 
-                        <a href="/Farmafittos-vers-o-final/admin/pages/gerenciador.php">
+                        <a href="/Farmafittos-vers-o-final/admin/pages/gerenciador_noticias.php">
                             <div class="card">
                                 <i class="fa-solid fa-newspaper"></i>
                                 <h3>Gerenciar Notícia</h3>
