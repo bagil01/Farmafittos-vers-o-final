@@ -50,10 +50,12 @@
                             <h3>Gerenciar Plantas</h3>
                         </div>
 
-                        <div class="card">
-                            <i class="fa-solid fa-calendar-days"></i>
-                            <h3>Gerenciar Eventos</h3>
-                        </div>
+                        <a href="/Farmafittos-vers-o-final/admin/pages/gerenciador_eventos.php">
+                            <div class="card">
+                                <i class="fa-solid fa-calendar-days"></i>
+                                <h3>Gerenciar Eventos</h3>
+                            </div>
+                        </a>
 
                         <a href="/Farmafittos-vers-o-final/admin/pages/gerenciador_parceiros.php">
                             <div class="card">
