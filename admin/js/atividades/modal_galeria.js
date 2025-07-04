@@ -1,11 +1,11 @@
 
-function abrirModalGaleria(idNoticia) {
+function abrirModalGaleria(idAtividade) {
     const modal = document.getElementById('modalGaleriaImagens');
     const galeria = document.getElementById('conteudoGaleria');
 
     galeria.innerHTML = '<p>Carregando imagens...</p>';
 
-    fetch(`/Farmafittos-vers-o-final/backend/crud_noticia/listar_imagens.php?id_noticia=${idNoticia}`)
+    fetch(`/Farmafittos-vers-o-final/backend/crud_atividade/listar_imagens.php?id_atividade=${idAtividade}`)
         .then(response => response.text())
         .then(data => {
             galeria.innerHTML = data;

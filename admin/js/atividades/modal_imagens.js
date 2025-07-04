@@ -1,9 +1,9 @@
-function abrirModalImagens(idNoticia) {
+function abrirModalImagens(idAtividade) {
   const modal = document.getElementById('modalImagens');
-  const inputId = document.getElementById('idNoticiaImagens');
+  const inputId = document.getElementById('idAtividadeImagens');
 
   if (modal && inputId) {
-    inputId.value = idNoticia;
+    inputId.value = idAtividade;
     modal.style.display = 'flex';
   }
 }

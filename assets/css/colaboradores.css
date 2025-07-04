@@ -1,0 +1,148 @@
+body {
+    background-color: #ffffff;
+}
+
+.container-colaborador {
+    display: flex;
+    flex-wrap: wrap;
+    /* permite quebrar linha */
+    width: 80%;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+
+
+}
+
+.card-colaborador {
+    max-width: 550px;
+    width: calc(50% - 24px);
+    /* dois por linha com gap */
+    margin: 20px auto;
+    background: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    border-left: 7px solid #69372E;
+    border-right: 7px solid #69372E;
+}
+
+.card-colaborador a,
+.card-voluntarios a {
+    text-decoration: none;
+    color: #a43c2a;
+    /* Cor opcional para manter o destaque */
+}
+
+.card-colaborador a:hover,
+.card-voluntarios a:hover {
+    text-decoration: none;
+    color: #411d17;
+
+    /* Opcional: sublinhado ao passar o mouse */
+}
+
+.card-colaborador h2 {
+    color: #69372E;
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.card-colaborador h3 {
+    color: #69372E;
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+.card-colaborador p {
+    color: #69372E;
+    font-size: 14px;
+    text-align: justify;
+}
+
+.card-colaborador img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 5px;
+}
+
+button {
+    display: block;
+    /* Garante que o botão ocupe toda a largura disponível */
+    margin: 15px auto;
+    /* Centraliza horizontalmente */
+    padding: 10px 15px;
+    font-size: 14px;
+    color: white;
+    background: #69372E;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+button:hover {
+    background: #ffffff;
+    border: 1px solid #69372E;
+    color: #69372E;
+}
+
+/* Responsividade */
+@media (max-width: 1024px) {
+    .container-colaborador {
+        width: 90%;
+    }
+
+    .card-colaborador {
+        max-width: 400px;
+    }
+}
+
+@media (max-width: 768px) {
+    .container-colaborador {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card-colaborador {
+        width: 90%;
+        max-width: none;
+        margin: 15px 0;
+    }
+
+    .card-colaborador img {
+        width: 100px;
+        height: 100px;
+    }
+
+    button {
+        width: 80%;
+    }
+}
+
+@media (max-width: 480px) {
+    .card-colaborador h2 {
+        font-size: 20px;
+    }
+
+    .card-colaborador h3 {
+        font-size: 16px;
+    }
+
+    .card-colaborador p {
+        font-size: 13px;
+    }
+
+    .card-colaborador img {
+        width: 80px;
+        height: 80px;
+    }
+
+    button {
+        font-size: 13px;
+        width: 100%;
+    }
+}

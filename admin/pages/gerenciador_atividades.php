@@ -149,7 +149,7 @@ $resultado = $conexao->query($query);
     <div class="modal">
       <span class="fechar-modal" id="fecharModalImagens">&times;</span>
       <h2>Adicionar Imagens</h2>
-      <form action="/Farmafittos-vers-o-final/backend/crud_atividades/upload_imagens.php" method="POST" enctype="multipart/form-data">
+      <form action="/Farmafittos-vers-o-final/backend/crud_atividade/upload_imagens.php" method="POST" enctype="multipart/form-data">
         <input type="hidden" name="id_atividade" id="idAtividadeImagens">
 
         <label for="imagens">Selecione as imagens:</label>

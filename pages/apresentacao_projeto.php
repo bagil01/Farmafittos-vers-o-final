@@ -8,7 +8,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Apresentação do Projeto</title>
-    <link rel="icon" type="image/png" href="./assents/Design sem nome (2).png">
+    
     <link rel="stylesheet" href="../assets/css/Apresentacao_Projeto.css">
     <link rel="stylesheet" href="../icons/fontawesome-free-6.5.2-web/css/all.css">
 

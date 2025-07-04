@@ -51,7 +51,7 @@
                     <a href="#">Sobre Nós ▾</a>
                     <ul class="submenu">
                         <li><a href="/Farmafittos-vers-o-final/pages/Apresentacao_Projeto.php">Apresentação do Projeto</a></li>
-                        <li><a href="./Colobaradiores_e_voluntarios.php">Colaboradores e Voluntários</a></li>
+                        <li><a href="/Farmafittos-vers-o-final/pages/colaboradores.php">Colaboradores e Voluntários</a></li>
                     </ul>
                 </li>
 

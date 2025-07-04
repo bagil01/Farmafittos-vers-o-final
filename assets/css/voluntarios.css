@@ -1,0 +1,188 @@
+@font-face {
+    font-family: 'font-title';
+    src: url('../fonts/Leckerli_One/LeckerliOne-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.container {
+    display: block;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    background-color: #ffff;
+
+}
+
+.container-titulo {
+    text-align: center;
+    /* Centraliza o texto */
+    width: 100%;
+    /* Garante que o container ocupa toda a largura */
+
+
+}
+
+.container-titulo h1 {
+    display: inline-block;
+    background-color: transparent;
+    /* Garante que o texto respeite a largura do conteúdo */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    font-family: 'font-title';
+    font-size: 40px;
+    color: #69372E;
+    margin: 1.5rem auto;
+    border-radius: 20px;
+    border-left: 3px solid #69372E;
+    border-right: 3px solid #69372E;
+    /* Remove margens externas e alinha ao centro */
+
+}
+
+.container-voluntarios {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    /* Maior espaçamento entre os elementos */
+    width: 900px;
+    /* Aumentei a largura do carrossel */
+    margin: auto;
+
+}
+
+.carousel {
+    width: 100%;
+    overflow: hidden;
+}
+
+.cards-wrapper {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.card-voluntarios {
+    width: 450px;
+    /* Aumentei a largura do card */
+    height: auto;
+    /* Defini uma altura maior */
+    text-align: center;
+    padding: 20px;
+    /* Mais espaço interno */
+    background-color: transparent;
+    /* Cor de fundo para destacar */
+    margin-right: 20px;
+
+}
+
+.card-voluntarios img {
+    width: 120px;
+    /* Aumentei a imagem */
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+.fa-angle-left,
+.fa-chevron-right {
+    cursor: pointer;
+    font-size: 50px;
+    color: #69372E;
+}
+
+.fa-angle-left:hover,
+.fa-chevron-right:hover {
+    color: #411d17;
+}
+
+.card-voluntarios h1 {
+    font-size: 20px;
+    /* Aumentei o tamanho do título */
+    font-weight: bold;
+    color: #69372E;
+}
+
+.card-voluntarios h2 {
+    font-size: 15px;
+    color: #69372E;
+}
+
+.card-voluntarios h3 {
+    font-size: 13px;
+    color: #69372E;
+}
+
+/* Responsividade */
+@media (max-width: 1024px) {
+    .container-voluntarios {
+        width: 90%;
+    }
+
+    #next,
+    #prev {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .container-voluntarios {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .card-voluntarios {
+        width: 80%;
+        margin: 10px 0;
+    }
+
+    .card-voluntarios img {
+        width: 120px;
+        height: 120px;
+    }
+
+    .fa-angle-left,
+    .fa-chevron-right {
+        font-size: 40px;
+    }
+
+    #next,
+    #prev {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .card-voluntarios {
+        width: 90%;
+    }
+
+    .card-voluntarios img {
+        width: 100px;
+        height: 100px;
+    }
+
+    .card-voluntarios h1 {
+        font-size: 20px;
+    }
+
+    .card-voluntarios h2 {
+        font-size: 16px;
+    }
+
+    .card-voluntarios h3 {
+        font-size: 14px;
+    }
+
+    .fa-angle-left,
+    .fa-chevron-right {
+        font-size: 30px;
+    }
+
+    #next,
+    #prev {
+        display: none;
+    }
+}
