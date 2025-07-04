@@ -38,11 +38,12 @@
                                 <h3>Gerenciar Notícia</h3>
                             </div>
                         </a>
-
-                        <div class="card">
-                            <i class="fas fa-plus-circle"></i>
-                            <h3>Gerenciar Atividades</h3>
-                        </div>
+                        <a href="/Farmafittos-vers-o-final/admin/pages/gerenciador_atividades.php">
+                            <div class="card">
+                                <i class="fas fa-plus-circle"></i>
+                                <h3>Gerenciar Atividades</h3>
+                            </div>
+                        </a>
 
                         <div class="card">
                             <i class="fa-solid fa-sun-plant-wilt"></i>
