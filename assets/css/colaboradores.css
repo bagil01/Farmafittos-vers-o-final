@@ -15,7 +15,7 @@ body {
 }
 
 .card-colaborador {
-    max-width: 550px;
+    max-width: 650px;
     width: calc(50% - 24px);
     /* dois por linha com gap */
     margin: 20px auto;
@@ -62,11 +62,13 @@ body {
 }
 
 .card-colaborador img {
-    width: 120px;
-    height: 120px;
+    width: 130px;
+    height: 130px;
     border-radius: 50%;
     object-fit: cover;
     margin-bottom: 5px;
+    border: 3px dashed #813528;
+    padding: 5px;
 }
 
 button {
