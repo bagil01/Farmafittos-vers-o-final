@@ -35,7 +35,7 @@
     color: #69372E;
     margin: 1.5rem auto;
     border-radius: 15px;
-    border-left: 3px dashed #69372E;
+    border: 3px dashed #69372E;
     border-right: 3px dashed #69372E;
     /* Remove margens externas e alinha ao centro */
 

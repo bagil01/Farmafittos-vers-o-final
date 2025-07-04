@@ -30,6 +30,7 @@ body {
 
 .card-colaborador a,
 .card-voluntarios a {
+    font-family: 'Times New Roman', Times, serif;
     text-decoration: none;
     color: #a43c2a;
     /* Cor opcional para manter o destaque */
@@ -44,20 +45,23 @@ body {
 }
 
 .card-colaborador h2 {
+    font-family: 'Times New Roman', Times, serif;
     color: #69372E;
-    font-size: 22px;
+    font-size: 30px;
     margin-bottom: 10px;
 }
 
 .card-colaborador h3 {
+    font-family: 'Times New Roman', Times, serif;
     color: #69372E;
-    font-size: 18px;
+    font-size: 25px;
     margin-bottom: 15px;
 }
 
 .card-colaborador p {
+    font-family: 'Times New Roman', Times, serif;
     color: #69372E;
-    font-size: 14px;
+    font-size: 18px;
     text-align: justify;
 }
 

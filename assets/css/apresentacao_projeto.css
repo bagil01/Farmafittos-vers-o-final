@@ -37,13 +37,15 @@ body {
 }
 
 .container-descricao h2 {
+    font-family: 'Times New Roman', Times, serif;
     font-size: 30px;
     color: #69372E;
     font-weight: bold;
 }
 
 .container-descricao p {
-    font-size: 18px;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
     color: #69372E;
 }
 
@@ -73,6 +75,7 @@ body {
 
 .endereco h3,
 .contatos h3 {
+    font-family: 'Times New Roman', Times, serif;
     color: #69372E;
     font-weight: bold;
     font-size: 25px;
@@ -81,6 +84,7 @@ body {
 
 /* Link do endereço */
 .endereco a {
+    font-family: 'Times New Roman', Times, serif;
     font-size: 20px;
     color: #69372E;
     text-decoration: none;
