@@ -21,11 +21,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $caminho = "assets/uploads/noticias/" . $nomeArquivo;
 
         if (move_uploaded_file($tmpName, $pastaDestino . $nomeArquivo)) {
-            $stmt = $conexao->prepare("INSERT INTO noticia_imagens (id_noticia, caminho) VALUES (?, ?)");
+            $stmt = $conexao->prepare("INSERT INTO fotos_noticias (noticia_id, caminho) VALUES (?, ?)");
+
+            if (!$stmt) {
+                // Mostra o erro de SQL diretamente e para a execução
+                die("Erro ao preparar statement: " . $conexao->error);
+            }
+
             $stmt->bind_param("is", $id_noticia, $caminho);
             $stmt->execute();
             $stmt->close();
         }
+
     }
 
     $conexao->close();

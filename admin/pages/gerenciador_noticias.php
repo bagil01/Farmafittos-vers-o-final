@@ -15,6 +15,8 @@ $resultado = $conexao->query($query);
     <title>Gerenciador de Notícias</title>
     <link rel="stylesheet" href="/Farmafittos-vers-o-final/assets/icons/fontawesome-free-6.5.2-web/css/all.css" />
     <link rel="stylesheet" href="/Farmafittos-vers-o-final/admin/css/gerenciador.css" />
+    <link rel="stylesheet" href="/Farmafittos-vers-o-final/admin/css/galeria.css">
+
 </head>
 
 <body>
@@ -48,10 +50,15 @@ $resultado = $conexao->query($query);
                 <div class="opcao">
                     <h2><?= htmlspecialchars($noticia['titulo']) ?></h2>
                     <div class="incons">
-                        <i class="fa-solid fa-images" title="Gerenciar Imagens" o
+                        <i class="fa-solid fa-images" title="Gerenciar Imagens"
                             onclick="abrirModalImagens(<?= $noticia['id'] ?>)"></i>
+
+                        <i class="fa-solid fa-folder" title="Gerenciar Imagens"
+                            onclick="abrirModalGaleria(<?= $noticia['id'] ?>)"></i>
+
                         <i class="fa-solid fa-pen-to-square"
                             onclick='abrirModalEdicaoNoticia(<?= json_encode($noticia) ?>)'></i>
+
                         <i class="fa-solid fa-trash" title="Excluir"
                             onclick="abrirModalExclusao(<?= $noticia['id'] ?>)"></i>
                     </div>
@@ -148,7 +155,7 @@ $resultado = $conexao->query($query);
         <div class="modal">
             <span class="fechar-modal" id="fecharModalImagens">&times;</span>
             <h2>Adicionar Imagens</h2>
-            <form action="/Farmafittos-vers-o-final/backend/crud_noticias/upload_imagens.php" method="POST"
+            <form action="/Farmafittos-vers-o-final/backend/crud_noticia/upload_imagens.php" method="POST"
                 enctype="multipart/form-data">
                 <input type="hidden" name="id_noticia" id="idNoticiaImagens">
 
@@ -160,9 +167,22 @@ $resultado = $conexao->query($query);
         </div>
     </div>
 
+    <!-- Modal Galeria de Imagens -->
+    <div class="modal-overlay" id="modalGaleriaImagens" style="display: none;">
+        <div class="modal">
+            <span class="fechar-modal" id="fecharModalGaleria">&times;</span>
+            <h2>Imagens da Notícia</h2>
+
+            <div id="conteudoGaleria" class="galeria-imagens">
+                <!-- Conteúdo dinâmico será carregado aqui via JS -->
+            </div>
+        </div>
+    </div>
+
 
     <script src="/Farmafittos-vers-o-final/admin/js/gerenciador.js"></script>
     <script src="/Farmafittos-vers-o-final/admin/js/noticias/modal_editar.js"></script>
+    <script src="/Farmafittos-vers-o-final/admin/js/noticias/modal_galeria.js"></script>
     <script src="/Farmafittos-vers-o-final/admin/js/noticias/modal_cadastro.js"></script>
     <script src="/Farmafittos-vers-o-final/admin/js/noticias/modal_excluir.js"></script>
     <script src="/Farmafittos-vers-o-final/admin/js/noticias/modal_imagens.js"></script>
