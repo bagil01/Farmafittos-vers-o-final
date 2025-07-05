@@ -12,7 +12,8 @@ $resultado = $conexao->query($query);
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Gerenciador de Eventos</title>
     <link rel="stylesheet" href="/Farmafittos-vers-o-final/assets/icons/fontawesome-free-6.5.2-web/css/all.css" />
-    <link rel="stylesheet" href="/Farmafittos-vers-o-final/admin/css/gerenciador.css" />
+    <link rel="stylesheet" href="/Farmafittos-vers-o-final/admin/css/gerenciador_eventos.css" />
+    <link rel="stylesheet" href="/Farmafittos-vers-o-final/admin/css/editar_eventos.css" />
 </head>
 
 <body>
@@ -56,14 +57,20 @@ $resultado = $conexao->query($query);
             <h2>Cadastrar Novo Evento</h2>
             <form id="formCadastro" action="/Farmafittos-vers-o-final/backend/crud_evento/processa_evento.php"
                 method="POST">
+
                 <label>Título:</label>
                 <input type="text" name="titulo" required>
 
-                <label>Data:</label>
-                <input type="date" name="data_evento" required>
-
-                <label>Hora:</label>
-                <input type="time" name="hora" required>
+                <div class="flex-group">
+                    <div>
+                        <label>Data:</label>
+                        <input type="date" name="data_evento" required>
+                    </div>
+                    <div>
+                        <label>Hora:</label>
+                        <input type="time" name="hora" required>
+                    </div>
+                </div>
 
                 <label>Localização:</label>
                 <textarea name="localizacao" required></textarea>
@@ -77,11 +84,16 @@ $resultado = $conexao->query($query);
                 <label>Ingresso (ex: gratuito, R$10):</label>
                 <input type="text" name="ingresso" required>
 
-                <label>WhatsApp:</label>
-                <input type="text" name="whatsapp" required>
-
-                <label>Instagram (opcional):</label>
-                <input type="text" name="instagram">
+                <div class="flex-group">
+                    <div>
+                        <label>WhatsApp:</label>
+                        <input type="text" name="whatsapp" required>
+                    </div>
+                    <div>
+                        <label>Instagram (opcional):</label>
+                        <input type="text" name="instagram">
+                    </div>
+                </div>
 
                 <button type="submit" class="botao-salvar">Salvar</button>
             </form>
@@ -124,11 +136,16 @@ $resultado = $conexao->query($query);
                 <label>Título:</label>
                 <input type="text" name="titulo" id="titulo_editar" required>
 
-                <label>Data:</label>
-                <input type="date" name="data_evento" id="data_editar" required>
-
-                <label>Hora:</label>
-                <input type="time" name="hora" id="hora_editar" required>
+                <div class="flex-group">
+                    <div>
+                        <label>Data:</label>
+                        <input type="date" name="data_evento" id="data_editar" required>
+                    </div>
+                    <div>
+                        <label>Hora:</label>
+                        <input type="time" name="hora" id="hora_editar" required>
+                    </div>
+                </div>
 
                 <label>Localização:</label>
                 <textarea name="localizacao" id="localizacao_editar" required></textarea>
@@ -136,18 +153,27 @@ $resultado = $conexao->query($query);
                 <label>Descrição:</label>
                 <textarea name="descricao" id="descricao_editar" required></textarea>
 
-                <label>Link do formulário de inscrição:</label>
-                <textarea name="formulario_inscricao" id="formulario_editar" required></textarea>
+                <div class="flex-group">
+                    <div>
+                        <label>Link do formulário de inscrição:</label>
+                        <textarea name="formulario_inscricao" id="formulario_editar" required></textarea>
+                    </div>
+                    <div>
+                        <label>Ingresso:</label>
+                        <input type="text" name="ingresso" id="ingresso_editar" required>
+                    </div>
+                </div>
 
-                <label>Ingresso:</label>
-                <input type="text" name="ingresso" id="ingresso_editar" required>
-
-                <label>WhatsApp:</label>
-                <input type="text" name="whatsapp" id="whatsapp_editar" required>
-
-                <label>Instagram:</label>
-                <input type="text" name="instagram" id="instagram_editar">
-
+                <div class="flex-group">
+                    <div>
+                        <label>WhatsApp:</label>
+                        <input type="text" name="whatsapp" id="whatsapp_editar" required>
+                    </div>
+                    <div>
+                        <label>Instagram (opcional):</label>
+                        <input type="text" name="instagram" id="instagram_editar">
+                    </div>
+                </div>
                 <button type="submit" class="botao-editar">Salvar alterações</button>
             </form>
         </div>

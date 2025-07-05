@@ -12,6 +12,8 @@ $resultado = $conexao->query($query);
     <title>Gerenciador de Referências</title>
     <link rel="stylesheet" href="/Farmafittos-vers-o-final/assets/icons/fontawesome-free-6.5.2-web/css/all.css">
     <link rel="stylesheet" href="/Farmafittos-vers-o-final/admin/css/gerenciador.css">
+    <link rel="stylesheet" href="/Farmafittos-vers-o-final/admin/css/editar_eventos.css" />
+</head>
 </head>
 
 <body>

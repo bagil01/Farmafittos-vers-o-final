@@ -232,6 +232,16 @@ a {
   border-radius: 6px;
   border: 1px solid #ccc;
 }
+.flex-group {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.flex-group > div {
+  flex: 1;
+  min-width: 150px;
+}
 
 .botao-salvar,
 .botao-editar {

@@ -14,8 +14,10 @@ $resultado = $conexao->query($query);
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Gerenciador de Notícias</title>
     <link rel="stylesheet" href="/Farmafittos-vers-o-final/assets/icons/fontawesome-free-6.5.2-web/css/all.css" />
-    <link rel="stylesheet" href="/Farmafittos-vers-o-final/admin/css/gerenciador.css" />
+    <link rel="stylesheet" href="/Farmafittos-vers-o-final/admin/css/gerenciador_eventos.css" />
     <link rel="stylesheet" href="/Farmafittos-vers-o-final/admin/css/galeria.css">
+    <link rel="stylesheet" href="/Farmafittos-vers-o-final/admin/css/editar_eventos.css" />
+</head>
 
 </head>
 
