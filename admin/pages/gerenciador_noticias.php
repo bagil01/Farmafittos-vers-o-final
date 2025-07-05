@@ -48,6 +48,9 @@ $resultado = $conexao->query($query);
 
             <?php while ($noticia = $resultado->fetch_assoc()): ?>
                 <div class="opcao">
+                    <img src="/Farmafittos-vers-o-final/<?php echo $noticia['capa']; ?>" alt="Capa"
+                        style="width: 60px; height: 60px; object-fit: contain; border-radius: 8px;">
+
                     <h2><?= htmlspecialchars($noticia['titulo']) ?></h2>
                     <div class="incons">
                         <i class="fa-solid fa-images" title="Gerenciar Imagens"
@@ -79,6 +82,10 @@ $resultado = $conexao->query($query);
 
                 <label for="data">Data de Publicação:</label>
                 <input type="date" id="data" name="data" required />
+
+                <label for="capa">Capa (imagem principal):</label>
+                <input type="file" name="capa" id="capa" accept="image/*" required>
+
 
                 <label for="destaque">É destaque?</label>
                 <select id="destaque" name="destaque">
@@ -126,12 +133,15 @@ $resultado = $conexao->query($query);
             <span class="fechar-modal" id="fecharModalEditarNoticia">&times;</span>
             <h2>Editar Notícia</h2>
 
-            <form id="formEdicaoNoticia"
-                action="/Farmafittos-vers-o-final/backend/crud_noticia/processa_edicao_noticia.php" method="POST">
+            <form id="formEdicaoNoticia" action="/Farmafittos-vers-o-final/backend/crud_noticia/processa_edicao_noticia.php" method="POST"
+                enctype="multipart/form-data">
                 <input type="hidden" id="id_noticia" name="id_noticia">
 
                 <label for="titulo_editar">Título da Notícia:</label>
                 <input type="text" id="titulo_editar" name="titulo" required>
+
+                <label for="capa">Nova capa (opcional):</label>
+                <input type="file" name="capa" id="capa" accept="image/*">
 
                 <label for="data_editar">Data de Publicação:</label>
                 <input type="datetime-local" id="data_editar" name="data" required>

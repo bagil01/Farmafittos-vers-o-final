@@ -12,14 +12,31 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit;
     }
 
-    $sql = "INSERT INTO noticias (titulo, data_publicacao, destaque, conteudo, deletado) VALUES (?, ?, ?, ?, 0)";
-    
+    // Verifica se foi enviada uma imagem de capa
+    $caminhoCapa = null;
+
+    if (isset($_FILES['capa']) && $_FILES['capa']['error'] === UPLOAD_ERR_OK) {
+        $pastaDestino = 'uploads/capas/';
+        if (!is_dir('../../' . $pastaDestino)) {
+            mkdir('../../' . $pastaDestino, 0777, true);
+        }
+
+        $nomeArquivo = uniqid() . '_' . basename($_FILES['capa']['name']);
+        $caminhoRelativo = $pastaDestino . $nomeArquivo;
+
+        if (move_uploaded_file($_FILES['capa']['tmp_name'], '../../' . $caminhoRelativo)) {
+            $caminhoCapa = $caminhoRelativo;
+        }
+    }
+
+    $sql = "INSERT INTO noticias (titulo, capa, data_publicacao, destaque, conteudo, deletado) VALUES (?, ?, ?, ?, ?, 0)";
     $stmt = $conexao->prepare($sql);
+
     if (!$stmt) {
         die("Erro na preparação da SQL: " . $conexao->error);
     }
 
-    $stmt->bind_param("ssss", $titulo, $data, $destaque, $conteudo);
+    $stmt->bind_param("sssss", $titulo, $caminhoCapa, $data, $destaque, $conteudo);
 
     if ($stmt->execute()) {
         header('Location: /Farmafittos-vers-o-final/admin/pages/gerenciador_noticias.php?sucesso=cadastrada');
