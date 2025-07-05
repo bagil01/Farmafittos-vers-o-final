@@ -31,7 +31,7 @@
                     </li>
                 </ul>
             </div>
-            <div class="titulo">
+            <div class="titulo_header">
                 <h1>FARMAFITTOS</h1>
                 <h2>AMAZÔNIA</h2>   
             </div>
@@ -58,7 +58,7 @@
                 <li class="dropdown">
                     <a href="#">Publicações ▾</a>
                     <ul class="submenu">
-                        <li><a href="./prev-noticias.php">Notícias</a></li>
+                        <li><a href="/Farmafittos-vers-o-final/pages/prev_noticias.php">Notícias</a></li>
                         <li><a href="./prev-atividades.php">Atividades</a></li>
                     </ul>
                 </li>

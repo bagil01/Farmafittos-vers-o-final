@@ -41,7 +41,7 @@ body {
 
 }
 
-.titulo {
+.titulo_header {
   width: 50%;
   height: auto;
   box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.2);
@@ -50,7 +50,7 @@ body {
   padding: 10px;
 }
 
-.titulo h1 {
+.titulo_header h1 {
   font-family: 'font-title', sans-serif;
   font-size: 60px;
   color: #69372E;
@@ -61,7 +61,7 @@ body {
   margin-top: 0;
 }
 
-.titulo h2 {
+.titulo_header h2 {
   font-family: 'font-subTitle', Times, serif;
   font-size: 30px;
   color: #69372E;
@@ -291,11 +291,11 @@ body {
     overflow-x: hidden;
   }
 
-  .titulo h1 {
+  .titulo_header h1 {
     font-size: 20px;
   }
 
-  .titulo h2 {
+  .titulo_header h2 {
     font-size: 15px;
   }
 
@@ -304,7 +304,7 @@ body {
     padding: 20px 10px;
   }
 
-  .titulo {
+  .titulo_header {
     width: 50%;
     height: auto;
     box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.2);

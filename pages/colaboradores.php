@@ -32,60 +32,64 @@ $resultVoluntarios = $conexao->query($sqlVoluntarios);
         </div>
 
         <div class="container-colaborador">
-            <?php while ($colaborador = $resultColaboradores->fetch_assoc()): ?>
-                <div class="card-colaborador">
-                    <img src="/Farmafittos-vers-o-final/<?= htmlspecialchars($colaborador['foto']) ?>"
-                        alt="<?= htmlspecialchars($colaborador['nome']) ?>">
-                    <h2 class="nome"><?= htmlspecialchars($colaborador['nome']) ?></h2>
-                    <h3 class="Formação"><?= htmlspecialchars($colaborador['formacao']) ?></h3>
+            <?php if ($resultColaboradores->num_rows > 0): ?>
+                <?php while ($colaborador = $resultColaboradores->fetch_assoc()): ?>
+                    <div class="card-colaborador">
+                        <img src="/Farmafittos-vers-o-final/<?= htmlspecialchars($colaborador['foto']) ?>"
+                            alt="<?= htmlspecialchars($colaborador['nome']) ?>">
+                        <h2 class="nome"><?= htmlspecialchars($colaborador['nome']) ?></h2>
+                        <h3 class="Formação"><?= htmlspecialchars($colaborador['formacao']) ?></h3>
 
-                    <a href="<?= htmlspecialchars($colaborador['curriculo_lattes']) ?>" target="_blank">
-                        <i class="fa-solid fa-caret-right"></i>
-                        Currículo Lattes
-                        <i class="fa-solid fa-caret-left"></i>
-                    </a>
+                        <a href="<?= htmlspecialchars($colaborador['curriculo_lattes']) ?>" target="_blank">
+                            <i class="fa-solid fa-caret-right"></i>
+                            Currículo Lattes
+                            <i class="fa-solid fa-caret-left"></i>
+                        </a>
 
-                    <p id="resumo-<?= $colaborador['id'] ?>">
-                        <?= nl2br(htmlspecialchars(mb_strimwidth($colaborador['descricao'], 0, 200, '...'))) ?>
-                    </p>
+                        <p id="resumo-<?= $colaborador['id'] ?>">
+                            <?= nl2br(htmlspecialchars(mb_strimwidth($colaborador['descricao'], 0, 200, '...'))) ?>
+                        </p>
 
-                    <div id="completo-<?= $colaborador['id'] ?>" style="display: none;">
-                        <p><?= nl2br(htmlspecialchars($colaborador['descricao'])) ?></p>
+                        <div id="completo-<?= $colaborador['id'] ?>" style="display: none;">
+                            <p><?= nl2br(htmlspecialchars($colaborador['descricao'])) ?></p>
+                        </div>
+
+                        <button onclick="toggleTexto(<?= $colaborador['id'] ?>)">Ver mais</button>
                     </div>
-
-                    <button onclick="toggleTexto(<?= $colaborador['id'] ?>)">Ver mais</button>
-                </div>
-            <?php endwhile; ?>
+                <?php endwhile; ?>
+            <?php else: ?>
+                <p style="text-align: center; padding: 100px;">Nenhum colaborador cadastrado.</p>
+            <?php endif; ?>
         </div>
 
 
-        <div class="container-titulo">
-            <h1>Voluntários</h1>
-        </div>
         <div class="container-voluntarios">
             <i class="fa-solid fa-angle-left" id="prev"></i>
             <div class="carousel">
                 <div class="cards-wrapper">
-                    <?php while ($voluntario = $resultVoluntarios->fetch_assoc()): ?>
-                        <div class="card-voluntarios">
-                            <img src="/Farmafittos-vers-o-final/<?= htmlspecialchars($voluntario['foto']) ?>"
-                                alt="<?= htmlspecialchars($voluntario['nome']) ?>">
-                            <h1><?= htmlspecialchars($voluntario['nome']) ?></h1>
-                            <a href="<?= htmlspecialchars($voluntario['curriculo_lattes']) ?>" target="_blank">Currículo
-                                Lattes</a>
-                            <h3> <?= htmlspecialchars($voluntario['curso']) ?></h3>
-                        </div>
-                    <?php endwhile; ?>
+                    <?php if ($resultVoluntarios->num_rows > 0): ?>
+                        <?php while ($voluntario = $resultVoluntarios->fetch_assoc()): ?>
+                            <div class="card-voluntarios">
+                                <img src="/Farmafittos-vers-o-final/<?= htmlspecialchars($voluntario['foto']) ?>"
+                                    alt="<?= htmlspecialchars($voluntario['nome']) ?>">
+                                <h1><?= htmlspecialchars($voluntario['nome']) ?></h1>
+                                <a href="<?= htmlspecialchars($voluntario['curriculo_lattes']) ?>" target="_blank">Currículo
+                                    Lattes</a>
+                                <h3><?= htmlspecialchars($voluntario['curso']) ?></h3>
+                            </div>
+                        <?php endwhile; ?>
+                    <?php else: ?>
+                        <p style="text-align: center; width: 100%; padding: 100px;">Nenhum voluntário cadastrado.</p>
+                    <?php endif; ?>
                 </div>
             </div>
             <i class="fa-solid fa-chevron-right" id="next"></i>
         </div>
-    </div>
 
-    <script src="/Farmafittos-vers-o-final/assets/js/colaboradores/voluntarios.js"></script>
-    <script src="/Farmafittos-vers-o-final/assets/js/colaboradores/colaboradores.js"></script>
+        <script src="/Farmafittos-vers-o-final/assets/js/colaboradores/voluntarios.js"></script>
+        <script src="/Farmafittos-vers-o-final/assets/js/colaboradores/colaboradores.js"></script>
 
-    <?php include '../includes/footer.php'; ?>
+        <?php include '../includes/footer.php'; ?>
 </body>
 
 </html>
