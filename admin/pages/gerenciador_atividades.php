@@ -27,7 +27,7 @@ $resultado = $conexao->query($query);
 
   <div class="container">
     <div class="container-controle">
-      <div class="adicionar-noticia" id="abrirModalAtividade">
+      <div class="adicionar-noticia" id="abrirModalNoticia">
         <span>＋</span>
         <p>Adicionar Atividade</p>
       </div>
@@ -45,33 +45,38 @@ $resultado = $conexao->query($query);
 
       <?php while ($atividade = $resultado->fetch_assoc()): ?>
         <div class="opcao">
+          <?php if (!empty($atividade['capa'])): ?>
+            <img src="/Farmafittos-vers-o-final/<?php echo $atividade['capa']; ?>" alt="Capa"
+              style="width: 60px; height: 60px; object-fit: contain; border-radius: 10px; padding: 5px;">
+          <?php endif; ?>
           <h2><?= htmlspecialchars($atividade['titulo']) ?></h2>
           <div class="incons">
             <i class="fa-solid fa-images" title="Gerenciar Imagens"
               onclick="abrirModalImagens(<?= $atividade['id'] ?>)"></i>
 
-            <i class="fa-solid fa-folder" title="Ver Galeria"
-              onclick="abrirModalGaleria(<?= $atividade['id'] ?>)"></i>
+            <i class="fa-solid fa-folder" title="Ver Galeria" onclick="abrirModalGaleria(<?= $atividade['id'] ?>)"></i>
 
-            <i class="fa-solid fa-pen-to-square"
-              onclick='abrirModalEdicaoAtividade(<?= json_encode($atividade) ?>)'></i>
+            <i class="fa-solid fa-pen-to-square" onclick='abrirModalEdicaoAtividade(<?= json_encode($atividade) ?>)'></i>
 
-            <i class="fa-solid fa-trash" title="Excluir"
-              onclick="abrirModalExclusao(<?= $atividade['id'] ?>)"></i>
+            <i class="fa-solid fa-trash" title="Excluir" onclick="abrirModalExclusao(<?= $atividade['id'] ?>)"></i>
           </div>
         </div>
       <?php endwhile; ?>
     </div>
   </div>
-
   <!-- Modal Cadastro -->
   <div class="modal-overlay" id="modalCadastro">
     <div class="modal">
       <span class="fechar-modal" id="fecharModal">&times;</span>
       <h2>Cadastrar Nova Atividade</h2>
-      <form id="formCadastro" action="/Farmafittos-vers-o-final/backend/crud_atividade/processa_atividade.php" method="POST">
+      <form id="formCadastro" action="/Farmafittos-vers-o-final/backend/crud_atividade/processa_atividade.php"
+        method="POST" enctype="multipart/form-data">
+
         <label for="titulo">Título da Atividade:</label>
         <input type="text" id="titulo" name="titulo" required />
+
+        <label for="capa">Capa (imagem principal):</label>
+        <input type="file" name="capa" id="capa" accept="image/*" required>
 
         <label for="data">Data de Publicação:</label>
         <input type="date" id="data" name="data" required />
@@ -96,11 +101,16 @@ $resultado = $conexao->query($query);
       <span class="fechar-modal" id="fecharModalEditarAtividade">&times;</span>
       <h2>Editar Atividade</h2>
 
-      <form id="formEdicaoAtividade" action="/Farmafittos-vers-o-final/backend/crud_atividade/processa_edicao_atividade.php" method="POST">
+      <form id="formEdicaoAtividade"
+        action="/Farmafittos-vers-o-final/backend/crud_atividade/processa_edicao_atividade.php" method="POST"
+        enctype="multipart/form-data">
         <input type="hidden" id="id_atividade" name="id_atividade">
 
         <label for="titulo_editar">Título da Atividade:</label>
         <input type="text" id="titulo_editar" name="titulo" required>
+
+        <label for="capa">Nova capa (opcional):</label>
+        <input type="file" name="capa" id="capa" accept="image/*">
 
         <label for="data_editar">Data de Publicação:</label>
         <input type="datetime-local" id="data_editar" name="data" required>
@@ -149,7 +159,8 @@ $resultado = $conexao->query($query);
     <div class="modal">
       <span class="fechar-modal" id="fecharModalImagens">&times;</span>
       <h2>Adicionar Imagens</h2>
-      <form action="/Farmafittos-vers-o-final/backend/crud_atividade/upload_imagens.php" method="POST" enctype="multipart/form-data">
+      <form action="/Farmafittos-vers-o-final/backend/crud_atividade/upload_imagens.php" method="POST"
+        enctype="multipart/form-data">
         <input type="hidden" name="id_atividade" id="idAtividadeImagens">
 
         <label for="imagens">Selecione as imagens:</label>

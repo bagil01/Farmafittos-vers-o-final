@@ -29,21 +29,21 @@ if (!$resultado) {
     <h1>Lixeira de Atividades</h1>
 
     <?php if ($resultado->num_rows > 0): ?>
-      <?php while ($noticia = $resultado->fetch_assoc()): ?>
+      <?php while ($atividade = $resultado->fetch_assoc()): ?>
         <div class="opcao">
-          <h2><?= htmlspecialchars($noticia['titulo']) ?></h2>
+          <h2><?= htmlspecialchars($atividade['titulo']) ?></h2>
           <div class="incons">
             <!-- Botão restaurar -->
-            <form method="POST" action="/Farmafittos-vers-o-final/backend/crud_noticia/restaurar_noticia.php" style="display:inline;">
-              <input type="hidden" name="id_noticia" value="<?= $noticia['id'] ?>">
+            <form method="POST" action="/Farmafittos-vers-o-final/backend/crud_atividade/restaurar_atividade.php" style="display:inline;">
+              <input type="hidden" name="id_atividade" value="<?= $atividade['id'] ?>">
               <button type="submit" title="Restaurar" style="background:none; border:none; cursor:pointer;">
                 <i class="fa-solid fa-rotate-left"></i>
               </button>
             </form>
 
             <!-- Botão excluir permanente -->
-            <form method="POST" action="/Farmafittos-vers-o-final/backend/crud_noticia/excluir_definitivo.php" style="display:inline;" onsubmit="return confirm('Tem certeza que deseja excluir permanentemente?');">
-              <input type="hidden" name="id_noticia" value="<?= $noticia['id'] ?>">
+            <form method="POST" action="/Farmafittos-vers-o-final/backend/crud_atividade/excluir_definitivo.php" style="display:inline;" onsubmit="return confirm('Tem certeza que deseja excluir permanentemente?');">
+              <input type="hidden" name="id_atividade" value="<?= $atividade['id'] ?>">
               <button type="submit" title="Excluir permanentemente" style="background:none; border:none; cursor:pointer; color: red;">
                 <i class="fa-solid fa-trash"></i>
               </button>
