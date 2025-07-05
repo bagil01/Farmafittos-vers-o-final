@@ -56,10 +56,13 @@ $resultado = $conexao->query($query);
             <span class="fechar-modal" id="fecharModalCadastro">&times;</span>
             <h2>Cadastrar Novo Evento</h2>
             <form id="formCadastro" action="/Farmafittos-vers-o-final/backend/crud_evento/processa_evento.php"
-                method="POST">
+                method="POST" enctype="multipart/form-data">
 
                 <label>Título:</label>
                 <input type="text" name="titulo" required>
+
+                <label>Capa do Evento (imagem):</label>
+                <input type="file" name="capa" accept="image/*" required>
 
                 <div class="flex-group">
                     <div>
@@ -72,17 +75,31 @@ $resultado = $conexao->query($query);
                     </div>
                 </div>
 
-                <label>Localização:</label>
-                <textarea name="localizacao" required></textarea>
+                <div class="flex-group">
+                    <div>
+                        <label>Localização:</label>
+                        <input type="text" name="localizacao" placeholder="Nome do Local:" required>
+                    </div>
+                    <div>
+                        <label>link:</label>
+                        <input type="text" name="link_maps" placeholder="Link do Google Maps" required>
+
+                    </div>
+                </div>
 
                 <label>Descrição:</label>
                 <textarea name="descricao" required></textarea>
 
-                <label>Link do formulário de inscrição:</label>
-                <textarea name="formulario_inscricao" required></textarea>
-
-                <label>Ingresso (ex: gratuito, R$10):</label>
-                <input type="text" name="ingresso" required>
+                <div class="flex-group">
+                    <div>
+                        <label>Inscrição:</label>
+                        <input name="formulario_inscricao" id="formulario_inscricao" placeholder="Link do formulario" required>
+                    </div>
+                    <div>
+                        <label>Ingresso:</label>
+                        <input type="text" name="ingresso" id="ingresso_incricao" placeholder="gratis ou 10" required>
+                    </div>
+                </div>
 
                 <div class="flex-group">
                     <div>
@@ -136,6 +153,9 @@ $resultado = $conexao->query($query);
                 <label>Título:</label>
                 <input type="text" name="titulo" id="titulo_editar" required>
 
+                <label>Capa do Evento (imagem):</label>
+                <input type="file" name="capa_editar   " accept="image/*" required>
+
                 <div class="flex-group">
                     <div>
                         <label>Data:</label>
@@ -147,16 +167,25 @@ $resultado = $conexao->query($query);
                     </div>
                 </div>
 
-                <label>Localização:</label>
-                <textarea name="localizacao" id="localizacao_editar" required></textarea>
+                <div class="flex-group">
+                    <div>
+                        <label>Localização:</label>
+                        <input name="localizacao" id="localizacao_editar" required placeholder="Nome local">
+                    </div>
+                    <div>
+                        <label>link:</label>
+                        <input type="text" name="link_maps" placeholder="Link do Google Maps" required>
+                    </div>
+                    </di>
+                </div>
 
                 <label>Descrição:</label>
                 <textarea name="descricao" id="descricao_editar" required></textarea>
 
                 <div class="flex-group">
                     <div>
-                        <label>Link do formulário de inscrição:</label>
-                        <textarea name="formulario_inscricao" id="formulario_editar" required></textarea>
+                        <label>Formulário :</label>
+                        <input name="formulario_inscricao" id="formulario_editar" placeholder="Link do formulario" required>
                     </div>
                     <div>
                         <label>Ingresso:</label>
