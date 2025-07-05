@@ -37,6 +37,8 @@ $resultado = $conexao->query($query);
             <?php while ($evento = $resultado->fetch_assoc()): ?>
                 <div class="opcao">
                     <div>
+                        <img src="/Farmafittos-vers-o-final/<?php echo $evento['capa']; ?>" alt="Capa"
+                            style="width: 60px; height: 60px; object-fit: contain; border-radius: 8px;">
                         <h2 style="margin: 0;"><?php echo htmlspecialchars($evento['titulo']); ?></h2>
                         <p><?php echo date("d/m/Y", strtotime($evento['data_evento'])) . " às " . substr($evento['hora'], 0, 5); ?>
                         </p>
@@ -93,7 +95,8 @@ $resultado = $conexao->query($query);
                 <div class="flex-group">
                     <div>
                         <label>Inscrição:</label>
-                        <input name="formulario_inscricao" id="formulario_inscricao" placeholder="Link do formulario" required>
+                        <input name="formulario_inscricao" id="formulario_inscricao" placeholder="Link do formulario"
+                            required>
                     </div>
                     <div>
                         <label>Ingresso:</label>
@@ -141,77 +144,79 @@ $resultado = $conexao->query($query);
     </div>
 
 
-    <!-- Modal Edição -->
-    <div class="modal-overlay" id="modalEditar" style="display: none;">
-        <div class="modal">
-            <span class="fechar-modal" id="fecharModalEditar">&times;</span>
-            <h2>Editar Evento</h2>
-            <form id="formEdicao" action="/Farmafittos-vers-o-final/backend/crud_evento/processa_edicao_evento.php"
-                method="POST">
-                <input type="hidden" name="id_evento" id="id_evento">
+    <<!-- Modal Edição -->
+        <div class="modal-overlay" id="modalEditar" style="display: none;">
+            <div class="modal">
+                <span class="fechar-modal" id="fecharModalEditar">&times;</span>
+                <h2>Editar Evento</h2>
+                <form id="formEdicao" action="/Farmafittos-vers-o-final/backend/crud_evento/processa_edicao_evento.php"
+                    method="POST" enctype="multipart/form-data">
+                    <input type="hidden" name="id_evento" id="id_evento">
 
-                <label>Título:</label>
-                <input type="text" name="titulo" id="titulo_editar" required>
+                    <label>Título:</label>
+                    <input type="text" name="titulo" id="titulo_editar" required>
 
-                <label>Capa do Evento (imagem):</label>
-                <input type="file" name="capa_editar   " accept="image/*" required>
+                    <label>Capa do Evento (imagem):</label>
+                    <input type="file" name="capa" id="capa_editar" accept="image/*">
 
-                <div class="flex-group">
-                    <div>
-                        <label>Data:</label>
-                        <input type="date" name="data_evento" id="data_editar" required>
+                    <div class="flex-group">
+                        <div>
+                            <label>Data:</label>
+                            <input type="date" name="data_evento" id="data_evento_editar" required>
+                        </div>
+                        <div>
+                            <label>Hora:</label>
+                            <input type="time" name="hora" id="hora_editar" required>
+                        </div>
                     </div>
-                    <div>
-                        <label>Hora:</label>
-                        <input type="time" name="hora" id="hora_editar" required>
-                    </div>
-                </div>
 
-                <div class="flex-group">
-                    <div>
-                        <label>Localização:</label>
-                        <input name="localizacao" id="localizacao_editar" required placeholder="Nome local">
+                    <div class="flex-group">
+                        <div>
+                            <label>Localização:</label>
+                            <input name="localizacao" id="localizacao_editar" placeholder="Nome local" required>
+                        </div>
+                        <div>
+                            <label>Link:</label>
+                            <input type="text" name="link_maps" id="link_maps_editar" placeholder="Link do Google Maps"
+                                required>
+                        </div>
                     </div>
-                    <div>
-                        <label>link:</label>
-                        <input type="text" name="link_maps" placeholder="Link do Google Maps" required>
-                    </div>
-                    </di>
-                </div>
 
-                <label>Descrição:</label>
-                <textarea name="descricao" id="descricao_editar" required></textarea>
+                    <label>Descrição:</label>
+                    <textarea name="descricao" id="descricao_editar" required></textarea>
 
-                <div class="flex-group">
-                    <div>
-                        <label>Formulário :</label>
-                        <input name="formulario_inscricao" id="formulario_editar" placeholder="Link do formulario" required>
+                    <div class="flex-group">
+                        <div>
+                            <label>Formulário:</label>
+                            <input name="formulario_inscricao" id="formulario_editar" placeholder="Link do formulário"
+                                required>
+                        </div>
+                        <div>
+                            <label>Ingresso:</label>
+                            <input type="text" name="ingresso" id="ingresso_editar" required>
+                        </div>
                     </div>
-                    <div>
-                        <label>Ingresso:</label>
-                        <input type="text" name="ingresso" id="ingresso_editar" required>
-                    </div>
-                </div>
 
-                <div class="flex-group">
-                    <div>
-                        <label>WhatsApp:</label>
-                        <input type="text" name="whatsapp" id="whatsapp_editar" required>
+                    <div class="flex-group">
+                        <div>
+                            <label>WhatsApp:</label>
+                            <input type="text" name="whatsapp" id="whatsapp_editar" required>
+                        </div>
+                        <div>
+                            <label>Instagram (opcional):</label>
+                            <input type="text" name="instagram" id="instagram_editar">
+                        </div>
                     </div>
-                    <div>
-                        <label>Instagram (opcional):</label>
-                        <input type="text" name="instagram" id="instagram_editar">
-                    </div>
-                </div>
-                <button type="submit" class="botao-editar">Salvar alterações</button>
-            </form>
+
+                    <button type="submit" class="botao-editar">Salvar alterações</button>
+                </form>
+            </div>
         </div>
-    </div>
 
-    <script src="/Farmafittos-vers-o-final/admin/js/eventos/modal_editar.js"></script>
-    <script src="/Farmafittos-vers-o-final/admin/js/eventos/modal_cadastro.js"></script>
-    <script src="/Farmafittos-vers-o-final/admin/js/eventos/modal_excluir.js"></script>
-    <script src="/Farmafittos-vers-o-final/admin/js/view_password.js"></script>
+        <script src="/Farmafittos-vers-o-final/admin/js/eventos/modal_editar.js"></script>
+        <script src="/Farmafittos-vers-o-final/admin/js/eventos/modal_cadastro.js"></script>
+        <script src="/Farmafittos-vers-o-final/admin/js/eventos/modal_excluir.js"></script>
+        <script src="/Farmafittos-vers-o-final/admin/js/view_password.js"></script>
 </body>
 
 </html>
