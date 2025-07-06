@@ -59,7 +59,7 @@
                     <a href="#">Publicações ▾</a>
                     <ul class="submenu">
                         <li><a href="/Farmafittos-vers-o-final/pages/prev_noticias.php">Notícias</a></li>
-                        <li><a href="./prev-atividades.php">Atividades</a></li>
+                        <li><a href="/Farmafittos-vers-o-final/pages/prev_atividades.php">Atividades</a></li>
                     </ul>
                 </li>
 
