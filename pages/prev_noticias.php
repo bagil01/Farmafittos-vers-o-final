@@ -93,8 +93,8 @@
     </div>
 
     <!-- Modal Pesquisa -->
-    <div id="modalSearch" class="modal">
-        <div class="modal-content">
+    <div id="modalSearch" class="modalPesquisa">
+        <div class="modal-content-pesquisa">
             <span class="close" onclick="closeModal('modalSearch')">&times;</span>
             <div class="container-seach-modal">
                 <h1>Pesquisar Notícia</h1>
@@ -109,8 +109,8 @@
     </div>
 
     <!-- Modal Filtros -->
-    <div id="modalFilter" class="modal">
-        <div class="modal-content">
+    <div id="modalFilter" class="modalFiltro">
+        <div class="modal-content-filtro">
             <span class="close" onclick="closeModal('modalFilter')">&times;</span>
             <div class="container-filter-modal">
                 <h1>Filtros</h1>
