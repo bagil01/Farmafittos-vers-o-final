@@ -37,6 +37,7 @@ $recomendadas = $stmt_recomendadas->get_result();
 
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -48,49 +49,61 @@ $recomendadas = $stmt_recomendadas->get_result();
 
 <body>
     <div class="voltar">
+        <div class="anterior">
         <a href="javascript:history.back()">
             <i class="fa-solid fa-circle-arrow-left"></i> VOLTAR
         </a>
+        </div>
+        <div class="inicio">
+            <a href="/Farmafittos-vers-o-final/">
+            <i class="fas fa-home"></i> INICIO
+        </a>
+        </div>
     </div>
 
     <div class="container">
         <!-- Página 1 -->
         <div class="pagina pagina-1">
-            <div class="container-conteudo">
-                <h1><?= htmlspecialchars($noticia['titulo']) ?></h1>
-                <h2>Publicado em <?= date('d/m/Y', strtotime($noticia['data_publicacao'])) ?></h2>
-                <section><?= nl2br(htmlspecialchars($noticia['conteudo'])) ?></section>
-            </div>
+            <div class="container-noticia">
+                <div class="container-conteudo">
+                    <h1><?= htmlspecialchars($noticia['titulo']) ?></h1>
+                    <h3>Publicado em <?= date('d/m/Y', strtotime($noticia['data_publicacao'])) ?></h3>
+                    <section><?= nl2br(htmlspecialchars($noticia['conteudo'])) ?></section>
+                </div>
 
-            <!-- Notícias recomendadas -->
-            <div class="container-proxima">
-                <?php while ($rec = $recomendadas->fetch_assoc()): ?>
-                    <div class="card-proxima-noticia">
-                        <a href="noticia.php?id=<?= $rec['id'] ?>">
-                            <img src="/Farmafittos-vers-o-final/<?= htmlspecialchars($rec['capa']) ?>" alt="Capa da notícia">
-                            <p><?= htmlspecialchars($rec['titulo']) ?></p>
-                        </a>
-                    </div>
-                <?php endwhile; ?>
-            </div>
+                <!-- Notícias recomendadas -->
+                <div class="container-proxima">
+                    <h2>Proximas noticias</h2>
+                    <?php while ($rec = $recomendadas->fetch_assoc()): ?>
+                        <div class="card-proxima-noticia">
+                            <a href="noticia.php?id=<?= $rec['id'] ?>">
+                                <img src="/Farmafittos-vers-o-final/<?= htmlspecialchars($rec['capa']) ?>"
+                                    alt="Capa da notícia">
+                                <p><?= htmlspecialchars($rec['titulo']) ?></p>
+                            </a>
+                        </div>
+                    <?php endwhile; ?>
+                </div>
+            </div>  
         </div>
 
-       <!-- Página 2 - Mídias -->
-<div class="pagina pagina-2" style="display: none;">
-    <div class="container-midias">
-        <section>
-            <div class="midias">
-                <?php if ($resultado_midias->num_rows > 0): ?>
-                    <?php while ($midia = $resultado_midias->fetch_assoc()): ?>
-                        <img src="/Farmafittos-vers-o-final/<?= htmlspecialchars($midia['caminho']) ?>" alt="<?= htmlspecialchars($midia['descricao'] ?? '') ?>">
-                    <?php endwhile; ?>
-                <?php else: ?>
-                    <p style="text-align:center;">Nenhuma mídia encontrada para esta notícia.</p>
-                <?php endif; ?>
+        <!-- Página 2 - Mídias -->
+        <div class="pagina pagina-2" style="display: none;">
+            <div class="container-midias">
+                <section>
+                    <div class="midias">
+                        <?php if ($resultado_midias->num_rows > 0): ?>
+                            <?php while ($midia = $resultado_midias->fetch_assoc()): ?>
+                                <img src="/Farmafittos-vers-o-final/<?= htmlspecialchars($midia['caminho']) ?>"
+                                    alt="<?= htmlspecialchars($midia['descricao'] ?? '') ?>">
+                            <?php endwhile; ?>
+                        <?php else: ?>
+                            <p style="text-align:center;">Nenhuma mídia encontrada para esta notícia.</p>
+                        <?php endif; ?>
+                    </div>
+                </section>
             </div>
-        </section>
-    </div>
-</div>
+        </div>
         <!-- Paginação -->
         <div class="paginacao">
             <button class="pagina-btn" data-pagina="1">Página 1</button>
@@ -110,4 +123,5 @@ $recomendadas = $stmt_recomendadas->get_result();
     <script src="/Farmafittos-vers-o-final/assets/js/noticia/paginacao.js"></script>
     <script src="/Farmafittos-vers-o-final/assets/js/noticia/tela_cheia.js"></script>
 </body>
+
 </html>

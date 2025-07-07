@@ -19,6 +19,13 @@ body {
     padding: 20px 10px;
 }
 
+.container-noticia {
+    display: flex;
+    width: 100%;
+    margin: auto;
+    align-items: flex-start;
+}
+
 /* ====== VOLTAR ====== */
 .voltar {
     margin: 10px 0;
@@ -27,14 +34,15 @@ body {
 
 .voltar a {
     text-decoration: none;
-    color: #255e39;
+    color: #69372E;
     display: inline-flex;
     align-items: center;
     gap: 6px;
+    margin-left: 10px;
 }
 
 .voltar a:hover {
-    color: #69372E;
+    color: #69372ea5;
 }
 
 /* ====== CONTEÚDO DA PÁGINA ====== */
@@ -72,7 +80,14 @@ body {
     text-align: center;
     margin-bottom: 20px;
 }
-
+.pagina-1 h3 {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: #69372ea5;
+    font-size: 13px;
+    font-style: italic;
+    text-align: center;
+    margin-bottom: 20px;
+}
 /* ====== TEXTO DA NOTÍCIA ====== */
 section {
     font-family: 'Times New Roman', Times, serif;
@@ -88,6 +103,14 @@ section {
     display: flex;
     flex-direction: column;
     gap: 20px;
+    justify-content: center;
+    margin: auto;
+}
+
+.container h2 {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 25px;
+    color: #69372ea5;
 }
 
 .card-proxima-noticia {
