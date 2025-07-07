@@ -8,17 +8,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Apresentação do Projeto</title>
-    
     <link rel="stylesheet" href="../assets/css/Apresentacao_Projeto.css">
     <link rel="stylesheet" href="../icons/fontawesome-free-6.5.2-web/css/all.css">
-
     <?php include '../includes/header.php'; ?>
-
 </head>
 <body>
-
     <div class="container">
-
         <!-- Endereço e Contatos -->
         <div class="container-contatos-endereco">
             <div class="endereco">

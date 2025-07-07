@@ -11,13 +11,12 @@ $resultVoluntarios = $conexao->query($sqlVoluntarios);
 ?>
 
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Colaboradores</title>
-    <link rel="icon" type="image/jpg" href="/Farmafittos-vers-o-final/assets/">
     <link rel="stylesheet" href="/Farmafittos-vers-o-final/assets/css/colaboradores.css">
     <link rel="stylesheet" href="/Farmafittos-vers-o-final/assets/css/voluntarios.css">
     <link rel="stylesheet" href="/Farmafittos-vers-o-final/assets/icons/fontawesome-free-6.5.2-web/css/all.css">

@@ -1,19 +1,16 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="pt-Br">
 
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Referências</title>
-  <link rel="icon" type="image/png" href="./assents/Design sem nome (2).png">
   <link rel="stylesheet" href="/Farmafittos-vers-o-final/assets/css/referencias.css" />
   <link rel="stylesheet" href="/Farmafittos-vers-o-final/assets/icons/fontawesome-free-6.5.2-web/css/all.css">
+  <?php include '../includes/header.php'; ?>
 </head>
-
 <body>
-
   <?php
-    include '../includes/header.php';
     require_once(__DIR__ . '/../includes/conexao.php');
 
     $sql = "SELECT * FROM referencias";

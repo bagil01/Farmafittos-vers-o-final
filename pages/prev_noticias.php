@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Prévia das Notícias</title>
-    <link rel="icon" type="image/jpg" href="/Farmafittos-vers-o-final/assets/">
     <link rel="stylesheet" href="/Farmafittos-vers-o-final/assets/css/filtro.css">
     <link rel="stylesheet" href="/Farmafittos-vers-o-final/assets/css/prev_noticias.css">
     <link rel="stylesheet" href="/Farmafittos-vers-o-final/assets/icons/fontawesome-free-6.5.2-web/css/all.css">
