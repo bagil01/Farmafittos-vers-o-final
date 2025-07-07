@@ -1,4 +1,4 @@
-// Abre o modal de exclusão e define o ID oculto
+// Abrir modal de exclusão e preencher o ID
 function abrirModalExclusao(id) {
   const modal = document.getElementById('modalExcluirReferencia');
   const inputId = document.getElementById('idReferenciaExcluir');
@@ -15,21 +15,62 @@ function abrirModalExclusao(id) {
   }
 }
 
-// Aguarda carregamento do DOM para configurar eventos de fechar
-document.addEventListener('DOMContentLoaded', () => {
-  const modal = document.getElementById('modalExcluirReferencia');
-  const botaoFechar = document.getElementById('fecharModalExcluir');
+// Abrir modal de edição e preencher campos
+function abrirModalEdicao(referencia) {
+  const modal = document.getElementById('modalEditar');
+  if (!modal) return;
 
-  if (modal && botaoFechar) {
-    // Fecha ao clicar no botão X
-    botaoFechar.addEventListener('click', () => {
-      modal.style.display = 'none';
+  document.getElementById('id_referencia').value = referencia.id;
+  document.getElementById('titulo_editar').value = referencia.titulo;
+  document.getElementById('referencia_editar').value = referencia.referencia;
+  document.getElementById('descricao_editar').value = referencia.descricao ?? '';
+
+  modal.style.display = 'flex';
+}
+
+// Aguarda o DOM carregar
+document.addEventListener('DOMContentLoaded', () => {
+  // Exclusão
+  const modalExcluir = document.getElementById('modalExcluirReferencia');
+  const fecharExcluir = document.getElementById('fecharModalExcluir');
+  if (modalExcluir && fecharExcluir) {
+    fecharExcluir.addEventListener('click', () => {
+      modalExcluir.style.display = 'none';
     });
 
-    // Fecha ao clicar fora da área do modal
-    modal.addEventListener('click', (e) => {
-      if (e.target === modal) {
-        modal.style.display = 'none';
+    modalExcluir.addEventListener('click', (e) => {
+      if (e.target === modalExcluir) {
+        modalExcluir.style.display = 'none';
+      }
+    });
+  }
+
+  // Edição
+  const modalEditar = document.getElementById('modalEditar');
+  const fecharEditar = document.getElementById('fecharModalEditar');
+  if (modalEditar && fecharEditar) {
+    fecharEditar.addEventListener('click', () => {
+      modalEditar.style.display = 'none';
+    });
+
+    modalEditar.addEventListener('click', (e) => {
+      if (e.target === modalEditar) {
+        modalEditar.style.display = 'none';
+      }
+    });
+  }
+
+  // Cadastro
+  const modalCadastro = document.getElementById('modalCadastro');
+  const fecharCadastro = document.getElementById('fecharModalCadastro');
+  if (modalCadastro && fecharCadastro) {
+    fecharCadastro.addEventListener('click', () => {
+      modalCadastro.style.display = 'none';
+    });
+
+    modalCadastro.addEventListener('click', (e) => {
+      if (e.target === modalCadastro) {
+        modalCadastro.style.display = 'none';
       }
     });
   }
