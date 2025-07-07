@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $instagram = trim($_POST['instagram'] ?? '');
 
     // Verifica campos obrigatórios
-    if (empty($titulo) || empty($data_evento) || empty($hora) || empty($localizacao) || empty($descricao) || empty($formulario) || empty($ingresso) || empty($whatsapp)) {
+    if (empty($titulo) || empty($data_evento) || empty($hora) || empty($localizacao) || empty($descricao) || empty($ingresso) || empty($whatsapp)) {
         header('Location: /Farmafittos-vers-o-final/admin/pages/gerenciador_eventos.php?erro=campos_obrigatorios');
         exit;
     }

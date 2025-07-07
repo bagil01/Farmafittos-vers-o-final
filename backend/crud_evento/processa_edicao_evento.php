@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $whatsapp = trim($_POST['whatsapp'] ?? '');
     $instagram = trim($_POST['instagram'] ?? '');
 
-    if (!$id || empty($titulo) || empty($data_evento) || empty($hora) || empty($localizacao) || empty($descricao) || empty($formulario) || empty($ingresso) || empty($whatsapp)) {
+    if (!$id || empty($titulo) || empty($data_evento) || empty($hora) || empty($localizacao) || empty($descricao) || empty($ingresso) || empty($whatsapp)) {
         header('Location: /Farmafittos-vers-o-final/admin/pages/gerenciador_eventos.php?erro=campos_obrigatorios');
         exit;
     }

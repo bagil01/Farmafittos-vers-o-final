@@ -71,7 +71,7 @@
                     </ul>
                 </li>
 
-                <li><a href="./eventos.php">Eventos</a></li>
+                <li><a href="/Farmafittos-vers-o-final/pages/eventos.php">Eventos</a></li>
             </ul>
         </nav>
     </header>

@@ -53,13 +53,13 @@ body {
 
 .card-content h2 {
     font-size: 1.2rem;
-    color: #2c3e50;
+    color: #69372E;
     margin-bottom: 10px;
 }
 
 .card-content p {
     font-size: 0.95rem;
-    color: #555;
+    color: #69372E;
     line-height: 1.4;
     word-wrap: break-word;
 }
@@ -67,13 +67,13 @@ body {
 .card-content a {
     display: inline-block;
     margin-top: 8px;
-    color: #3498db;
+    color: #a43c2a;
     font-weight: bold;
     text-decoration: none;
 }
 
 .card-content a:hover {
-    text-decoration: underline;
+    color:#411d17;
 }
 
 /* Responsividade extra */
