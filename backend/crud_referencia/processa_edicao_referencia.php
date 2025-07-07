@@ -5,6 +5,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $id = $_POST['id_referencia'] ?? null;
     $titulo = trim($_POST['titulo'] ?? '');
     $referencia = trim($_POST['referencia'] ?? '');
+    $descricao = trim($_POST['descricao'] ?? '');
     $logoPath = '';
 
     // Validação
@@ -21,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             exit;
         }
 
-       $pastaDestino = dirname(__DIR__, 2) . '/assets/uploads/referencias/';
+        $pastaDestino = dirname(__DIR__, 2) . '/assets/uploads/referencias/';
         if (!is_dir($pastaDestino)) {
             mkdir($pastaDestino, 0755, true);
         }
@@ -37,10 +38,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     }
 
-    // Monta SQL
-    $sql = "UPDATE referencias SET titulo = ?, referencia = ?";
-    $tipos = "ss";
-    $params = [$titulo, $referencia];
+    // Monta SQL com campo descricao
+    $sql = "UPDATE referencias SET titulo = ?, referencia = ?, descricao = ?";
+    $tipos = "sss";
+    $params = [$titulo, $referencia, $descricao];
 
     if (!empty($logoPath)) {
         $sql .= ", logo = ?";

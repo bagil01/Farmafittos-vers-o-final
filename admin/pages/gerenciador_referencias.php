@@ -53,52 +53,58 @@ $resultado = $conexao->query($query);
         </div>
     </div>
 
-    <!-- Modal Cadastro -->
-    <div class="modal-overlay" id="modalCadastro">
-        <div class="modal">
-            <span class="fechar-modal" id="fecharModalCadastro">&times;</span>
-            <h2>Cadastrar Nova Referência</h2>
+   <!-- Modal Cadastro -->
+<div class="modal-overlay" id="modalCadastro">
+    <div class="modal">
+        <span class="fechar-modal" id="fecharModalCadastro">&times;</span>
+        <h2>Cadastrar Nova Referência</h2>
 
-            <form id="formCadastro" action="/Farmafittos-vers-o-final/backend/crud_referencia/processa_referencia.php" method="POST"
-                enctype="multipart/form-data">
+        <form id="formCadastro" action="/Farmafittos-vers-o-final/backend/crud_referencia/processa_referencia.php" method="POST"
+            enctype="multipart/form-data">
 
-                <label for="titulo">Título:</label>
-                <input type="text" id="titulo" name="titulo" required>
+            <label for="titulo">Título:</label>
+            <input type="text" id="titulo" name="titulo" required>
 
-                <label for="referencia">Link da referência:</label>
-                <input type="text" id="referencia" name="referencia" required>
+            <label for="referencia">Link da referência:</label>
+            <input type="text" id="referencia" name="referencia" required>
 
-                <label for="logo">Adicionar logo:</label>
-                <input type="file" name="logo" id="logo" accept="image/*" required>
+            <label for="descricao">Descrição:</label>
+            <textarea id="descricao" name="descricao" rows="4" placeholder="Breve descrição sobre a referência..." required></textarea>
 
-                <button type="submit" class="botao-salvar">Salvar</button>
-            </form>
-        </div>
+            <label for="logo">Adicionar logo:</label>
+            <input type="file" name="logo" id="logo" accept="image/*" required>
+
+            <button type="submit" class="botao-salvar">Salvar</button>
+        </form>
     </div>
+</div>
 
-    <!-- Modal Editar -->
-    <div class="modal-overlay" id="modalEditar">
-        <div class="modal">
-            <span class="fechar-modal" id="fecharModalEditar">&times;</span>
-            <h2>Editar Referência</h2>
+<!-- Modal Editar -->
+<div class="modal-overlay" id="modalEditar">
+    <div class="modal">
+        <span class="fechar-modal" id="fecharModalEditar">&times;</span>
+        <h2>Editar Referência</h2>
 
-            <form id="formEdicao" action="/Farmafittos-vers-o-final/backend/crud_referencia/processa_edicao_referencia.php"
-                method="POST" enctype="multipart/form-data">
-                <input type="hidden" name="id_referencia" id="id_referencia">
+        <form id="formEdicao" action="/Farmafittos-vers-o-final/backend/crud_referencia/processa_edicao_referencia.php"
+            method="POST" enctype="multipart/form-data">
+            <input type="hidden" name="id_referencia" id="id_referencia">
 
-                <label for="titulo_editar">Título:</label>
-                <input type="text" id="titulo_editar" name="titulo" required>
+            <label for="titulo_editar">Título:</label>
+            <input type="text" id="titulo_editar" name="titulo" required>
 
-                <label for="referencia_editar">Link ou texto da referência:</label>
-                <input type="text" id="referencia_editar" name="referencia" required>
+            <label for="referencia_editar">Link ou texto da referência:</label>
+            <input type="text" id="referencia_editar" name="referencia" required>
 
-                <label for="logo_editar">Alterar logo (opcional):</label>
-                <input type="file" name="logo" id="logo_editar" accept="image/*">
+            <label for="descricao_editar">Descrição:</label>
+            <textarea id="descricao_editar" name="descricao" rows="4" placeholder="Descrição da referência..."></textarea>
 
-                <button type="submit" class="botao-editar">Salvar alterações</button>
-            </form>
-        </div>
+            <label for="logo_editar">Alterar logo (opcional):</label>
+            <input type="file" name="logo" id="logo_editar" accept="image/*">
+
+            <button type="submit" class="botao-editar">Salvar alterações</button>
+        </form>
     </div>
+</div>
 
     <!-- Modal Excluir -->
     <div class="modal-overlay" id="modalExcluirReferencia" style="display: none;">

@@ -67,7 +67,7 @@
                     <a href="#">Plantas ▾</a>
                     <ul class="submenu">
                         <li><a href="./prev-plantas.php">Plantas</a></li>
-                        <li><a href="./referencias.php">Referências</a></li>
+                        <li><a href="/Farmafittos-vers-o-final/pages/referencias.php">Referências</a></li>
                     </ul>
                 </li>
 

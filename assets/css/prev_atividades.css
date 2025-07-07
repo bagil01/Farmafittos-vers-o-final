@@ -49,14 +49,17 @@
 }
 
 .card-text h1 {
-    font-size: 20px;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 25px;
     color: #69372E;
     margin-bottom: 10px;
 }
 
 .card-text h2 {
+    justify-content: center;
+    font-family: 'Times New Roman', Times, serif;
     font-size: 13px;
-    color: #69372E;
+    color: #a43c2a;
     display: flex;
     align-items: center;
     margin-bottom: 10px;
@@ -64,7 +67,7 @@
 
 .card-text h2 i {
     margin-right: 8px;
-    color: #69372E;
+    color: #a43c2a;
 }
 
 .card-text p {
@@ -81,7 +84,7 @@
 }
 
 .card-text a:hover{
-    color: #934c40;
+    color: #4e2923;
   
 }
 

@@ -4,6 +4,7 @@ require_once(dirname(__DIR__, 2) . '/includes/conexao.php');
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $titulo = trim($_POST['titulo'] ?? '');
     $referencia = trim($_POST['referencia'] ?? '');
+    $descricao = trim($_POST['descricao'] ?? '');
     $logoPath = '';
 
     // Verifica se os campos obrigatórios foram preenchidos
@@ -12,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit;
     }
 
-      // Upload da logo (se fornecida)
+    // Upload da logo (se fornecida)
     if (isset($_FILES['logo']) && $_FILES['logo']['error'] === UPLOAD_ERR_OK) {
         $pastaDestino = dirname(__DIR__, 2) . '/assets/uploads/referencias/';
         if (!is_dir($pastaDestino)) {
@@ -24,13 +25,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         move_uploaded_file($_FILES['logo']['tmp_name'], $pastaDestino . $nomeArquivo);
     }
 
-
-    // Insere no banco
-    $sql = "INSERT INTO referencias (titulo, referencia, logo) VALUES (?, ?, ?)";
+    // Insere no banco com o campo descricao
+    $sql = "INSERT INTO referencias (titulo, referencia, descricao, logo) VALUES (?, ?, ?, ?)";
     $stmt = $conexao->prepare($sql);
 
     if ($stmt) {
-        $stmt->bind_param("sss", $titulo, $referencia, $logoPath);
+        $stmt->bind_param("ssss", $titulo, $referencia, $descricao, $logoPath);
 
         if ($stmt->execute()) {
             header('Location: /Farmafittos-vers-o-final/admin/pages/gerenciador_referencias.php?sucesso=1');
