@@ -7,7 +7,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $senha = $_POST['senha'] ?? '';
 
     if (!$idAdmin || empty($login) || empty($senha)) {
-        header('Location: /Farmafittos-vers-o-final/admin/pages/gerenciar_admin.php?erro=confirmacao_invalida');
+        header('Location: ./admin/pages/gerenciar_admin.php?erro=confirmacao_invalida');
         exit;
     }
 
@@ -27,14 +27,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $delete->execute();
 
         if ($delete->affected_rows > 0) {
-            header('Location: /Farmafittos-vers-o-final/admin/pages/gerenciar_admin.php?sucesso=excluido');
+            header('Location: ../../admin/pages/gerenciar_admin.php?sucesso=excluido');
         } else {
-            header('Location: /Farmafittos-vers-o-final/admin/pages/gerenciar_admin.php?erro=erro_exclusao');
+            header('Location: ../../admin/pages/gerenciar_admin.php?erro=erro_exclusao');
         }
 
         $delete->close();
     } else {
-        header('Location: /Farmafittos-vers-o-final/admin/pages/gerenciar_admin.php?erro=credenciais_invalidas');
+        header('Location: ../../admin/pages/gerenciar_admin.php?erro=credenciais_invalidas');
     }
 
     $conexao->close();

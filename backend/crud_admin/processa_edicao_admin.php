@@ -10,7 +10,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $erro = false;
 
     if (!$id || empty($nome)) {
-        header('Location: /Farmafittos-vers-o-final/admin/pages/gerenciar_admin.php?erro=campos_obrigatorios');
+        header('Location: ../../admin/pages/gerenciar_admin.php?erro=campos_obrigatorios');
         exit;
     }
 
@@ -27,7 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             !preg_match('/\d/', $senha) ||
             !preg_match('/[\W_]/', $senha)
         ) {
-            header('Location: /Farmafittos-vers-o-final/admin/pages/gerenciar_admin.php?erro=senha_invalida');
+            header('Location: ../../admin/pages/gerenciar_admin.php?erro=senha_invalida');
             exit;
         }
 
@@ -51,7 +51,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // Caminho salvo no banco (para ser usado nas views)
             $fotoPath = 'assets/uploads/admins/' . $nomeArquivo;
         } else {
-            header('Location: /Farmafittos-vers-o-final/admin/pages/gerenciar_admin.php?erro=upload');
+            header('Location: ../../admin/pages/gerenciar_admin.php?erro=upload');
             exit;
         }
     }
@@ -81,9 +81,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt->bind_param($tipos, ...$params);
 
     if ($stmt->execute()) {
-        header('Location: /Farmafittos-vers-o-final/admin/pages/gerenciar_admin.php?sucesso=editado');
+        header('Location: ../../admin/pages/gerenciar_admin.php?sucesso=editado');
     } else {
-        header('Location: /Farmafittos-vers-o-final/admin/pages/gerenciar_admin.php?erro=bd');
+        header('Location: ../../admin/pages/gerenciar_admin.php?erro=bd');
     }
 
     $stmt->close();

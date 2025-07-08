@@ -31,19 +31,19 @@ $stmt->close();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Editar Administrador</title>
-    <link rel="stylesheet" href="/Farmafittos-vers-o-final/admin/css/editar_admin.css">
-    <link rel="stylesheet" href="/Farmafittos-vers-o-final/assets/icons/fontawesome-free-6.5.2-web/css/all.css">
+    <link rel="stylesheet" href="../admin/css/editar_admin.css">
+    <link rel="stylesheet" href="../assets/icons/fontawesome-free-6.5.2-web/css/all.css">
 </head>
 
 <body>
     <div class="voltar">
-        <a href="/Farmafittos-vers-o-final/admin//pages/gerenciar_admin.php">
+        <a href="../admin//pages/gerenciar_admin.php">
             <i class="fa-solid fa-circle-arrow-left"></i> VOLTAR
         </a>
     </div>
     <div class="container">
         <h1>Editar Administrador</h1>
-        <form action="/Farmafittos-vers-o-final/backend/crud_admin/processa_edicao_admin.php" method="POST"
+        <form action="../backend/crud_admin/processa_edicao_admin.php" method="POST"
             enctype="multipart/form-data">
             <input type="hidden" name="id" value="<?php echo $admin['id']; ?>">
 
@@ -69,7 +69,7 @@ $stmt->close();
                     style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); cursor: pointer;"></i>
             </div>
             <?php
-            $foto = !empty($admin['foto']) ? $admin['foto'] : 'Farmafittos-vers-o-final/assets/photos/user-default.jpg';
+            $foto = !empty($admin['foto']) ? $admin['foto'] : '../../assets/photos/user-default.jpg';
             ?>
             <img src="/<?php echo htmlspecialchars($foto); ?>"
                 style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover;"><br>
@@ -82,7 +82,7 @@ $stmt->close();
         </form>
     </div>
 
-    <script src="/Farmafittos-vers-o-final/admin/js/view_password.js"></script>
+    <script src="../admin/js/view_password.js"></script>
 
 </body>
 

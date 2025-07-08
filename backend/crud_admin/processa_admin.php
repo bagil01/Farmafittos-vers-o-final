@@ -9,17 +9,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $confirmar_senha = $_POST['Confirmar_senha'] ?? '';
 
     if (empty($nome) || empty($login) || empty($senha) || empty($confirmar_senha)) {
-        header('Location: /Farmafittos-vers-o-final/admin/pages/gerenciar_admin.php?erro=campos_vazios');
+        header('Location: ../../admin/pages/gerenciar_admin.php?erro=campos_vazios');
         exit;
     }
     // Validação de senha forte
     if (!preg_match('/^(?=.*[a-zA-Z])(?=.*\d)(?=.*[\W_]).{6,10}$/', $senha)) {
-        header('Location: /Farmafittos-vers-o-final/admin/pages/gerenciar_admin.php?erro=senha_fraca');
+        header('Location: ../../admin/pages/gerenciar_admin.php?erro=senha_fraca');
         exit;
     }
 
     if ($senha !== $confirmar_senha) {
-        header('Location: /Farmafittos-vers-o-final/admin/pages/gerenciar_admin.php?erro=senhas_diferentes');
+        header('Location: ../../admin/pages/gerenciar_admin.php?erro=senhas_diferentes');
         exit;
     }
 
@@ -41,7 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // Caminho salvo no banco (para ser usado nas views)
             $fotoPath = 'assets/uploads/admins/' . $nomeArquivo;
         } else {
-            header('Location: /Farmafittos-vers-o-final/admin/pages/gerenciar_admin.php?erro=upload');
+            header('Location: ../admin/pages/gerenciar_admin.php?erro=upload');
             exit;
         }
     }
@@ -56,16 +56,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt = $conexao->prepare($sql);
 
     if ($stmt === false) {
-        header('Location: /Farmafittos-vers-o-final/admin/pages/gerenciar_admin.php?erro=stmt_preparo_falhou');
+        header('Location: ../../admin/pages/gerenciar_admin.php?erro=stmt_preparo_falhou');
         exit;
     }
 
     $stmt->bind_param("ssss", $nome, $login, $senhaCriptografada, $fotoPath);
 
     if ($stmt->execute()) {
-        header('Location: /Farmafittos-vers-o-final/admin/pages/gerenciar_admin.php?sucesso=cadastro');
+        header('Location: ../../admin/pages/gerenciar_admin.php?sucesso=cadastro');
     } else {
-        header('Location: /Farmafittos-vers-o-final/admin/pages/gerenciar_admin.php?erro=banco');
+        header('Location: ../../admin/pages/gerenciar_admin.php?erro=banco');
     }
 
     $stmt->close();
