@@ -89,24 +89,8 @@ $parceiros = $conexao->query($sqlParceiros);
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
-  <script src="../assets/js/index/carrosel_destaque.js"></script>
-  <script src="../assets/js/index/carrosel_parceiros.js"></script>
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      new Swiper(".swiper", {
-        loop: true,
-        pagination: {
-          el: ".swiper-pagination",
-          clickable: true,
-        },
-        autoplay: {
-          delay: 3000,
-          disableOnInteraction: false,
-        },
-        slidesPerView: 1,
-      });
-    });
-  </script>
+  <script src="assets/js/index/carrosel_destaque.js"></script>
+  <script src="assets/js/index/carrosel_parceiros.js"></script>
 </body>
 
 </html>
