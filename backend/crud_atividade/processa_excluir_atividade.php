@@ -7,7 +7,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $senha = $_POST['senha'] ?? '';
 
     if (!$id_atividade || empty($login) || empty($senha)) {
-        header('Location: /Farmafittos-vers-o-final/admin/pages/gerenciador_atividades.php?erro=campos_obrigatorios');
+        header('Location: ../../admin/pages/gerenciador_atividades.php?erro=campos_obrigatorios');
         exit;
     }
 
@@ -19,13 +19,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $resultado = $stmt->get_result();
 
     if ($resultado->num_rows === 0) {
-        header('Location: /Farmafittos-vers-o-final/admin/pages/gerenciador_atividades.php?erro=login_invalido');
+        header('Location: ../../admin/pages/gerenciador_atividades.php?erro=login_invalido');
         exit;
     }
 
     $admin = $resultado->fetch_assoc();
     if (!password_verify($senha, $admin['senha'])) {
-        header('Location: /Farmafittos-vers-o-final/admin/pages/gerenciador_atividades.php?erro=senha_incorreta');
+        header('Location: ../../admin/pages/gerenciador_atividades.php?erro=senha_incorreta');
         exit;
     }
 
@@ -35,16 +35,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmtDelete->bind_param("i", $id_atividade);
 
     if ($stmtDelete->execute()) {
-        header('Location: /Farmafittos-vers-o-final/admin/pages/gerenciador_atividades.php?sucesso=excluida');
+        header('Location: ../../admin/pages/gerenciador_atividades.php?sucesso=excluida');
     } else {
-        header('Location: /Farmafittos-vers-o-final/admin/pages/gerenciador_atividades.php?erro=bd');
+        header('Location: ../../admin/pages/gerenciador_atividades.php?erro=bd');
     }
 
     $stmtDelete->close();
     $stmt->close();
     $conexao->close();
 } else {
-    header('Location: /Farmafittos-vers-o-final/admin/pages/gerenciador_atividades.php');
+    header('Location: ../../admin/pages/gerenciador_atividades.php');
     exit;
 }
 ?>

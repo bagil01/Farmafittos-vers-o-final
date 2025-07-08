@@ -20,12 +20,12 @@ if ($resultado->num_rows === 0) {
 <?php while ($img = $resultado->fetch_assoc()): ?>
   <div class="img-item" style="margin-bottom: 15px; display: flex; align-items: center; gap: 10px;">
     <img 
-      src="/Farmafittos-vers-o-final/<?= htmlspecialchars($img['caminho']) ?>" 
+      src="../../<?= htmlspecialchars($img['caminho']) ?>" 
       alt="Imagem da Atividade" 
       style="width: 100px; border-radius: 6px; box-shadow: 0 0 5px rgba(0,0,0,0.2);"
     >
     <form 
-      action="/Farmafittos-vers-o-final/backend/crud_atividade/excluir_imagem.php" 
+      action="../../backend/crud_atividade/excluir_imagem.php" 
       method="POST"
     >
       <input type="hidden" name="id_imagem" value="<?= $img['id'] ?>">
