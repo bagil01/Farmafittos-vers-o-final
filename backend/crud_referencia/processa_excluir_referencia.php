@@ -7,7 +7,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $senha = $_POST['senha'] ?? '';
 
     if (!$id_referencia || empty($login) || empty($senha)) {
-        header('Location: /Farmafittos-vers-o-final/admin/pages/gerenciador_referencias.php?erro=campos_obrigatorios');
+        header('Location: ../../admin/pages/gerenciador_referencias.php?erro=campos_obrigatorios');
         exit;
     }
 
@@ -19,13 +19,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $resultado = $stmt->get_result();
 
     if ($resultado->num_rows === 0) {
-        header('Location: /Farmafittos-vers-o-final/admin/pages/gerenciador_referencias.php?erro=login_invalido');
+        header('Location: ../../admin/pages/gerenciador_referencias.php?erro=login_invalido');
         exit;
     }
 
     $admin = $resultado->fetch_assoc();
     if (!password_verify($senha, $admin['senha'])) {
-        header('Location: /Farmafittos-vers-o-final/admin/pages/gerenciador_referencias.php?erro=senha_incorreta');
+        header('Location: ../../admin/pages/gerenciador_referencias.php?erro=senha_incorreta');
         exit;
     }
 
@@ -35,16 +35,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmtDelete->bind_param("i", $id_referencia);
 
     if ($stmtDelete->execute()) {
-        header('Location: /Farmafittos-vers-o-final/admin/pages/gerenciador_referencias.php?sucesso=excluido');
+        header('Location: ../../admin/pages/gerenciador_referencias.php?sucesso=excluido');
     } else {
-        header('Location: /Farmafittos-vers-o-final/admin/pages/gerenciador_referencias.php?erro=bd');
+        header('Location: ../../admin/pages/gerenciador_referencias.php?erro=bd');
     }
 
     $stmtDelete->close();
     $stmt->close();
     $conexao->close();
 } else {
-    header('Location: /Farmafittos-vers-o-final/admin/pages/gerenciador_referencias.php');
+    header('Location: ../../admin/pages/gerenciador_referencias.php');
     exit;
 }
 ?>

@@ -9,7 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Verifica se os campos obrigatórios foram preenchidos
     if (empty($titulo) || empty($referencia)) {
-        header('Location: /Farmafittos-vers-o-final/admin/pages/gerenciador_referencias.php?erro=campos_obrigatorios');
+        header('Location: ../../admin/pages/gerenciador_referencias.php?erro=campos_obrigatorios');
         exit;
     }
 
@@ -33,18 +33,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $stmt->bind_param("ssss", $titulo, $referencia, $descricao, $logoPath);
 
         if ($stmt->execute()) {
-            header('Location: /Farmafittos-vers-o-final/admin/pages/gerenciador_referencias.php?sucesso=1');
+            header('Location: ../../admin/pages/gerenciador_referencias.php?sucesso=1');
         } else {
-            header('Location: /Farmafittos-vers-o-final/admin/pages/gerenciador_referencias.php?erro=bd');
+            header('Location: ../../admin/pages/gerenciador_referencias.php?erro=bd');
         }
 
         $stmt->close();
     } else {
-        header('Location: /Farmafittos-vers-o-final/admin/pages/gerenciador_referencias.php?erro=prepare');
+        header('Location: ../../admin/pages/gerenciador_referencias.php?erro=prepare');
     }
 
     $conexao->close();
 } else {
-    header('Location: /Farmafittos-vers-o-final/admin/pages/gerenciador_referencias.php');
+    header('Location: ../../admin/pages/gerenciador_referencias.php');
     exit;
 }

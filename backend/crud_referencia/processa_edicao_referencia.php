@@ -10,7 +10,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Validação
     if (empty($id) || !is_numeric($id) || empty($titulo) || empty($referencia)) {
-        header('Location: /Farmafittos-vers-o-final/admin/pages/gerenciador_referencias.php?erro=campos_obrigatorios');
+        header('Location: ../../admin/pages/gerenciador_referencias.php?erro=campos_obrigatorios');
         exit;
     }
 
@@ -18,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_FILES['logo']) && $_FILES['logo']['error'] === UPLOAD_ERR_OK) {
         $extensoesPermitidas = ['image/jpeg', 'image/png', 'image/webp'];
         if (!in_array($_FILES['logo']['type'], $extensoesPermitidas)) {
-            header('Location: /Farmafittos-vers-o-final/admin/pages/gerenciador_referencias.php?erro=tipo_arquivo');
+            header('Location: ../../admin/pages/gerenciador_referencias.php?erro=tipo_arquivo');
             exit;
         }
 
@@ -33,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if (move_uploaded_file($_FILES['logo']['tmp_name'], $caminhoCompleto)) {
             $logoPath = 'assets/uploads/referencias/' . $nomeArquivo;
         } else {
-            header('Location: /Farmafittos-vers-o-final/admin/pages/gerenciador_referencias.php?erro=upload');
+            header('Location: ../../admin/pages/gerenciador_referencias.php?erro=upload');
             exit;
         }
     }
@@ -57,17 +57,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($stmt) {
         $stmt->bind_param($tipos, ...$params);
         if ($stmt->execute()) {
-            header('Location: /Farmafittos-vers-o-final/admin/pages/gerenciador_referencias.php?sucesso=editado');
+            header('Location: ../../admin/pages/gerenciador_referencias.php?sucesso=editado');
         } else {
-            header('Location: /Farmafittos-vers-o-final/admin/pages/gerenciador_referencias.php?erro=bd');
+            header('Location: ../../admin/pages/gerenciador_referencias.php?erro=bd');
         }
         $stmt->close();
     } else {
-        header('Location: /Farmafittos-vers-o-final/admin/pages/gerenciador_referencias.php?erro=prepare');
+        header('Location: ../../admin/pages/gerenciador_referencias.php?erro=prepare');
     }
 
     $conexao->close();
 } else {
-    header('Location: /Farmafittos-vers-o-final/admin/pages/gerenciador_referencias.php');
+    header('Location: ../../admin/pages/gerenciador_referencias.php');
     exit;
 }
