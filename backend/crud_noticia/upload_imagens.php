@@ -5,7 +5,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $id_noticia = $_POST['id_noticia'] ?? null;
 
     if (!$id_noticia || empty($_FILES['imagens'])) {
-        header('Location: /Farmafittos-vers-o-final/admin/pages/gerenciador_noticias.php?erro=upload_vazio');
+        header('Location: ../../admin/pages/gerenciador_noticias.php?erro=upload_vazio');
         exit;
     }
 
@@ -36,6 +36,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     $conexao->close();
-    header("Location: /Farmafittos-vers-o-final/admin/pages/gerenciador_noticias.php?sucesso=imagens_enviadas");
+    header("Location: ../../admin/pages/gerenciador_noticias.php?sucesso=imagens_enviadas");
 }
 ?>

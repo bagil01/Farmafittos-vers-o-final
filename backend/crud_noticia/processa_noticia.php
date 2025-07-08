@@ -8,7 +8,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $conteudo = trim($_POST['conteudo'] ?? '');
 
     if (empty($titulo) || empty($data) || empty($conteudo)) {
-        header('Location: /Farmafittos-vers-o-final/admin/pages/gerenciador_noticias.php?erro=campos_obrigatorios');
+        header('Location: ../../admin/pages/gerenciador_noticias.php?erro=campos_obrigatorios');
         exit;
     }
 
@@ -39,9 +39,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt->bind_param("sssss", $titulo, $caminhoCapa, $data, $destaque, $conteudo);
 
     if ($stmt->execute()) {
-        header('Location: /Farmafittos-vers-o-final/admin/pages/gerenciador_noticias.php?sucesso=cadastrada');
+        header('Location: ../../admin/pages/gerenciador_noticias.php?sucesso=cadastrada');
     } else {
-        header('Location: /Farmafittos-vers-o-final/admin/pages/gerenciador_noticias.php?erro=bd_execucao');
+        header('Location: ../../admin/pages/gerenciador_noticias.php?erro=bd_execucao');
     }
 
     $stmt->close();

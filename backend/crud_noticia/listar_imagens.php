@@ -17,8 +17,8 @@ if ($resultado->num_rows === 0) {
 
 <?php while ($img = $resultado->fetch_assoc()): ?>
   <div class="img-item" style="margin-bottom: 15px;">
-    <img src="/Farmafittos-vers-o-final/<?php echo $img['caminho']; ?>" alt="Imagem da Notícia" style="width: 100px;">
-    <form action="/Farmafittos-vers-o-final/backend/crud_noticia/excluir_imagem.php" method="POST" style="display:inline;">
+    <img src="../../<?php echo $img['caminho']; ?>" alt="Imagem da Notícia" style="width: 100px;">
+    <form action="../../backend/crud_noticia/excluir_imagem.php" method="POST" style="display:inline;">
       <input type="hidden" name="id_imagem" value="<?= $img['id'] ?>">
       <button type="submit">Excluir</button>
     </form>

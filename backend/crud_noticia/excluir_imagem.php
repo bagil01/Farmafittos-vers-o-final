@@ -5,7 +5,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $id_imagem = $_POST['id_imagem'] ?? null;
 
     if (!$id_imagem) {
-        header('Location: /Farmafittos-vers-o-final/admin/pages/gerenciador_noticias.php?erro=id_imagem');
+        header('Location: ../../admin/pages/gerenciador_noticias.php?erro=id_imagem');
         exit;
     }
 
@@ -16,7 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $resultado = $consulta->get_result();
 
     if ($resultado->num_rows === 0) {
-        header('Location: /Farmafittos-vers-o-final/admin/pages/gerenciador_noticias.php?erro=imagem_nao_encontrada');
+        header('Location: ../../admin/pages/gerenciador_noticias.php?erro=imagem_nao_encontrada');
         exit;
     }
 
@@ -32,16 +32,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if (file_exists($caminho)) {
             unlink($caminho);
         }
-        header('Location: /Farmafittos-vers-o-final/admin/pages/gerenciador_noticias.php?sucesso=imagem_excluida');
+        header('Location: ../../admin/pages/gerenciador_noticias.php?sucesso=imagem_excluida');
     } else {
-        header('Location: /Farmafittos-vers-o-final/admin/pages/gerenciador_noticias.php?erro=erro_excluir_imagem');
+        header('Location: ../../admin/pages/gerenciador_noticias.php?erro=erro_excluir_imagem');
     }
 
     $consulta->close();
     $delete->close();
     $conexao->close();
 } else {
-    header('Location: /Farmafittos-vers-o-final/admin/pages/gerenciador_noticias.php');
+    header('Location: ../../admin/pages/gerenciador_noticias.php');
     exit;
 }
 ?>
