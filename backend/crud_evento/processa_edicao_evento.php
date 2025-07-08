@@ -16,7 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $instagram = trim($_POST['instagram'] ?? '');
 
     if (!$id || empty($titulo) || empty($data_evento) || empty($hora) || empty($localizacao) || empty($descricao) || empty($ingresso) || empty($whatsapp)) {
-        header('Location: /Farmafittos-vers-o-final/admin/pages/gerenciador_eventos.php?erro=campos_obrigatorios');
+        header('Location: ../../admin/pages/gerenciador_eventos.php?erro=campos_obrigatorios');
         exit;
     }
 
@@ -84,9 +84,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Executa e redireciona
     if ($stmt->execute()) {
-        header('Location: /Farmafittos-vers-o-final/admin/pages/gerenciador_eventos.php?sucesso=editado');
+        header('Location: ../../admin/pages/gerenciador_eventos.php?sucesso=editado');
     } else {
-        header('Location: /Farmafittos-vers-o-final/admin/pages/gerenciador_eventos.php?erro=bd_execucao');
+        header('Location: ../../admin/pages/gerenciador_eventos.php?erro=bd_execucao');
     }
 
     $stmt->close();

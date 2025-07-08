@@ -16,7 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Verifica campos obrigatórios
     if (empty($titulo) || empty($data_evento) || empty($hora) || empty($localizacao) || empty($descricao) || empty($ingresso) || empty($whatsapp)) {
-        header('Location: /Farmafittos-vers-o-final/admin/pages/gerenciador_eventos.php?erro=campos_obrigatorios');
+        header('Location: ../../admin/pages/gerenciador_eventos.php?erro=campos_obrigatorios');
         exit;
     }
 
@@ -34,11 +34,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if (move_uploaded_file($_FILES['capa']['tmp_name'], '../../' . $caminhoRelativo)) {
             $caminhoCapa = $caminhoRelativo;
         } else {
-            header('Location: /Farmafittos-vers-o-final/admin/pages/gerenciador_eventos.php?erro=upload_imagem');
+            header('Location: ../../admin/pages/gerenciador_eventos.php?erro=upload_imagem');
             exit;
         }
     } else {
-        header('Location: /Farmafittos-vers-o-final/admin/pages/gerenciador_eventos.php?erro=capa_obrigatoria');
+        header('Location: ../../admin/pages/gerenciador_eventos.php?erro=capa_obrigatoria');
         exit;
     }
 
@@ -71,9 +71,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     );
 
     if ($stmt->execute()) {
-        header('Location: /Farmafittos-vers-o-final/admin/pages/gerenciador_eventos.php?sucesso=cadastrado');
+        header('Location: ../../admin/pages/gerenciador_eventos.php?sucesso=cadastrado');
     } else {
-        header('Location: /Farmafittos-vers-o-final/admin/pages/gerenciador_eventos.php?erro=bd_execucao');
+        header('Location: ../../admin/pages/gerenciador_eventos.php?erro=bd_execucao');
     }
 
     $stmt->close();
