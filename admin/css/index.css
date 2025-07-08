@@ -50,15 +50,21 @@ body {
     border-radius: 8px;
     font-size: 16px;
 }
-.formulario{
+
+.formulario {
     margin: 20px;
 }
-.login input, .senha input{
+
+.login input,
+.senha input {
     border-radius: 5px;
     width: 50%;
     height: 30px;
     padding: 10px;
     margin-bottom: 20px;
+}
+#verSenha{
+    width: 15px;
 }
 /* Botão de login */
 button[type="submit"] {

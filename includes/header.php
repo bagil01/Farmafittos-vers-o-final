@@ -74,7 +74,7 @@
                 <span class="fechar" id="fecharModal">&times;</span>
 
                 <div class="container-opcoes">
-                    <a href="/Farmafittos-vers-o-final/admin/gerenciador.php">
+                    <a href="./admin/index.php">
                         <div class="opcao">
                             <i class="fa-solid fa-users-gear"></i>
                             <h4>Painel de administração</h4>

@@ -4,31 +4,53 @@ require_once(__DIR__ . '/../includes/conexao.php');
 
 $erro = '';
 
+// Redireciona se já estiver logado
+if (isset($_SESSION['admin_id'])) {
+    header("Location: ../admin/pages/gerenciador.php");
+    exit();
+}
+
+// Limite de tentativas (proteção contra brute-force)
+if (!isset($_SESSION['tentativas'])) {
+    $_SESSION['tentativas'] = 0;
+}
+
+if ($_SESSION['tentativas'] >= 5) {
+    die("Muitas tentativas de login. Tente novamente mais tarde.");
+}
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $login = trim($_POST['login'] ?? '');
+    $login = filter_var(trim($_POST['login'] ?? ''), FILTER_SANITIZE_STRING);
     $senha = trim($_POST['senha'] ?? '');
 
     if (empty($login) || empty($senha)) {
         $erro = "Preencha todos os campos.";
     } else {
         $stmt = $conexao->prepare("SELECT id, nome, senha FROM admins WHERE login = ?");
-        $stmt->bind_param('s', $login);
-        $stmt->execute();
-        $resultado = $stmt->get_result();
+        if ($stmt) {
+            $stmt->bind_param('s', $login);
+            $stmt->execute();
+            $resultado = $stmt->get_result();
 
-        if ($resultado->num_rows === 1) {
-            $admin = $resultado->fetch_assoc();
-            if (password_verify($senha, $admin['senha'])) {
-                $_SESSION['admin_id'] = $admin['id'];
-                $_SESSION['admin_nome'] = $admin['nome'];
-                header("Location: ../admin/pages/gerenciador.php");
-                exit();
+            if ($resultado->num_rows === 1) {
+                $admin = $resultado->fetch_assoc();
+                if (password_verify($senha, $admin['senha'])) {
+                    // Login bem-sucedido
+                    $_SESSION['admin_id'] = $admin['id'];
+                    $_SESSION['admin_nome'] = $admin['nome'];
+                    $_SESSION['tentativas'] = 0;
+                    header("Location: ../admin/pages/gerenciador.php");
+                    exit();
+                } else {
+                    $_SESSION['tentativas']++;
+                    $erro = "Senha incorreta.";
+                }
             } else {
-                $erro = "Senha incorreta.";
+                $_SESSION['tentativas']++;
+                $erro = "Usuário não encontrado.";
             }
         } else {
-            $erro = "Usuário não encontrado.";
+            $erro = "Erro ao preparar a consulta: " . $conexao->error;
         }
     }
 }
@@ -36,20 +58,26 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Login - Admin</title>
     <link rel="stylesheet" href="./css/index.css">
+    <style>
+        .mostrar-senha {
+            margin-top: 5px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+    </style>
 </head>
-
 <body>
     <div class="login-container">
         <h2>Login Administrativo</h2>
         <?php if ($erro): ?>
             <p class="erro"><?= htmlspecialchars($erro) ?></p>
         <?php endif; ?>
+
         <form class="formulario" method="POST">
             <div class="login">
                 <label for="login">Login:</label>
@@ -59,10 +87,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <div class="senha">
                 <label for="senha">Senha:</label>
                 <input type="password" name="senha" id="senha" placeholder="Senha" required>
+                <div class="mostrar-senha">
+                    <input type="checkbox" id="verSenha" onclick="mostrarSenha()"> Mostrar senha
+                </div>
             </div>
+
             <button type="submit">Entrar</button>
         </form>
     </div>
-</body>
 
+    <script>
+        function mostrarSenha() {
+            const inputSenha = document.getElementById('senha');
+            inputSenha.type = inputSenha.type === 'password' ? 'text' : 'password';
+        }
+    </script>
+</body>
 </html>
