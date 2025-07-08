@@ -50,14 +50,14 @@ $recomendadas = $stmt_recomendadas->get_result();
 <body>
     <div class="voltar">
         <div class="anterior">
-        <a href="javascript:history.back()">
-            <i class="fa-solid fa-circle-arrow-left"></i> VOLTAR
-        </a>
+            <a href="javascript:history.back()">
+                <i class="fa-solid fa-circle-arrow-left"></i> VOLTAR
+            </a>
         </div>
         <div class="inicio">
             <a href="/Farmafittos-vers-o-final/">
-            <i class="fas fa-home"></i> INICIO
-        </a>
+                <i class="fas fa-home"></i> INICIO
+            </a>
         </div>
     </div>
 
@@ -74,17 +74,19 @@ $recomendadas = $stmt_recomendadas->get_result();
                 <!-- Notícias recomendadas -->
                 <div class="container-proxima">
                     <h2>Proximas noticias</h2>
-                    <?php while ($rec = $recomendadas->fetch_assoc()): ?>
-                        <div class="card-proxima-noticia">
-                            <a href="noticia.php?id=<?= $rec['id'] ?>">
-                                <img src="/Farmafittos-vers-o-final/<?= htmlspecialchars($rec['capa']) ?>"
-                                    alt="Capa da notícia">
-                                <p><?= htmlspecialchars($rec['titulo']) ?></p>
-                            </a>
-                        </div>
-                    <?php endwhile; ?>
+                    <div class="cards-noticias">
+                        <?php while ($rec = $recomendadas->fetch_assoc()): ?>
+                            <div class="card-proxima-noticia">
+                                <a href="noticia.php?id=<?= $rec['id'] ?>">
+                                    <img src="/Farmafittos-vers-o-final/<?= htmlspecialchars($rec['capa']) ?>"
+                                        alt="Capa da notícia">
+                                    <p><?= htmlspecialchars($rec['titulo']) ?></p>
+                                </a>
+                            </div>
+                        <?php endwhile; ?>
+                    </div>
                 </div>
-            </div>  
+            </div>
         </div>
 
         <!-- Página 2 - Mídias -->

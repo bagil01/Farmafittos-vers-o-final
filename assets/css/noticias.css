@@ -80,6 +80,7 @@ body {
     text-align: center;
     margin-bottom: 20px;
 }
+
 .pagina-1 h3 {
     font-family: Georgia, 'Times New Roman', Times, serif;
     color: #69372ea5;
@@ -88,6 +89,7 @@ body {
     text-align: center;
     margin-bottom: 20px;
 }
+
 /* ====== TEXTO DA NOTÍCIA ====== */
 section {
     font-family: 'Times New Roman', Times, serif;
@@ -282,19 +284,46 @@ section {
 
 /* ====== RESPONSIVO ====== */
 @media (max-width: 768px) {
+    .container-noticia {
+        width: 100%;
+        display: block;
+    }
+
+    .cards-noticias {
+        display: flex;
+        justify-content: space-between;
+        padding: 10px;
+        margin: auto;
+    }
+
+    .container h2 {
+        margin: 0;
+        margin-top: 10px;
+    }
+
     .pagina-1 {
         flex-direction: column;
         align-items: center;
     }
 
-    .container-conteudo,
-    .container-proxima {
+    .container-conteudo {
         width: 100%;
         padding: 10px;
     }
 
-    .card-proxima-noticia {
+    .container-proxima {
+        display: flex;
         width: 100%;
+        margin: auto;
+        align-items: center;
+        gap: 0;
+
+    }
+.container-proxima p{
+    font-size: 18px;
+}
+    .card-proxima-noticia {
+        width: 45%;
     }
 
     .midias {
