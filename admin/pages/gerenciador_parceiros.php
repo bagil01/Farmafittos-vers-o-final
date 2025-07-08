@@ -5,15 +5,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gerenciador de Parceiros </title>
-    <link rel="stylesheet" href="/Farmafittos-vers-o-final/assets/icons/fontawesome-free-6.5.2-web/css/all.css">
-    <link rel="stylesheet" href="/Farmafittos-vers-o-final/admin/css/gerenciador.css">
-    <link rel="stylesheet" href="/Farmafittos-vers-o-final/admin/css/editar_admin.css">
+    <link rel="stylesheet" href="../../assets/icons/fontawesome-free-6.5.2-web/css/all.css">
+    <link rel="stylesheet" href="../../admin/css/gerenciador.css">
+    <link rel="stylesheet" href="../../admin/css/editar_admin.css">
 
 </head>
 
 <body>
     <div class="voltar">
-        <a href="/Farmafittos-vers-o-final/admin/">
+        <a href="../../admin/">
             <i class="fa-solid fa-circle-arrow-left"></i>
             VOLTAR
         </a>
@@ -38,7 +38,7 @@
             <?php while ($parceiro = $resultado->fetch_assoc()): ?>
                 <div class="opcao">
                     <div style="display: flex; align-items: center; gap: 15px;">
-                        <img src="/Farmafittos-vers-o-final/<?php echo htmlspecialchars($parceiro['logo']); ?>" alt="Logo"
+                        <img src="../../<?php echo htmlspecialchars($parceiro['logo']); ?>" alt="Logo"
                             style="width: 60px; height: 60px; object-fit: contain; border-radius: 8px;">
 
                         <div>
@@ -64,7 +64,7 @@
         <div class="modal">
             <span class="fechar-modal" id="fecharModalCadastro">&times;</span>
             <h2>Cadastrar Novo Parceiro</h2>
-            <form id="formCadastro" action="/Farmafittos-vers-o-final/backend/crud_parceiro/processa_parceiro.php" method="POST"
+            <form id="formCadastro" action="../../backend/crud_parceiro/processa_parceiro.php" method="POST"
                 enctype="multipart/form-data">
                 <label for="nome">Nome do Parceiro:</label>
                 <input type="text" id="nome" name="nome" required>
@@ -87,7 +87,7 @@
             <h2>Confirmar Exclusão</h2>
             <p>Digite seu login e senha para confirmar a exclusão do parceiro:</p>
 
-            <form action="/Farmafittos-vers-o-final/backend/crud_parceiro/processa_excluir_parceiro.php" method="POST">
+            <form action="../../backend/crud_parceiro/processa_excluir_parceiro.php" method="POST">
                 <input type="hidden" name="id_parceiro" id="idParceiroExcluir">
 
                 <label for="loginExcluir">Login:</label>
@@ -112,7 +112,7 @@
             <span class="fechar-modal" id="fecharModalEditar">&times;</span>
             <h2>Editar Parceiro</h2>
             
-            <form id="formEdicao" action="/Farmafittos-vers-o-final/backend/crud_parceiro/processa_edicao_parceiro.php" method="POST"
+            <form id="formEdicao" action="../../backend/crud_parceiro/processa_edicao_parceiro.php" method="POST"
                 enctype="multipart/form-data">
 
                 <input type="hidden" name="id_parceiro" id="id_parceiro">
@@ -133,9 +133,9 @@
 
 
 </body>
-<script src="/Farmafittos-vers-o-final/admin/js/parceiros/modal_editar.js"></script>
-<script src="/Farmafittos-vers-o-final/admin/js/parceiros/modal_cadastro.js"></script>
-<script src="/Farmafittos-vers-o-final/admin/js/parceiros/modal_excluir.js"></script>
-<script src="/Farmafittos-vers-o-final/admin/js/view_password.js"></script>
+<script src="../../admin/js/parceiros/modal_editar.js"></script>
+<script src="../../admin/js/parceiros/modal_cadastro.js"></script>
+<script src="../../admin/js/parceiros/modal_excluir.js"></script>
+<script src="../../admin/js/view_password.js"></script>
 
 </html>

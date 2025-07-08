@@ -10,15 +10,15 @@ $resultado = $conexao->query($query);
 <head>
     <meta charset="UTF-8">
     <title>Gerenciador de Referências</title>
-    <link rel="stylesheet" href="/Farmafittos-vers-o-final/assets/icons/fontawesome-free-6.5.2-web/css/all.css">
-    <link rel="stylesheet" href="/Farmafittos-vers-o-final/admin/css/gerenciador.css">
-    <link rel="stylesheet" href="/Farmafittos-vers-o-final/admin/css/editar_eventos.css" />
+    <link rel="stylesheet" href="../../assets/icons/fontawesome-free-6.5.2-web/css/all.css">
+    <link rel="stylesheet" href="../../admin/css/gerenciador.css">
+    <link rel="stylesheet" href="../../admin/css/editar_eventos.css" />
 </head>
 </head>
 
 <body>
     <div class="voltar">
-        <a href="/Farmafittos-vers-o-final/admin/">
+        <a href="../../admin/">
             <i class="fa-solid fa-circle-arrow-left"></i> VOLTAR
         </a>
     </div>
@@ -37,7 +37,7 @@ $resultado = $conexao->query($query);
             <?php while ($ref = $resultado->fetch_assoc()): ?>
                 <div class="opcao">
                     <div style="display: flex; align-items: center; gap: 15px;">
-                        <img src="/Farmafittos-vers-o-final/<?php echo htmlspecialchars($ref['logo']); ?>" alt="Logo"
+                        <img src="../../<?php echo htmlspecialchars($ref['logo']); ?>" alt="Logo"
                             style="width: 60px; height: 60px; object-fit: contain; border-radius: 8px;">
                         <div>
                             <h2 style="margin: 0;"><?php echo htmlspecialchars($ref['titulo']); ?></h2>
@@ -61,7 +61,7 @@ $resultado = $conexao->query($query);
             <span class="fechar-modal" id="fecharModalCadastro">&times;</span>
             <h2>Cadastrar Nova Referência</h2>
 
-            <form id="formCadastro" action="/Farmafittos-vers-o-final/backend/crud_referencia/processa_referencia.php"
+            <form id="formCadastro" action="../../backend/crud_referencia/processa_referencia.php"
                 method="POST" enctype="multipart/form-data">
 
                 <label for="titulo">Título:</label>
@@ -89,7 +89,7 @@ $resultado = $conexao->query($query);
             <h2>Editar Referência</h2>
 
             <form id="formEdicao"
-                action="/Farmafittos-vers-o-final/backend/crud_referencia/processa_edicao_referencia.php" method="POST"
+                action="../../backend/crud_referencia/processa_edicao_referencia.php" method="POST"
                 enctype="multipart/form-data">
                 <input type="hidden" name="id_referencia" id="id_referencia">
 
@@ -118,7 +118,7 @@ $resultado = $conexao->query($query);
             <h2>Confirmar Exclusão</h2>
             <p>Digite seu login e senha para confirmar a exclusão da referencia:</p>
 
-            <form action="/Farmafittos-vers-o-final/backend/crud_referencia/processa_excluir_referencia.php"
+            <form action="../../backend/crud_referencia/processa_excluir_referencia.php"
                 method="POST">
                 <input type="hidden" name="id_referencia" id="idReferenciaExcluir">
 
@@ -138,10 +138,10 @@ $resultado = $conexao->query($query);
     </div>
 
     <!-- Scripts -->
-    <script src="/Farmafittos-vers-o-final/admin/js/referencias/modal_editar.js"></script>
-    <script src="/Farmafittos-vers-o-final/admin/js/referencias/modal_cadastro.js"></script>
-    <script src="/Farmafittos-vers-o-final/admin/js/referencias/modal_excluir.js"></script>
-    <script src="/Farmafittos-vers-o-final/admin/js/view_password.js"></script>
+    <script src="../../admin/js/referencias/modal_editar.js"></script>
+    <script src="../../admin/js/referencias/modal_cadastro.js"></script>
+    <script src="../../admin/js/referencias/modal_excluir.js"></script>
+    <script src="../../admin/js/view_password.js"></script>
 
 </body>
 

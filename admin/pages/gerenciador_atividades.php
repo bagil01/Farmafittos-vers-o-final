@@ -13,14 +13,14 @@ $resultado = $conexao->query($query);
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Gerenciador de Atividades</title>
-  <link rel="stylesheet" href="/Farmafittos-vers-o-final/assets/icons/fontawesome-free-6.5.2-web/css/all.css" />
-  <link rel="stylesheet" href="/Farmafittos-vers-o-final/admin/css/gerenciador.css" />
-  <link rel="stylesheet" href="/Farmafittos-vers-o-final/admin/css/galeria.css">
+  <link rel="stylesheet" href="../../assets/icons/fontawesome-free-6.5.2-web/css/all.css" />
+  <link rel="stylesheet" href="../../admin/css/gerenciador.css" />
+  <link rel="stylesheet" href="../../admin/css/galeria.css">
 </head>
 
 <body>
   <div class="voltar">
-    <a href="/Farmafittos-vers-o-final/admin/">
+    <a href="../../admin/">
       <i class="fa-solid fa-circle-arrow-left"></i> VOLTAR
     </a>
   </div>
@@ -32,7 +32,7 @@ $resultado = $conexao->query($query);
         <p>Adicionar Atividade</p>
       </div>
 
-      <a href="/Farmafittos-vers-o-final/admin/pages/lixeira_atividades.php">
+      <a href="../../admin/pages/lixeira_atividades.php">
         <div class="lixeira">
           <i class="fa-solid fa-trash"></i>
           <p>Lixeira</p>
@@ -46,7 +46,7 @@ $resultado = $conexao->query($query);
       <?php while ($atividade = $resultado->fetch_assoc()): ?>
         <div class="opcao">
           <?php if (!empty($atividade['capa'])): ?>
-            <img src="/Farmafittos-vers-o-final/<?php echo $atividade['capa']; ?>" alt="Capa"
+            <img src="../../<?php echo $atividade['capa']; ?>" alt="Capa"
               style="width: 60px; height: 60px; object-fit: contain; border-radius: 10px; padding: 5px;">
           <?php endif; ?>
           <h2><?= htmlspecialchars($atividade['titulo']) ?></h2>
@@ -69,7 +69,7 @@ $resultado = $conexao->query($query);
     <div class="modal">
       <span class="fechar-modal" id="fecharModal">&times;</span>
       <h2>Cadastrar Nova Atividade</h2>
-      <form id="formCadastro" action="/Farmafittos-vers-o-final/backend/crud_atividade/processa_atividade.php"
+      <form id="formCadastro" action="../../backend/crud_atividade/processa_atividade.php"
         method="POST" enctype="multipart/form-data">
 
         <label for="titulo">Título da Atividade:</label>
@@ -102,7 +102,7 @@ $resultado = $conexao->query($query);
       <h2>Editar Atividade</h2>
 
       <form id="formEdicaoAtividade"
-        action="/Farmafittos-vers-o-final/backend/crud_atividade/processa_edicao_atividade.php" method="POST"
+        action="../../backend/crud_atividade/processa_edicao_atividade.php" method="POST"
         enctype="multipart/form-data">
         <input type="hidden" id="id_atividade" name="id_atividade">
 
@@ -136,7 +136,7 @@ $resultado = $conexao->query($query);
       <h2>Confirmar Exclusão</h2>
       <p>Digite seu login e senha para confirmar a exclusão da atividade:</p>
 
-      <form action="/Farmafittos-vers-o-final/backend/crud_atividade/processa_excluir_atividade.php" method="POST">
+      <form action="../../backend/crud_atividade/processa_excluir_atividade.php" method="POST">
         <input type="hidden" name="id_atividade" id="idAtividadeExcluir">
 
         <label for="loginExcluir">Login:</label>
@@ -159,7 +159,7 @@ $resultado = $conexao->query($query);
     <div class="modal">
       <span class="fechar-modal" id="fecharModalImagens">&times;</span>
       <h2>Adicionar Imagens</h2>
-      <form action="/Farmafittos-vers-o-final/backend/crud_atividade/upload_imagens.php" method="POST"
+      <form action="../../backend/crud_atividade/upload_imagens.php" method="POST"
         enctype="multipart/form-data">
         <input type="hidden" name="id_atividade" id="idAtividadeImagens">
 
@@ -183,13 +183,13 @@ $resultado = $conexao->query($query);
     </div>
   </div>
 
-  <script src="/Farmafittos-vers-o-final/admin/js/gerenciador.js"></script>
-  <script src="/Farmafittos-vers-o-final/admin/js/atividades/modal_editar.js"></script>
-  <script src="/Farmafittos-vers-o-final/admin/js/atividades/modal_galeria.js"></script>
-  <script src="/Farmafittos-vers-o-final/admin/js/atividades/modal_cadastro.js"></script>
-  <script src="/Farmafittos-vers-o-final/admin/js/atividades/modal_excluir.js"></script>
-  <script src="/Farmafittos-vers-o-final/admin/js/atividades/modal_imagens.js"></script>
-  <script src="/Farmafittos-vers-o-final/admin/js/view_password.js"></script>
+  <script src="../../admin/js/gerenciador.js"></script>
+  <script src="../../admin/js/atividades/modal_editar.js"></script>
+  <script src="../../admin/js/atividades/modal_galeria.js"></script>
+  <script src="../../admin/js/atividades/modal_cadastro.js"></script>
+  <script src="../../admin/js/atividades/modal_excluir.js"></script>
+  <script src="../../admin/js/atividades/modal_imagens.js"></script>
+  <script src="../../admin/js/view_password.js"></script>
 </body>
 
 </html>

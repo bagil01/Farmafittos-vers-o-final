@@ -13,17 +13,17 @@ $resultado = $conexao->query($query);
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Gerenciador de Notícias</title>
-    <link rel="stylesheet" href="/Farmafittos-vers-o-final/assets/icons/fontawesome-free-6.5.2-web/css/all.css" />
-    <link rel="stylesheet" href="/Farmafittos-vers-o-final/admin/css/gerenciador_eventos.css" />
-    <link rel="stylesheet" href="/Farmafittos-vers-o-final/admin/css/galeria.css">
-    <link rel="stylesheet" href="/Farmafittos-vers-o-final/admin/css/editar_eventos.css" />
+    <link rel="stylesheet" href="../../assets/icons/fontawesome-free-6.5.2-web/css/all.css" />
+    <link rel="stylesheet" href="../../admin/css/gerenciador_eventos.css" />
+    <link rel="stylesheet" href="../../admin/css/galeria.css">
+    <link rel="stylesheet" href="../../admin/css/editar_eventos.css" />
 </head>
 
 </head>
 
 <body>
     <div class="voltar">
-        <a href="/Farmafittos-vers-o-final/admin/">
+        <a href="../../admin/">
             <i class="fa-solid fa-circle-arrow-left"></i>
             VOLTAR
         </a>
@@ -35,7 +35,7 @@ $resultado = $conexao->query($query);
                 <span>＋</span>
                 <p>Adicionar Notícia</p>
             </div>
-            <a href="/Farmafittos-vers-o-final/admin/pages/lixeira_noticias.php">
+            <a href="../../admin/pages/lixeira_noticias.php">
                 <div class="lixeira">
                     <i class="fa-solid fa-trash"></i>
                     <p>Lixeira</p>
@@ -50,7 +50,7 @@ $resultado = $conexao->query($query);
 
             <?php while ($noticia = $resultado->fetch_assoc()): ?>
                 <div class="opcao">
-                    <img src="/Farmafittos-vers-o-final/<?php echo $noticia['capa']; ?>" alt="Capa"
+                    <img src="../../<?php echo $noticia['capa']; ?>" alt="Capa"
                         style="width: 60px; height: 60px; object-fit: contain; border-radius: 8px;">
 
                     <h2><?= htmlspecialchars($noticia['titulo']) ?></h2>
@@ -77,7 +77,7 @@ $resultado = $conexao->query($query);
         <div class="modal">
             <span class="fechar-modal" id="fecharModal">&times;</span>
             <h2>Cadastrar Nova Notícia</h2>
-            <form id="formCadastro" action="/Farmafittos-vers-o-final/backend/crud_noticia/processa_noticia.php"
+            <form id="formCadastro" action="../../backend/crud_noticia/processa_noticia.php"
                 method="POST" enctype="multipart/form-data">
                 <label for="titulo">Título da Notícia:</label>
                 <input type="text" id="titulo" name="titulo" required />
@@ -111,7 +111,7 @@ $resultado = $conexao->query($query);
             <h2>Confirmar Exclusão</h2>
             <p>Digite seu login e senha para confirmar a exclusão do noticia:</p>
 
-            <form action="/Farmafittos-vers-o-final/backend/crud_noticia/processa_excluir_noticia.php" method="POST">
+            <form action="../../backend/crud_noticia/processa_excluir_noticia.php" method="POST">
                 <input type="hidden" name="id_noticia" id="idNoticiaExcluir">
 
                 <label for="loginExcluir">Login:</label>
@@ -135,7 +135,7 @@ $resultado = $conexao->query($query);
             <span class="fechar-modal" id="fecharModalEditarNoticia">&times;</span>
             <h2>Editar Notícia</h2>
 
-            <form id="formEdicaoNoticia" action="/Farmafittos-vers-o-final/backend/crud_noticia/processa_edicao_noticia.php" method="POST"
+            <form id="formEdicaoNoticia" action="../../backend/crud_noticia/processa_edicao_noticia.php" method="POST"
                 enctype="multipart/form-data">
                 <input type="hidden" id="id_noticia" name="id_noticia">
 
@@ -167,7 +167,7 @@ $resultado = $conexao->query($query);
         <div class="modal">
             <span class="fechar-modal" id="fecharModalImagens">&times;</span>
             <h2>Adicionar Imagens</h2>
-            <form action="/Farmafittos-vers-o-final/backend/crud_noticia/upload_imagens.php" method="POST"
+            <form action="../../backend/crud_noticia/upload_imagens.php" method="POST"
                 enctype="multipart/form-data">
                 <input type="hidden" name="id_noticia" id="idNoticiaImagens">
 
@@ -192,13 +192,13 @@ $resultado = $conexao->query($query);
     </div>
 
 
-    <script src="/Farmafittos-vers-o-final/admin/js/gerenciador.js"></script>
-    <script src="/Farmafittos-vers-o-final/admin/js/noticias/modal_editar.js"></script>
-    <script src="/Farmafittos-vers-o-final/admin/js/noticias/modal_galeria.js"></script>
-    <script src="/Farmafittos-vers-o-final/admin/js/noticias/modal_cadastro.js"></script>
-    <script src="/Farmafittos-vers-o-final/admin/js/noticias/modal_excluir.js"></script>
-    <script src="/Farmafittos-vers-o-final/admin/js/noticias/modal_imagens.js"></script>
-    <script src="/Farmafittos-vers-o-final/admin/js/view_password.js"></script>
+    <script src="../../admin/js/gerenciador.js"></script>
+    <script src="../../admin/js/noticias/modal_editar.js"></script>
+    <script src="../../admin/js/noticias/modal_galeria.js"></script>
+    <script src="../../admin/js/noticias/modal_cadastro.js"></script>
+    <script src="../../admin/js/noticias/modal_excluir.js"></script>
+    <script src="../../admin/js/noticias/modal_imagens.js"></script>
+    <script src="../../admin/js/view_password.js"></script>
 </body>
 
 </html>

@@ -5,14 +5,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Painel Administrativo</title>
-    <link rel="stylesheet" href="/Farmafittos-vers-o-final/admin/css/index.css" />
-    <link rel="stylesheet" href="/Farmafittos-vers-o-final/assets/icons/fontawesome-free-6.5.2-web/css/all.css">
+    <link rel="stylesheet" href="../admin/css/index.css" />
+    <link rel="stylesheet" href="../assets/icons/fontawesome-free-6.5.2-web/css/all.css">
 </head>
 
 <body>
     <div class="admin-container">
         <div class="voltar">
-            <a href="/Farmafittos-vers-o-final/">
+            <a href="../">
                 <i class="fa-solid fa-house"></i>
                 INICIO
             </a>
@@ -25,20 +25,20 @@
                 <!-- Blocos de administração à esquerda -->
                 <div class="container-controle">
                     <div class="card-grid">
-                        <a href="/Farmafittos-vers-o-final/admin/pages/gerenciar_admin.php">
+                        <a href="../admin/pages/gerenciar_admin.php">
                             <div class="card">
                                 <i class="fa-solid fa-users-gear"></i>
                                 <h3>Gerenciar ADMs</h3>
                             </div>
                         </a>
 
-                        <a href="/Farmafittos-vers-o-final/admin/pages/gerenciador_noticias.php">
+                        <a href="../admin/pages/gerenciador_noticias.php">
                             <div class="card">
                                 <i class="fa-solid fa-newspaper"></i>
                                 <h3>Gerenciar Notícia</h3>
                             </div>
                         </a>
-                        <a href="/Farmafittos-vers-o-final/admin/pages/gerenciador_atividades.php">
+                        <a href="../admin/pages/gerenciador_atividades.php">
                             <div class="card">
                                 <i class="fas fa-plus-circle"></i>
                                 <h3>Gerenciar Atividades</h3>
@@ -50,35 +50,35 @@
                             <h3>Gerenciar Plantas</h3>
                         </div>
 
-                        <a href="/Farmafittos-vers-o-final/admin/pages/gerenciador_eventos.php">
+                        <a href="../admin/pages/gerenciador_eventos.php">
                             <div class="card">
                                 <i class="fa-solid fa-calendar-days"></i>
                                 <h3>Gerenciar Eventos</h3>
                             </div>
                         </a>
 
-                        <a href="/Farmafittos-vers-o-final/admin/pages/gerenciador_parceiros.php">
+                        <a href="../admin/pages/gerenciador_parceiros.php">
                             <div class="card">
                                 <i class="fa-solid fa-handshake"></i>
                                 <h3>Gerenciar Parceiros</h3>
                             </div>
                         </a>
 
-                        <a href="/Farmafittos-vers-o-final/admin/pages/gerenciador_colaboradores.php">
+                        <a href="../admin/pages/gerenciador_colaboradores.php">
                             <div class="card">
                                 <i class="fa-solid fa-handshake-angle"></i>
                                 <h3>Gerenciar Colaboradores</h3>
                             </div>
                         </a>
 
-                        <a href="/Farmafittos-vers-o-final/admin/pages/gerenciador_voluntarios.php">
+                        <a href="../admin/pages/gerenciador_voluntarios.php">
                             <div class="card">
                                 <i class="fa-solid fa-handshake-simple"></i>
                                 <h3>Gerenciar voluntarios</h3>
                             </div>
                         </a>
 
-                        <a href="/Farmafittos-vers-o-final/admin/pages/gerenciador_referencias.php">
+                        <a href="../admin/pages/gerenciador_referencias.php">
                             <div class="card">
                                 <i class="fa-solid fa-star-of-life"></i>
                                 <h3>Gerenciar Referências</h3>

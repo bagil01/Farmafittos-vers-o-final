@@ -11,14 +11,14 @@ $resultado = $conexao->query($query);
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Gerenciador de Eventos</title>
-    <link rel="stylesheet" href="/Farmafittos-vers-o-final/assets/icons/fontawesome-free-6.5.2-web/css/all.css" />
-    <link rel="stylesheet" href="/Farmafittos-vers-o-final/admin/css/gerenciador_eventos.css" />
-    <link rel="stylesheet" href="/Farmafittos-vers-o-final/admin/css/editar_eventos.css" />
+    <link rel="stylesheet" href="../../assets/icons/fontawesome-free-6.5.2-web/css/all.css" />
+    <link rel="stylesheet" href="../../admin/css/gerenciador_eventos.css" />
+    <link rel="stylesheet" href="../../admin/css/editar_eventos.css" />
 </head>
 
 <body>
     <div class="voltar">
-        <a href="/Farmafittos-vers-o-final/admin/">
+        <a href="../../admin/">
             <i class="fa-solid fa-circle-arrow-left"></i> VOLTAR
         </a>
     </div>
@@ -37,7 +37,7 @@ $resultado = $conexao->query($query);
             <?php while ($evento = $resultado->fetch_assoc()): ?>
                 <div class="opcao">
                     <div>
-                        <img src="/Farmafittos-vers-o-final/<?php echo $evento['capa']; ?>" alt="Capa"
+                        <img src="../../<?php echo $evento['capa']; ?>" alt="Capa"
                             style="width: 60px; height: 60px; object-fit: contain; border-radius: 8px;">
                         <h2 style="margin: 0;"><?php echo htmlspecialchars($evento['titulo']); ?></h2>
                         <p><?php echo date("d/m/Y", strtotime($evento['data_evento'])) . " às " . substr($evento['hora'], 0, 5); ?>
@@ -57,7 +57,7 @@ $resultado = $conexao->query($query);
         <div class="modal">
             <span class="fechar-modal" id="fecharModalCadastro">&times;</span>
             <h2>Cadastrar Novo Evento</h2>
-            <form id="formCadastro" action="/Farmafittos-vers-o-final/backend/crud_evento/processa_evento.php"
+            <form id="formCadastro" action="../../backend/crud_evento/processa_evento.php"
                 method="POST" enctype="multipart/form-data">
 
                 <label>Título:</label>
@@ -125,7 +125,7 @@ $resultado = $conexao->query($query);
             <h2>Confirmar Exclusão</h2>
             <p>Digite seu login e senha para confirmar a exclusão do Evento:</p>
             <span class="fechar-modal" id="fecharModalExcluir">&times;</span>
-            <form action="/Farmafittos-vers-o-final/backend/crud_evento/processa_excluir_evento.php" method="POST">
+            <form action="../../backend/crud_evento/processa_excluir_evento.php" method="POST">
                 <input type="hidden" name="id_evento" id="idEventoExcluir">
                 <!-- Login e senha -->
                 <label for="loginExcluir">Login:</label>
@@ -149,7 +149,7 @@ $resultado = $conexao->query($query);
             <div class="modal">
                 <span class="fechar-modal" id="fecharModalEditar">&times;</span>
                 <h2>Editar Evento</h2>
-                <form id="formEdicao" action="/Farmafittos-vers-o-final/backend/crud_evento/processa_edicao_evento.php"
+                <form id="formEdicao" action="../../backend/crud_evento/processa_edicao_evento.php"
                     method="POST" enctype="multipart/form-data">
                     <input type="hidden" name="id_evento" id="id_evento">
 
@@ -213,10 +213,10 @@ $resultado = $conexao->query($query);
             </div>
         </div>
 
-        <script src="/Farmafittos-vers-o-final/admin/js/eventos/modal_editar.js"></script>
-        <script src="/Farmafittos-vers-o-final/admin/js/eventos/modal_cadastro.js"></script>
-        <script src="/Farmafittos-vers-o-final/admin/js/eventos/modal_excluir.js"></script>
-        <script src="/Farmafittos-vers-o-final/admin/js/view_password.js"></script>
+        <script src="../../admin/js/eventos/modal_editar.js"></script>
+        <script src="../../admin/js/eventos/modal_cadastro.js"></script>
+        <script src="../../admin/js/eventos/modal_excluir.js"></script>
+        <script src="../../admin/js/view_password.js"></script>
 </body>
 
 </html>

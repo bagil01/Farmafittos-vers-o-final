@@ -11,15 +11,15 @@ $resultado = $conexao->query($query);
 <head>
     <meta charset="UTF-8">
     <title>Gerenciador de Voluntários</title>
-    <link rel="stylesheet" href="/Farmafittos-vers-o-final/assets/icons/fontawesome-free-6.5.2-web/css/all.css">
-    <link rel="stylesheet" href="/Farmafittos-vers-o-final/admin/css/gerenciador.css">
-    <link rel="stylesheet" href="/Farmafittos-vers-o-final/admin/css/editar_eventos.css" />
+    <link rel="stylesheet" href="../../assets/icons/fontawesome-free-6.5.2-web/css/all.css">
+    <link rel="stylesheet" href="../../admin/css/gerenciador.css">
+    <link rel="stylesheet" href="../../admin/css/editar_eventos.css" />
 </head>
 </head>
 
 <body>
     <div class="voltar">
-        <a href="/Farmafittos-vers-o-final/admin/">
+        <a href="../../admin/">
             <i class="fa-solid fa-circle-arrow-left"></i> VOLTAR
         </a>
     </div>
@@ -44,7 +44,7 @@ $resultado = $conexao->query($query);
                 <?php while ($voluntario = $resultado->fetch_assoc()): ?>
                     <div class="opcao">
                         <div style="display: flex; align-items: center; gap: 15px;">
-                            <img src="/Farmafittos-vers-o-final/<?php echo htmlspecialchars($voluntario['foto']); ?>"
+                            <img src="../../<?php echo htmlspecialchars($voluntario['foto']); ?>"
                                 alt="Foto" style="width: 50px; height: 50px; object-fit: contain; border-radius: 50%;">
                             <div>
                                 <h2 style="margin: 0;"><?php echo htmlspecialchars($voluntario['nome']); ?></h2>
@@ -68,7 +68,7 @@ $resultado = $conexao->query($query);
         <div class="modal">
             <span class="fechar-modal" id="fecharModalCadastro">&times;</span>
             <h2>Cadastrar Novo Voluntário</h2>
-            <form id="formCadastro" action="/Farmafittos-vers-o-final/backend/crud_voluntario/processa_voluntario.php"
+            <form id="formCadastro" action="../../backend/crud_voluntario/processa_voluntario.php"
                 method="POST" enctype="multipart/form-data">
                 <label for="nome">Nome:</label>
                 <input type="text" id="nome" name="nome" required>
@@ -93,7 +93,7 @@ $resultado = $conexao->query($query);
             <span class="fechar-modal" id="fecharModalExcluir">&times;</span>
             <h2>Confirmar Exclusão</h2>
             <p>Digite seu login e senha para confirmar a exclusão do Voluntário:</p>
-            <form method="POST" action="/Farmafittos-vers-o-final/backend/crud_voluntario/processa_excluir_voluntario.php">
+            <form method="POST" action="../../backend/crud_voluntario/processa_excluir_voluntario.php">
                 <input type="hidden" name="id_voluntario" id="id_voluntario_excluir">
 
                 <label for="loginExcluir">Login:</label>
@@ -118,7 +118,7 @@ $resultado = $conexao->query($query);
             <h2>Editar Voluntário</h2>
 
             <form id="formEdicao"
-                action="/Farmafittos-vers-o-final/backend/crud_voluntario/processa_edicao_voluntario.php" method="POST"
+                action="../../backend/crud_voluntario/processa_edicao_voluntario.php" method="POST"
                 enctype="multipart/form-data">
                 <input type="hidden" name="id_voluntario" id="id_voluntario">
 
@@ -139,10 +139,10 @@ $resultado = $conexao->query($query);
         </div>
     </div>
 
-    <script src="/Farmafittos-vers-o-final/admin/js/voluntarios/modal_editar.js"></script>
-    <script src="/Farmafittos-vers-o-final/admin/js/voluntarios/modal_cadastro.js"></script>
-    <script src="/Farmafittos-vers-o-final/admin/js/voluntarios/modal_exclusao.js"></script>
-    <script src="/Farmafittos-vers-o-final/admin/js/view_password.js"></script>
+    <script src="../../admin/js/voluntarios/modal_editar.js"></script>
+    <script src="../../admin/js/voluntarios/modal_cadastro.js"></script>
+    <script src="../../admin/js/voluntarios/modal_exclusao.js"></script>
+    <script src="../../admin/js/view_password.js"></script>
 
 </body>
 

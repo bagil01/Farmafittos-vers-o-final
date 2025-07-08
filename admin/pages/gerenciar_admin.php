@@ -5,14 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gerenciador</title>
-    <link rel="stylesheet" href="/Farmafittos-vers-o-final/assets/icons/fontawesome-free-6.5.2-web/css/all.css">
-    <link rel="stylesheet" href="/Farmafittos-vers-o-final/admin/css/gerenciador.css">
-    <link rel="stylesheet" href="/Farmafittos-vers-o-final/admin/css/editar_admin.css">
+    <link rel="stylesheet" href="../../assets/icons/fontawesome-free-6.5.2-web/css/all.css">
+    <link rel="stylesheet" href="../../admin/css/gerenciador.css">
+    <link rel="stylesheet" href="../../admin/css/editar_admin.css">
 </head>
 
 <body>
     <div class="voltar">
-        <a href="/Farmafittos-vers-o-final/admin/">
+        <a href="../../admin/">
             <i class="fa-solid fa-circle-arrow-left"></i> VOLTAR
         </a>
     </div>
@@ -31,7 +31,7 @@
                 $query = "SELECT * FROM admins";
                 $resultado = $conexao->query($query);
                 while ($admin = $resultado->fetch_assoc()) {
-                    $foto = !empty($admin['foto']) ? '/Farmafittos-vers-o-final/' . htmlspecialchars($admin['foto']) : '/Farmafittos-vers-o-final/assets/photos/user-default.jpg';
+                    $foto = !empty($admin['foto']) ? '../../' . htmlspecialchars($admin['foto']) : '../../assets/photos/user-default.jpg';
 
                     echo '<div class="opcao">';
                     echo '<div style="display: flex; align-items: center; gap: 10px;">';
@@ -64,7 +64,7 @@
                 <span class="fechar-modal" id="fecharModal">&times;</span>
                 <h2>Cadastrar Novo Administrador</h2>
 
-                <form id="formCadastro" action="/Farmafittos-vers-o-final/backend/crud_admin/processa_admin.php" method="POST"
+                <form id="formCadastro" action="../../backend/crud_admin/processa_admin.php" method="POST"
                     enctype="multipart/form-data">
                     <label for="Nome">Nome:</label>
                     <input type="text" id="nome" name="Nome" required>
@@ -111,7 +111,7 @@
                 <h2>Confirmar Exclusão</h2>
                 <p>Digite seu login e senha para confirmar a exclusão:</p>
 
-                <form action="/Farmafittos-vers-o-final/backend/crud_admin/excluir_admin.php" method="POST">
+                <form action="../../backend/crud_admin/excluir_admin.php" method="POST">
                     <input type="hidden" id="idAdminExcluir" name="id_admin">
 
                     <label for="loginConfirmacao">Login:</label>
@@ -135,7 +135,7 @@
                 <span class="fechar-modal" onclick="fecharModalEdicao()">&times;</span>
                 <h2>Editar Administrador</h2>
 
-                <form id="formEdicao" action="/Farmafittos-vers-o-final/backend/crud_admin/processa_edicao_admin.php" method="POST"
+                <form id="formEdicao" action="../../backend/crud_admin/processa_edicao_admin.php" method="POST"
                     enctype="multipart/form-data">
                     <input type="hidden" name="id" value="<?php echo $admins['id']; ?>">
 
@@ -170,12 +170,12 @@
         </div>
 
         <!--scripts-->
-        <script src="/Farmafittos-vers-o-final/admin/js/gerenciador.js"></script>
-        <script src="/Farmafittos-vers-o-final/admin/js/view_password.js"></script>
+        <script src="../../admin/js/gerenciador.js"></script>
+        <script src="../../admin/js/view_password.js"></script>
         
-        <script src="/Farmafittos-vers-o-final/admin/js/admins/modal_exclusao.js"></script>
-        <script src="/Farmafittos-vers-o-final/admin/js/admins/modal_editar.js"></script>
-        <script src="/Farmafittos-vers-o-final/admin/js/admins/generation_login.js"></script>
+        <script src="../../admin/js/admins/modal_exclusao.js"></script>
+        <script src="../../admin/js/admins/modal_editar.js"></script>
+        <script src="../../admin/js/admins/generation_login.js"></script>
 
 
 </body>

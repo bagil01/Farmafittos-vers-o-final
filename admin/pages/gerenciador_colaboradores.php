@@ -5,15 +5,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gerenciador de colaboradors </title>
-    <link rel="stylesheet" href="/Farmafittos-vers-o-final/assets/icons/fontawesome-free-6.5.2-web/css/all.css">
-    <link rel="stylesheet" href="/Farmafittos-vers-o-final/admin/css/gerenciador.css">
-    <link rel="stylesheet" href="/Farmafittos-vers-o-final/admin/css/editar_admin.css">
+    <link rel="stylesheet" href="../../assets/icons/fontawesome-free-6.5.2-web/css/all.css">
+    <link rel="stylesheet" href="../../admin/css/gerenciador.css">
+    <link rel="stylesheet" href="../../admin/css/editar_admin.css">
 
 </head>
 
 <body>
     <div class="voltar">
-        <a href="/Farmafittos-vers-o-final/admin/">
+        <a href="../../admin/">
             <i class="fa-solid fa-circle-arrow-left"></i>
             VOLTAR
         </a>
@@ -38,7 +38,7 @@
                 <?php while ($colaborador = $resultado->fetch_assoc()): ?>
                     <div class="opcao">
                         <div style="display: flex; align-items: center; gap: 15px;">
-                            <img src="/Farmafittos-vers-o-final/<?php echo htmlspecialchars($colaborador['foto']); ?>"
+                            <img src="../../<?php echo htmlspecialchars($colaborador['foto']); ?>"
                                 alt="Foto" style="width: 60px; height: 60px; object-fit: cover; border-radius: 8px;">
                             <h2><?php echo htmlspecialchars($colaborador['nome']); ?></h2>
 
@@ -66,7 +66,7 @@
         <div class="modal">
             <span class="fechar-modal" id="fecharModalCadastro">&times;</span>
             <h2>Cadastrar Novo colaborador</h2>
-            <form id="formCadastro" action="/Farmafittos-vers-o-final/backend/crud_colaborador/processa_colaborador.php"
+            <form id="formCadastro" action="../../backend/crud_colaborador/processa_colaborador.php"
                 method="POST" enctype="multipart/form-data">
                 <label for="nome">Nome:</label>
                 <input type="text" id="nome" name="nome" required>
@@ -97,7 +97,7 @@
             <h2>Confirmar Exclusão</h2>
             <p>Digite seu login e senha para confirmar a exclusão do colaborador:</p>
 
-            <form action="/Farmafittos-vers-o-final/backend/crud_colaborador/processa_excluir_colaborador.php"
+            <form action="../../backend/crud_colaborador/processa_excluir_colaborador.php"
                 method="POST">
                 <!-- E este input escondido também: -->
                 <input type="hidden" name="id_colaborador" id="idColaboradorExcluir">
@@ -124,7 +124,7 @@
             <h2>Editar Colaborador</h2>
 
             <form id="formEdicao"
-                action="/Farmafittos-vers-o-final/backend/crud_colaborador/processa_edicao_colaborador.php"
+                action="../../backend/crud_colaborador/processa_edicao_colaborador.php"
                 method="POST" enctype="multipart/form-data">
                 <input type="hidden" name="id_colaborador" id="id_colaborador">
 
@@ -149,10 +149,10 @@
     </div>
 
 </body>
-<script src="/Farmafittos-vers-o-final/admin/js/colaboradores/modal_editar.js"></script>
-<script src="/Farmafittos-vers-o-final/admin/js/colaboradores/modal_cadastro.js"></script>
-<script src="/Farmafittos-vers-o-final/admin/js/colaboradores/modal_exclusao.js"></script>
-<script src="/Farmafittos-vers-o-final/admin/js/view_password.js"></script>
+<script src="../../admin/js/colaboradores/modal_editar.js"></script>
+<script src="../../admin/js/colaboradores/modal_cadastro.js"></script>
+<script src="../../admin/js/colaboradores/modal_exclusao.js"></script>
+<script src="../../admin/js/view_password.js"></script>
 
 
 </html>
