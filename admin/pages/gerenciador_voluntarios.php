@@ -19,7 +19,7 @@ $resultado = $conexao->query($query);
 
 <body>
     <div class="voltar">
-        <a href="../../admin/">
+        <a href="gerenciador.php">
             <i class="fa-solid fa-circle-arrow-left"></i> VOLTAR
         </a>
     </div>

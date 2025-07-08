@@ -1,95 +1,67 @@
+<?php
+session_start();
+require_once(__DIR__ . '/../includes/conexao.php');
+
+$erro = '';
+
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $login = trim($_POST['login'] ?? '');
+    $senha = trim($_POST['senha'] ?? '');
+
+    if (empty($login) || empty($senha)) {
+        $erro = "Preencha todos os campos.";
+    } else {
+        $stmt = $conexao->prepare("SELECT id, nome, senha FROM admins WHERE login = ?");
+        $stmt->bind_param('s', $login);
+        $stmt->execute();
+        $resultado = $stmt->get_result();
+
+        if ($resultado->num_rows === 1) {
+            $admin = $resultado->fetch_assoc();
+            if (password_verify($senha, $admin['senha'])) {
+                $_SESSION['admin_id'] = $admin['id'];
+                $_SESSION['admin_nome'] = $admin['nome'];
+                header("Location: ../admin/pages/gerenciador.php");
+                exit();
+            } else {
+                $erro = "Senha incorreta.";
+            }
+        } else {
+            $erro = "Usuário não encontrado.";
+        }
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Painel Administrativo</title>
-    <link rel="stylesheet" href="../admin/css/index.css" />
-    <link rel="stylesheet" href="../assets/icons/fontawesome-free-6.5.2-web/css/all.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Admin</title>
+    <link rel="stylesheet" href="./css/index.css">
 </head>
 
 <body>
-    <div class="admin-container">
-        <div class="voltar">
-            <a href="../">
-                <i class="fa-solid fa-house"></i>
-                INICIO
-            </a>
-        </div>
-        <main class="main-content">
-            <h1>Bem-vindo ao Painel de administração</h1>
-            <p>Selecione uma das opções no menu para gerenciar o conteúdo.</p>
-
-            <div class="painel-wrapper">
-                <!-- Blocos de administração à esquerda -->
-                <div class="container-controle">
-                    <div class="card-grid">
-                        <a href="../admin/pages/gerenciar_admin.php">
-                            <div class="card">
-                                <i class="fa-solid fa-users-gear"></i>
-                                <h3>Gerenciar ADMs</h3>
-                            </div>
-                        </a>
-
-                        <a href="../admin/pages/gerenciador_noticias.php">
-                            <div class="card">
-                                <i class="fa-solid fa-newspaper"></i>
-                                <h3>Gerenciar Notícia</h3>
-                            </div>
-                        </a>
-                        <a href="../admin/pages/gerenciador_atividades.php">
-                            <div class="card">
-                                <i class="fas fa-plus-circle"></i>
-                                <h3>Gerenciar Atividades</h3>
-                            </div>
-                        </a>
-
-                        <div class="card">
-                            <i class="fa-solid fa-sun-plant-wilt"></i>
-                            <h3>Gerenciar Plantas</h3>
-                        </div>
-
-                        <a href="../admin/pages/gerenciador_eventos.php">
-                            <div class="card">
-                                <i class="fa-solid fa-calendar-days"></i>
-                                <h3>Gerenciar Eventos</h3>
-                            </div>
-                        </a>
-
-                        <a href="../admin/pages/gerenciador_parceiros.php">
-                            <div class="card">
-                                <i class="fa-solid fa-handshake"></i>
-                                <h3>Gerenciar Parceiros</h3>
-                            </div>
-                        </a>
-
-                        <a href="../admin/pages/gerenciador_colaboradores.php">
-                            <div class="card">
-                                <i class="fa-solid fa-handshake-angle"></i>
-                                <h3>Gerenciar Colaboradores</h3>
-                            </div>
-                        </a>
-
-                        <a href="../admin/pages/gerenciador_voluntarios.php">
-                            <div class="card">
-                                <i class="fa-solid fa-handshake-simple"></i>
-                                <h3>Gerenciar voluntarios</h3>
-                            </div>
-                        </a>
-
-                        <a href="../admin/pages/gerenciador_referencias.php">
-                            <div class="card">
-                                <i class="fa-solid fa-star-of-life"></i>
-                                <h3>Gerenciar Referências</h3>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-
-
+    <div class="login-container">
+        <h2>Login Administrativo</h2>
+        <?php if ($erro): ?>
+            <p class="erro"><?= htmlspecialchars($erro) ?></p>
+        <?php endif; ?>
+        <form class="formulario" method="POST">
+            <div class="login">
+                <label for="login">Login:</label>
+                <input type="text" name="login" id="login" placeholder="Login" required>
             </div>
-        </main>
+
+            <div class="senha">
+                <label for="senha">Senha:</label>
+                <input type="password" name="senha" id="senha" placeholder="Senha" required>
+            </div>
+            <button type="submit">Entrar</button>
+        </form>
     </div>
 </body>
 
