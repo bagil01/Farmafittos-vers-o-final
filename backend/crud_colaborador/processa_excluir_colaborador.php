@@ -7,7 +7,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $senha = $_POST['senha'] ?? '';
 
     if (!$id_colaborador || empty($login) || empty($senha)) {
-        header('Location: /Farmafittos-vers-o-final/admin/pages/gerenciador_colaboradores.php?erro=campos_obrigatorios');
+        header('Location: ../../admin/pages/gerenciador_colaboradores.php?erro=campos_obrigatorios');
         exit;
     }
 

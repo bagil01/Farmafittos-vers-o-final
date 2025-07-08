@@ -11,7 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $fotoPath = '';
     // ✅ Verificação completa de campos obrigatórios
     if (!$id || empty($nome) || empty($formacao) || empty($curriculo_lattes) || empty($descricao)) {
-        header('Location: /Farmafittos-vers-o-final/admin/pages/gerenciador_colaboradores.php?erro=campos_obrigatorios');
+        header('Location: ../../admin/pages/gerenciador_colaboradores.php?erro=campos_obrigatorios');
         exit;
     }
 
@@ -22,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $resultado = $verifica->get_result();
 
     if ($resultado->num_rows === 0) {
-        header('Location: /Farmafittos-vers-o-final/admin/pages/gerenciador_colaboradores.php?erro=nao_encontrado');
+        header('Location: ../../admin/pages/gerenciador_colaboradores.php?erro=nao_encontrado');
         exit;
     }
 
@@ -59,16 +59,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $stmt = $conexao->prepare($sql);
     if (!$stmt) {
-        header('Location: /Farmafittos-vers-o-final/admin/pages/gerenciador_colaboradores.php?erro=bd_prepare');
+        header('Location: ../../admin/pages/gerenciador_colaboradores.php?erro=bd_prepare');
         exit;
     }
 
     $stmt->bind_param($tipos, ...$params);
 
     if ($stmt->execute()) {
-        header('Location: /Farmafittos-vers-o-final/admin/pages/gerenciador_colaboradores.php?sucesso=editado');
+        header('Location: ../../admin/pages/gerenciador_colaboradores.php?sucesso=editado');
     } else {
-        header('Location: /Farmafittos-vers-o-final/admin/pages/gerenciador_colaboradores.php?erro=bd_execucao');
+        header('Location: ../../admin/pages/gerenciador_colaboradores.php?erro=bd_execucao');
     }
 
     $stmt->close();

@@ -11,7 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Validação simples
     if (empty($nome) || empty($formacao) || empty($curriculo_lattes) || empty($descricao)) {
-        header('Location: /Farmafittos-vers-o-final/admin/pages/gerenciador_colaboradores.php?erro=campos_obrigatorios');
+        header('Location: ../../admin/pages/gerenciador_colaboradores.php?erro=campos_obrigatorios');
         exit;
     }
 
@@ -33,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // Caminho salvo no banco (para ser usado nas views)
             $fotoPath = 'assets/uploads/colaboradores/' . $nomeArquivo;
         } else {
-            header('Location: /Farmafittos-vers-o-final/admin/pages/gerenciar_colaboradores.php?erro=upload');
+            header('Location: ../../admin/pages/gerenciar_colaboradores.php?erro=upload');
             exit;
         }
     }
@@ -45,18 +45,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $stmt->bind_param("sssss", $nome, $formacao, $curriculo_lattes, $descricao, $fotoPath);
 
         if ($stmt->execute()) {
-            header('Location: /Farmafittos-vers-o-final/admin/pages/gerenciador_colaboradores.php?sucesso=cadastrado');
+            header('Location: ../../admin/pages/gerenciador_colaboradores.php?sucesso=cadastrado');
         } else {
-            header('Location: /Farmafittos-vers-o-final/admin/pages/gerenciador_colaboradores.php?erro=bd');
+            header('Location: ../../admin/pages/gerenciador_colaboradores.php?erro=bd');
         }
 
         $stmt->close();
     } else {
-        header('Location: /Farmafittos-vers-o-final/admin/pages/gerenciador_colaboradores.php?erro=prepare');
+        header('Location: ../../admin/pages/gerenciador_colaboradores.php?erro=prepare');
     }
 
     $conexao->close();
 } else {
-    header('Location: /Farmafittos-vers-o-final/admin/pages/gerenciador_colaboradores.php');
+    header('Location: ../../admin/pages/gerenciador_colaboradores.php');
     exit;
 }
