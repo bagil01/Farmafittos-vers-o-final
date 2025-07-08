@@ -9,7 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Verificação básica
     if (empty($nome) || empty($curso) || empty($curriculo_lattes)) {
-        header('Location: /Farmafittos-vers-o-final/admin/pages/gerenciador_voluntarios.php?erro=campos_obrigatorios');
+        header('Location: ../../admin/pages/gerenciador_voluntarios.php?erro=campos_obrigatorios');
         exit;
     }
 
@@ -32,14 +32,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt->bind_param("ssss", $nome, $curso, $curriculo_lattes, $fotoPath);
 
     if ($stmt->execute()) {
-        header('Location: /Farmafittos-vers-o-final/admin/pages/gerenciador_voluntarios.php?sucesso=cadastrado');
+        header('Location: ../../admin/pages/gerenciador_voluntarios.php?sucesso=cadastrado');
     } else {
-        header('Location: /Farmafittos-vers-o-final/admin/pages/gerenciador_voluntarios.php?erro=bd');
+        header('Location: ../../admin/pages/gerenciador_voluntarios.php?erro=bd');
     }
 
     $stmt->close();
     $conexao->close();
 } else {
-    header('Location: /Farmafittos-vers-o-final/admin/pages/gerenciador_voluntarios.php');
+    header('Location: ../../admin/pages/gerenciador_voluntarios.php');
     exit;
 }
