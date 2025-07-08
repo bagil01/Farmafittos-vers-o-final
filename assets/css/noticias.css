@@ -109,6 +109,14 @@ section {
     margin: auto;
 }
 
+.cards-noticias {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+    margin: auto;
+}
+
 .container h2 {
     font-family: 'Times New Roman', Times, serif;
     font-size: 25px;
@@ -319,9 +327,11 @@ section {
         gap: 0;
 
     }
-.container-proxima p{
-    font-size: 18px;
-}
+
+    .container-proxima p {
+        font-size: 18px;
+    }
+
     .card-proxima-noticia {
         width: 45%;
     }
