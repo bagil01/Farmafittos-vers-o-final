@@ -9,7 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Validação básica
     if (empty($nome) || empty($referencia)) {
-        header('Location: /Farmafittos-vers-o-final/admin/pages/gerenciar_parceiros.php?erro=campos_obrigatorios');
+        header('Location: ../../admin/pages/gerenciar_parceiros.php?erro=campos_obrigatorios');
         exit;
     }
 
@@ -32,9 +32,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt->bind_param("sss", $nome, $referencia, $logoPath);
 
     if ($stmt->execute()) {
-        header('Location: /Farmafittos-vers-o-final/admin/pages/gerenciador_parceiros.php?sucesso=cadastrado');
+        header('Location: ../../admin/pages/gerenciador_parceiros.php?sucesso=cadastrado');
     } else {
-        header('Location: /Farmafittos-vers-o-final/admin/pages/gerenciador_parceiros.php?erro=bd');
+        header('Location: ../../admin/pages/gerenciador_parceiros.php?erro=bd');
     }
 
     $stmt->close();
