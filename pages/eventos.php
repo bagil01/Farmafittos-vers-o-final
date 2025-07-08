@@ -13,8 +13,8 @@ $resultado = $conexao->query($sql);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Eventos</title>
-    <link rel="stylesheet" href="/Farmafittos-vers-o-final/assets/icons/fontawesome-free-6.5.2-web/css/all.css">
-    <link rel="stylesheet" href="/Farmafittos-vers-o-final/assets/css/eventos.css">
+    <link rel="stylesheet" href="../assets/icons/fontawesome-free-6.5.2-web/css/all.css">
+    <link rel="stylesheet" href="../assets/css/eventos.css">
 </head>
 
 <body>
@@ -31,7 +31,7 @@ $resultado = $conexao->query($sql);
                 ?>
                 <div class="item-container">
                     <div class="img-container">
-                        <img src="/Farmafittos-vers-o-final/<?= htmlspecialchars($evento['capa']) ?>" alt="Imagem do Evento">
+                        <img src="../<?= htmlspecialchars($evento['capa']) ?>" alt="Imagem do Evento">
                     </div>
                     <div class="body-container">
                         <div class="overlay"></div>

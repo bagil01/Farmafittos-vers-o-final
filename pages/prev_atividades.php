@@ -17,8 +17,8 @@ $resultado = $stmt->get_result();
 <head>
     <meta charset="UTF-8">
     <title>Atividades</title>
-    <link rel="stylesheet" href="/Farmafittos-vers-o-final/assets/css/prev_atividades.css">
-    <link rel="stylesheet" href="/Farmafittos-vers-o-final/assets/icons/fontawesome-free-6.5.2-web/css/all.css">
+    <link rel="stylesheet" href="../assets/css/prev_atividades.css">
+    <link rel="stylesheet" href="../assets/icons/fontawesome-free-6.5.2-web/css/all.css">
     <?php include '../includes/header.php'; ?>
 </head>
 
@@ -31,7 +31,7 @@ $resultado = $stmt->get_result();
         <?php while ($atividade = $resultado->fetch_assoc()): ?>
             <div class="card-atividades">
                 <div class="card-img">
-                    <img src="/Farmafittos-vers-o-final/<?= htmlspecialchars($atividade['capa']) ?>" alt="Capa da Atividade">
+                    <img src="../<?= htmlspecialchars($atividade['capa']) ?>" alt="Capa da Atividade">
                 </div>
                 <div class="card-text">
                     <h1><?= htmlspecialchars($atividade['titulo']) ?></h1>

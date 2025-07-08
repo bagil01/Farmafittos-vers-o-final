@@ -17,9 +17,9 @@ $resultVoluntarios = $conexao->query($sqlVoluntarios);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Colaboradores</title>
-    <link rel="stylesheet" href="/Farmafittos-vers-o-final/assets/css/colaboradores.css">
-    <link rel="stylesheet" href="/Farmafittos-vers-o-final/assets/css/voluntarios.css">
-    <link rel="stylesheet" href="/Farmafittos-vers-o-final/assets/icons/fontawesome-free-6.5.2-web/css/all.css">
+    <link rel="stylesheet" href="../assets/css/colaboradores.css">
+    <link rel="stylesheet" href="../assets/css/voluntarios.css">
+    <link rel="stylesheet" href="../assets/icons/fontawesome-free-6.5.2-web/css/all.css">
 
     <?php include '../includes/header.php'; ?>
 </head>
@@ -34,7 +34,7 @@ $resultVoluntarios = $conexao->query($sqlVoluntarios);
             <?php if ($resultColaboradores->num_rows > 0): ?>
                 <?php while ($colaborador = $resultColaboradores->fetch_assoc()): ?>
                     <div class="card-colaborador">
-                        <img src="/Farmafittos-vers-o-final/<?= htmlspecialchars($colaborador['foto']) ?>"
+                        <img src="../<?= htmlspecialchars($colaborador['foto']) ?>"
                             alt="<?= htmlspecialchars($colaborador['nome']) ?>">
                         <h2 class="nome"><?= htmlspecialchars($colaborador['nome']) ?></h2>
                         <h3 class="Formação"><?= htmlspecialchars($colaborador['formacao']) ?></h3>
@@ -72,7 +72,7 @@ $resultVoluntarios = $conexao->query($sqlVoluntarios);
                     <?php if ($resultVoluntarios->num_rows > 0): ?>
                         <?php while ($voluntario = $resultVoluntarios->fetch_assoc()): ?>
                             <div class="card-voluntarios">
-                                <img src="/Farmafittos-vers-o-final/<?= htmlspecialchars($voluntario['foto']) ?>"
+                                <img src="../<?= htmlspecialchars($voluntario['foto']) ?>"
                                     alt="<?= htmlspecialchars($voluntario['nome']) ?>">
                                 <h1><?= htmlspecialchars($voluntario['nome']) ?></h1>
                                 <a href="<?= htmlspecialchars($voluntario['curriculo_lattes']) ?>" target="_blank">Currículo
@@ -88,8 +88,8 @@ $resultVoluntarios = $conexao->query($sqlVoluntarios);
             <i class="fa-solid fa-chevron-right" id="next"></i>
         </div>
 
-        <script src="/Farmafittos-vers-o-final/assets/js/colaboradores/voluntarios.js"></script>
-        <script src="/Farmafittos-vers-o-final/assets/js/colaboradores/colaboradores.js"></script>
+        <script src="../assets/js/colaboradores/voluntarios.js"></script>
+        <script src="../assets/js/colaboradores/colaboradores.js"></script>
 
         <?php include '../includes/footer.php'; ?>
 </body>

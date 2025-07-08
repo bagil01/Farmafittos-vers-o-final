@@ -42,9 +42,9 @@ $recomendadas = $stmt_recomendadas->get_result();
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><?= htmlspecialchars($noticia['titulo']) ?></title>
-    <link rel="icon" type="image/png"  href="/Farmafittos-vers-o-final/assets/favicons/favicon.png">
-    <link rel="stylesheet" href="/Farmafittos-vers-o-final/assets/icons/fontawesome-free-6.5.2-web/css/all.css" />
-    <link rel="stylesheet" href="/Farmafittos-vers-o-final/assets/css/noticias.css">
+    <link rel="icon" type="image/png"  href="../assets/favicons/favicon.png">
+    <link rel="stylesheet" href="../assets/icons/fontawesome-free-6.5.2-web/css/all.css" />
+    <link rel="stylesheet" href="../assets/css/noticias.css">
 </head>
 
 <body>
@@ -55,7 +55,7 @@ $recomendadas = $stmt_recomendadas->get_result();
             </a>
         </div>
         <div class="inicio">
-            <a href="/Farmafittos-vers-o-final/">
+            <a href="../">
                 <i class="fas fa-home"></i> INICIO
             </a>
         </div>
@@ -78,7 +78,7 @@ $recomendadas = $stmt_recomendadas->get_result();
                         <?php while ($rec = $recomendadas->fetch_assoc()): ?>
                             <div class="card-proxima-noticia">
                                 <a href="noticia.php?id=<?= $rec['id'] ?>">
-                                    <img src="/Farmafittos-vers-o-final/<?= htmlspecialchars($rec['capa']) ?>"
+                                    <img src="../<?= htmlspecialchars($rec['capa']) ?>"
                                         alt="Capa da notícia">
                                     <p><?= htmlspecialchars($rec['titulo']) ?></p>
                                 </a>
@@ -96,7 +96,7 @@ $recomendadas = $stmt_recomendadas->get_result();
                     <div class="midias">
                         <?php if ($resultado_midias->num_rows > 0): ?>
                             <?php while ($midia = $resultado_midias->fetch_assoc()): ?>
-                                <img src="/Farmafittos-vers-o-final/<?= htmlspecialchars($midia['caminho']) ?>"
+                                <img src="../<?= htmlspecialchars($midia['caminho']) ?>"
                                     alt="<?= htmlspecialchars($midia['descricao'] ?? '') ?>">
                             <?php endwhile; ?>
                         <?php else: ?>
@@ -122,8 +122,8 @@ $recomendadas = $stmt_recomendadas->get_result();
         <div id="proximo">&#10095;</div>
     </div>
 
-    <script src="/Farmafittos-vers-o-final/assets/js/noticia/paginacao.js"></script>
-    <script src="/Farmafittos-vers-o-final/assets/js/noticia/tela_cheia.js"></script>
+    <script src="../assets/js/noticia/paginacao.js"></script>
+    <script src="../assets/js/noticia/tela_cheia.js"></script>
 </body>
 
 </html>

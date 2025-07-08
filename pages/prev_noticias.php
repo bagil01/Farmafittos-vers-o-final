@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Prévia das Notícias</title>
-    <link rel="stylesheet" href="/Farmafittos-vers-o-final/assets/css/filtro.css">
-    <link rel="stylesheet" href="/Farmafittos-vers-o-final/assets/css/prev_noticias.css">
-    <link rel="stylesheet" href="/Farmafittos-vers-o-final/assets/icons/fontawesome-free-6.5.2-web/css/all.css">
+    <link rel="stylesheet" href="../assets/css/filtro.css">
+    <link rel="stylesheet" href="../assets/css/prev_noticias.css">
+    <link rel="stylesheet" href="../assets/icons/fontawesome-free-6.5.2-web/css/all.css">
     <?php include '../includes/header.php'; ?>
 </head>
 
@@ -52,7 +52,7 @@ $resultado = $stmt->get_result();
         <?php while ($noticia = $resultado->fetch_assoc()): ?>
             <div class="container-noticias">
                 <div class="container-img">
-                    <img src="/Farmafittos-vers-o-final/<?= htmlspecialchars($noticia['capa']) ?>" alt="Capa da Notícia">
+                    <img src="../<?= htmlspecialchars($noticia['capa']) ?>" alt="Capa da Notícia">
                 </div>
                 <div class="container-text">
                     <h1 class="titulo"><?= htmlspecialchars($noticia['titulo']) ?></h1>
@@ -138,7 +138,7 @@ $resultado = $stmt->get_result();
     </div>
 </div>
 
-<script src="/Farmafittos-vers-o-final/assets/js/filtro.js"></script>
+<script src="../assets/js/filtro.js"></script>
 <?php include '../includes/footer.php'; ?>
 </body>
 </html>

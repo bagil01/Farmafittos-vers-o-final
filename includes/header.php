@@ -1,20 +1,10 @@
-<?php
-// Este é o cabeçalho do site Farmafittos
-?>
+<?php require_once(__DIR__ . '/config.php'); ?>
 
-<!DOCTYPE html>
-<html lang="pt-br">
-
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Farmafittos</title>
-
-      <!---estilos header--->
-    <link rel="icon" type="image/png"  href="/Farmafittos-vers-o-final/assets/favicons/favicon.png">
-    <link rel="stylesheet" href="/Farmafittos-vers-o-final/assets/css/header.css" />
-    <link rel="stylesheet" href="/Farmafittos-vers-o-final/assets/css/config.css" />
-    <link rel="stylesheet" href="/Farmafittos-vers-o-final/assets/icons/fontawesome-free-6.5.2-web/css/all.css">
+<!---estilos header--->
+<link rel="icon" type="image/png" href="<?= BASE_URL ?>/assets/favicons/favicon.png">
+<link rel="stylesheet" href="<?= BASE_URL ?>/assets/css/header.css" />
+<link rel="stylesheet" href="<?= BASE_URL ?>/assets/css/config.css" />
+<link rel="stylesheet" href="<?= BASE_URL ?>/assets/icons/fontawesome-free-6.5.2-web/css/all.css">
 </head>
 
 <body>
@@ -22,8 +12,8 @@
         <div class="painel">
             <div class="leaf-background"></div>
             <div class="incones">
-                <a href="/Farmafittos-vers-o-final/">
-                    <img src="/Farmafittos-vers-o-final/assets/photos/logo-preta.png" alt="Logo do projeto" class="logo" />
+                <a href="<?= BASE_URL ?>/">
+                    <img src="<?= BASE_URL ?>/assets/photos/logo-preta.png" alt="Logo do projeto" class="logo" />
                 </a>
                 <ul class="icons-right">
                     <li>
@@ -33,7 +23,7 @@
             </div>
             <div class="titulo_header">
                 <h1>FARMAFITTOS</h1>
-                <h2>AMAZÔNIA</h2>   
+                <h2>AMAZÔNIA</h2>
             </div>
         </div>
 
@@ -45,36 +35,37 @@
             </div>
 
             <ul class="menu" id="menuMobile">
-                <li><a href="/Farmafittos-vers-o-final/index.php">Página Inicial</a></li>
+                <li><a href="<?= BASE_URL ?>/index.php">Página Inicial</a></li>
 
                 <li class="dropdown">
                     <a href="#">Sobre Nós ▾</a>
                     <ul class="submenu">
-                        <li><a href="/Farmafittos-vers-o-final/pages/Apresentacao_Projeto.php">Apresentação do Projeto</a></li>
-                        <li><a href="/Farmafittos-vers-o-final/pages/colaboradores.php">Colaboradores e Voluntários</a></li>
+                        <li><a href="<?= BASE_URL ?>/pages/apresentacao_projeto.php">Apresentação do Projeto</a></li>
+                        <li><a href="<?= BASE_URL ?>/pages/colaboradores.php">Colaboradores e Voluntários</a></li>
                     </ul>
                 </li>
 
                 <li class="dropdown">
                     <a href="#">Publicações ▾</a>
                     <ul class="submenu">
-                        <li><a href="/Farmafittos-vers-o-final/pages/prev_noticias.php">Notícias</a></li>
-                        <li><a href="/Farmafittos-vers-o-final/pages/prev_atividades.php">Atividades</a></li>
+                        <li><a href="<?= BASE_URL ?>/pages/prev_noticias.php">Notícias</a></li>
+                        <li><a href="<?= BASE_URL ?>/pages/prev_atividades.php">Atividades</a></li>
                     </ul>
                 </li>
 
                 <li class="dropdown">
                     <a href="#">Plantas ▾</a>
                     <ul class="submenu">
-                        <li><a href="./prev-plantas.php">Plantas</a></li>
-                        <li><a href="/Farmafittos-vers-o-final/pages/referencias.php">Referências</a></li>
+                        <li><a href="<?= BASE_URL ?>/pages/prev-plantas.php">Plantas</a></li>
+                        <li><a href="<?= BASE_URL ?>/pages/referencias.php">Referências</a></li>
                     </ul>
                 </li>
 
-                <li><a href="/Farmafittos-vers-o-final/pages/eventos.php">Eventos</a></li>
+                <li><a href="<?= BASE_URL ?>/pages/eventos.php">Eventos</a></li>
             </ul>
         </nav>
     </header>
+
 
     <!-- Modal de Configurações -->
     <div id="modal" class="modal">

@@ -5,8 +5,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Referências</title>
-  <link rel="stylesheet" href="/Farmafittos-vers-o-final/assets/css/referencias.css" />
-  <link rel="stylesheet" href="/Farmafittos-vers-o-final/assets/icons/fontawesome-free-6.5.2-web/css/all.css">
+  <link rel="stylesheet" href="../assets/css/referencias.css" />
+  <link rel="stylesheet" href="../assets/icons/fontawesome-free-6.5.2-web/css/all.css">
   <?php include '../includes/header.php'; ?>
 </head>
 <body>
@@ -24,7 +24,7 @@
       <?php if ($resultado->num_rows > 0): ?>
         <?php while ($ref = $resultado->fetch_assoc()): ?>
           <div class="card">
-            <img src="/Farmafittos-vers-o-final/<?= htmlspecialchars($ref['logo']) ?>" alt="<?= htmlspecialchars($ref['titulo']) ?>" />
+            <img src="../<?= htmlspecialchars($ref['logo']) ?>" alt="<?= htmlspecialchars($ref['titulo']) ?>" />
             <div class="card-content">
               <h2><?= htmlspecialchars($ref['titulo']) ?></h2>
 
