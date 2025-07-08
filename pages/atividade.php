@@ -3,25 +3,25 @@ require_once('../includes/conexao.php'); // garantir conexão funcionando
 
 $id = intval($_GET['id'] ?? 0);
 
-// Buscar dados da notícia
-$stmt = $conexao->prepare("SELECT * FROM noticias WHERE id = ? AND deletado = 0");
+// Buscar dados da atividade
+$stmt = $conexao->prepare("SELECT * FROM atividades WHERE id = ? AND deletado = 0");
 if (!$stmt) {
-    die("Erro na preparação da consulta de notícia: " . $conexao->error);
+    die("Erro na preparação da consulta de atividades: " . $conexao->error);
 }
 $stmt->bind_param("i", $id);
 $stmt->execute();
 $resultado = $stmt->get_result();
-$noticia = $resultado->fetch_assoc();
+$atividade = $resultado->fetch_assoc();
 
-if (!$noticia) {
-    die("Notícia não encontrada.");
+if (!$atividade) {
+    die("atividade não encontrada.");
 }
 
-// Buscar mídias da notícia
-$query = "SELECT caminho, descricao FROM fotos_noticias WHERE noticia_id = ?";
+// Buscar mídias da atividade
+$query = "SELECT caminho, descricao FROM fotos_atividades WHERE atividade_id = ?";
 $stmt_midias = $conexao->prepare($query);
 if (!$stmt_midias) {
-    die("Erro na preparação da consulta de mídias: " . $conexao->error);
+    die("Erro na preparação da consulta de atividades: " . $conexao->error);
 }
 $stmt_midias->bind_param("i", $id);
 $stmt_midias->execute();
@@ -29,7 +29,7 @@ $resultado_midias = $stmt_midias->get_result();
 
 
 // Buscar duas notícias recomendadas diferentes da atual
-$stmt_recomendadas = $conexao->prepare("SELECT id, titulo, capa FROM noticias WHERE id != ? AND deletado = 0 ORDER BY RAND() LIMIT 2");
+$stmt_recomendadas = $conexao->prepare("SELECT id, titulo, capa FROM atividades WHERE id != ? AND deletado = 0 ORDER BY RAND() LIMIT 2");
 $stmt_recomendadas->bind_param("i", $id);
 $stmt_recomendadas->execute();
 $recomendadas = $stmt_recomendadas->get_result();
@@ -41,8 +41,8 @@ $recomendadas = $stmt_recomendadas->get_result();
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title><?= htmlspecialchars($noticia['titulo']) ?></title>
     <link rel="icon" type="image/png"  href="/Farmafittos-vers-o-final/assets/favicons/favicon.png">
+    <title><?= htmlspecialchars($atividade['titulo'])?></title>
     <link rel="stylesheet" href="/Farmafittos-vers-o-final/assets/icons/fontawesome-free-6.5.2-web/css/all.css" />
     <link rel="stylesheet" href="/Farmafittos-vers-o-final/assets/css/noticias.css">
 </head>
@@ -66,9 +66,9 @@ $recomendadas = $stmt_recomendadas->get_result();
         <div class="pagina pagina-1">
             <div class="container-noticia">
                 <div class="container-conteudo">
-                    <h1><?= htmlspecialchars($noticia['titulo']) ?></h1>
-                    <h3>Publicado em <?= date('d/m/Y', strtotime($noticia['data_publicacao'])) ?></h3>
-                    <section><?= nl2br(htmlspecialchars($noticia['conteudo'])) ?></section>
+                    <h1><?= htmlspecialchars($atividade['titulo']) ?></h1>
+                    <h3>Publicado em <?= date('d/m/Y', strtotime($atividade['data_publicacao'])) ?></h3>
+                    <section><?= nl2br(htmlspecialchars($atividade['conteudo'])) ?></section>
                 </div>
 
                 <!-- Notícias recomendadas -->
@@ -77,7 +77,7 @@ $recomendadas = $stmt_recomendadas->get_result();
                     <div class="cards-noticias">
                         <?php while ($rec = $recomendadas->fetch_assoc()): ?>
                             <div class="card-proxima-noticia">
-                                <a href="noticia.php?id=<?= $rec['id'] ?>">
+                                <a href="atividade.php?id=<?= $rec['id'] ?>">
                                     <img src="/Farmafittos-vers-o-final/<?= htmlspecialchars($rec['capa']) ?>"
                                         alt="Capa da notícia">
                                     <p><?= htmlspecialchars($rec['titulo']) ?></p>
@@ -100,7 +100,7 @@ $recomendadas = $stmt_recomendadas->get_result();
                                     alt="<?= htmlspecialchars($midia['descricao'] ?? '') ?>">
                             <?php endwhile; ?>
                         <?php else: ?>
-                            <p style="text-align:center;">Nenhuma mídia encontrada para esta notícia.</p>
+                            <p style="text-align:center;">Nenhuma mídia encontrada para esta atividade.</p>
                         <?php endif; ?>
                     </div>
                 </section>
