@@ -113,13 +113,10 @@
     </div>
 
     <!-- Scripts -->
-    <script src="./assets/js/config.js"></script>
-    <script src="./assets/js/header.js"></script>
-    <script src="./assets/js/animacao.js"></script>
-    <!--Scripts-->
-    <script src="/Farmafittos-vers-o-final/assets/js/config.js"></script>
-    <script src="/Farmafittos-vers-o-final/assets/js/header.js"></script>
-    <script src="/Farmafittos-vers-o-final/assets/js/animacao.js"></script>
+    <script src="<?= BASE_URL ?>/assets/js/config.js"></script>
+    <script src="<?= BASE_URL ?>/assets/js/header.js"></script>
+    <script src="<?= BASE_URL ?>/assets/js/animacao.js"></script>
+  
 </body>
 
 </html>

@@ -5,7 +5,11 @@ body {
     background-color: #ffffff;
     overflow-x: hidden;
 }
-
+.container{
+    width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+}
 /* Carrossel de Destaques */
 .destaque {
     margin: 3rem auto;
@@ -203,7 +207,9 @@ body {
     }
 
     .card-parceiros {
+        width: 60%;
         flex: 0 0 100%;
+        overflow: hidden;
     }
 
     .card-parceiros img {

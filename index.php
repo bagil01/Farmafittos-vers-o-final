@@ -47,8 +47,8 @@ $parceiros = $conexao->query($sqlParceiros);
       <div class="swiper-wrapper">
         <?php foreach ($destaques as $d): ?>
           <div class="swiper-slide">
-            <a href="/Farmafittos-vers-o-final/pages/<?= $d['tipo'] ?>.php?id=<?= $d['id'] ?>">
-              <img src="/Farmafittos-vers-o-final/<?= htmlspecialchars($d['capa']) ?>" alt="<?= htmlspecialchars($d['titulo']) ?>">
+            <a href="./pages/<?= $d['tipo'] ?>.php?id=<?= $d['id'] ?>">
+              <img src="./<?= htmlspecialchars($d['capa']) ?>" alt="<?= htmlspecialchars($d['titulo']) ?>">
               <h3><?= htmlspecialchars($d['titulo']) ?></h3>
             </a>
           </div>
@@ -63,8 +63,8 @@ $parceiros = $conexao->query($sqlParceiros);
       <div class="noticias-container">
         <?php while ($n = $noticias->fetch_assoc()): ?>
           <div class="noticia">
-            <a href="/Farmafittos-vers-o-final/pages/noticia.php?id=<?= $n['id'] ?>">
-              <img src="/Farmafittos-vers-o-final/<?= htmlspecialchars($n['capa']) ?>" alt="Notícia">
+            <a href="./pages/noticia.php?id=<?= $n['id'] ?>">
+              <img src="./<?= htmlspecialchars($n['capa']) ?>" alt="Notícia">
               <h3><?= htmlspecialchars($n['titulo']) ?></h3>
               <p><?= nl2br(htmlspecialchars(mb_strimwidth($n['conteudo'], 0, 300, '...'))) ?></p>
             </a>
@@ -80,7 +80,7 @@ $parceiros = $conexao->query($sqlParceiros);
         <?php while ($p = $parceiros->fetch_assoc()): ?>
           <div class="card-parceiros">
             <a href="<?= htmlspecialchars($p['referencia']) ?>" target="_blank">
-              <img src="/Farmafittos-vers-o-final/<?= htmlspecialchars($p['logo']) ?>" alt="Parceiro">
+              <img src="./<?= htmlspecialchars($p['logo']) ?>" alt="Parceiro">
             </a>
           </div>
         <?php endwhile; ?>
@@ -91,6 +91,8 @@ $parceiros = $conexao->query($sqlParceiros);
   <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
   <script src="assets/js/index/carrosel_destaque.js"></script>
   <script src="assets/js/index/carrosel_parceiros.js"></script>
+
+  <?php include 'includes/footer.php'; ?>
 </body>
 
 </html>
