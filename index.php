@@ -23,7 +23,7 @@ $sqlNoticias = "SELECT id, titulo, capa, conteudo FROM noticias WHERE deletado =
 $noticias = $conexao->query($sqlNoticias);
 
 // Parceiros
-$sqlParceiros = "SELECT logo, referencia FROM parceiros ORDER BY id DESC LIMIT 6";
+$sqlParceiros = "SELECT logo, referencia FROM parceiros ORDER BY id DESC LIMIT 10";
 $parceiros = $conexao->query($sqlParceiros);
 ?>
 
@@ -66,7 +66,7 @@ $parceiros = $conexao->query($sqlParceiros);
             <a href="./pages/noticia.php?id=<?= $n['id'] ?>">
               <img src="./<?= htmlspecialchars($n['capa']) ?>" alt="Notícia">
               <h3><?= htmlspecialchars($n['titulo']) ?></h3>
-              <p><?= nl2br(htmlspecialchars(mb_strimwidth($n['conteudo'], 0, 300, '...'))) ?></p>
+              <p><?= nl2br(htmlspecialchars(mb_strimwidth($n['conteudo'], 0, 100, '...'))) ?></p>
             </a>
           </div>
         <?php endwhile; ?>

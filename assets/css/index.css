@@ -20,9 +20,10 @@ body {
 }
 
 .destaque h2 {
+    font-family: 'Times New Roman', Times, serif;
     font-size: 28px;
     margin-bottom: 10px;
-    color: #333;
+    color: #69372E;
 }
 
 .swiper-slide img {
@@ -32,12 +33,17 @@ body {
 }
 
 .swiper-slide h3 {
+    width: 30%;
+    background-color: #ffffffa8;
+    font-family: 'Times New Roman', Times, serif;
+    height: 35px;
+    top: 10px;
     position: absolute;
     bottom: 20px;
     left: 20px;
     right: 20px;
     padding: 10px;
-    color: white;
+    color: #000000;
     font-size: 18px;
     border-radius: 4px;
     text-align: left;
@@ -62,7 +68,7 @@ body {
 }
 
 .noticia {
-    background: #E6F0EC;
+    background: #ffffff;
     padding: 15px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -85,13 +91,18 @@ body {
 }
 
 .noticia p {
+    font-family: 'Times New Roman', Times, serif;
+    color: #69372E;
     text-align: justify;
     font-size: 15px;
 }
 
 .noticia h3 {
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+    color: #69372E;
     font-size: 19px;
-    text-align: justify;
+    text-align: center;
     margin-top: 10px;
 }
 
@@ -215,5 +226,9 @@ body {
     .card-parceiros img {
         width: 120px;
         height: 120px;
+    }
+    .swiper-slide h3 {
+        width: 60%;
+        font-size: 15px;
     }
 }
