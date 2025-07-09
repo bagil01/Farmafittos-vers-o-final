@@ -16,6 +16,7 @@ $resultado = $stmt->get_result();
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Atividades</title>
     <link rel="stylesheet" href="../assets/css/prev_atividades.css">
     <link rel="stylesheet" href="../assets/icons/fontawesome-free-6.5.2-web/css/all.css">

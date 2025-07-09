@@ -94,12 +94,15 @@
 /* Responsividade */
 @media (max-width: 768px) {
     .container {
+        width: 90%;
         flex-direction: column;
+        justify-content: center;
         align-items: center;
+        margin: auto;
     }
 
     .card-atividades {
-        width: 100%;
+        width: 90%;
     }
 
     .card-img {
